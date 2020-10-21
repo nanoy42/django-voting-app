@@ -13,6 +13,7 @@ coveralls = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 docstr-coverage = "*"
+pyyaml = "*"
 
 [packages]
 django = "*"

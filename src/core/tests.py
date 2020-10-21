@@ -193,7 +193,7 @@ class VoteTestCase(TestCase):
         self.assertEqual(self.answer1.percentage, 100)
         self.assertTrue(self.vote.has_voted(self.user))
 
-        with self.assertRaises(IntegrityError):
+        with self.assertRaises(Exception):
             self.vote.vote(self.user, [self.answer2])
 
 
