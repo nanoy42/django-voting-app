@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% load core_extras %}
+{% block container %}
+<h2>{% trans "All votes" %}</h2>
+{% trans "You will find here a recap of all the votes. Whenever a vote is ready, you can click on the big ready. Please note that once a vote is ready, you can't change it or any of the questions." %}
+<table class="table table-bordered">
+    <tr>
+        <td class="table-warning">{% trans "Not yet active" %}</td>
+        <td class="table-success">{% trans "Active" %}</td>
+        <td class="table-danger">{% trans "Finished" %}</td>
+    </tr>
+</table>
+{% for vote in votes %}
+<div
+    class="card{% if vote.before %} border-warning{% elif vote.active %} border-success{% else %} border-danger{% endif %}">
+    <h5 class="card-header">{{vote.name}}</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{vote.begin_date}} - {{vote.end_date}}</h5>
+
+        {% trans "Restricted to groups : " %}{% if vote.groups.all %} {{vote.groups.all | join:", " }} {% else %} no
+        {% endif %}
+
+        <h6>{% trans "Documents" %}</h6>
+        <ul>
+            {% for document in vote.document_set.all %}
+            <li><a href="{{document.document.url}}">{{document.name}}</a></li>
+            {% endfor %}
+        </ul>
+        {% for question in vote.question_set.all %}
+        <h6>{{forloop.counter}} - {{question.text}}</h6>
+        <ul>
+            {% for answer in question.answer_set.all %}
+            <li>{{answer.answer}}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+        {% if vote.ready %}
+        <h5 class="card-title">{% trans "This vote is ready" %}</h5>
+        {% if vote.before %}
+        <h6>{% trans "The vote has not yet started" %}</h6>
+        {% elif vote.active %}
+        <h6>{% trans "The vote is ongoing" %}</h6>
+        {% else %}
+        <h6>{% trans "The vote is finished" %}</h6>
+        {% endif %}
+        {% else %}
+        <a href="{% url 'ready' vote.pk %}" class="btn btn-primary">{% trans "Make the vote ready" %}</a>
+        {% endif %}
+    </div>
+</div>
+<br><br>
+{% endfor %}
+{% endblock %}

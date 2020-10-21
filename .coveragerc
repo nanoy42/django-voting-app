@@ -1,0 +1,12 @@
+[paths]
+source = src/
+[report]
+omit = 
+	*/migrations/*
+	src/django_voting_app/wsgi.py 
+	src/django_voting_app/asgi.py
+	src/django_voting_app/settings.py
+	src/django_voting_app/local_settings.py
+	*/apps.py
+	src/manage.py
+

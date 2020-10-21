@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% load core_extras %}
+{% block container %}
+<h2>{% trans "Legals" %}</h2>
+<h3>django-voting-app</h3>
+<h4>License</h4>
+<p>
+    {% blocktrans %}
+    django-voting-app - Simple django app to organise votes<br>
+    Copyright (C) 2020 Yoann Piétri
+    {% endblocktrans %}
+</p>
+
+<p>
+    {% blocktrans %}
+    django-voting-app is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    {% endblocktrans %}
+</p>
+
+<p>
+    {% blocktrans %}
+    django-voting-app is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    {% endblocktrans %}
+</p>
+
+<p>
+    {% blocktrans %}
+    You should have received a copy of the GNU General Public License
+    along with django-voting-app. If not, see <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
+    {% endblocktrans %}
+</p>
+The source code of django-voting app can be found on <a href="https://github.com/nanoy42/django-voting-app">GitHub</a>.
+<h4>Contributors</h4>
+{% blocktrans %}The main contributor of django-voting-app is Yoann `nanoy` Piétri.{% endblocktrans %}
+<h4>Dependencies and licenses</h4>
+<ul>
+    <li>{% blocktrans %}<a href="https://www.djangoproject.com/" target="_blank">django</a> licensed under the <a href="https://github.com/django/django/blob/master/LICENSE" target="_blank">BSD 3-Clause</a> license.{% endblocktrans %}</li>
+    <li>{% blocktrans %}<a href="https://getbootstrap.com/" target="_blank">bootstrap4</a> (css and js toolkit) licensed under the <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE" target="_blank">MIT</a> license.{% endblocktrans %}</li>
+    <li>{% blocktrans %}<a href="https://github.com/zostera/django-bootstrap4" target="_blank">django-bootstrap4</a> licensed under the <a href="https://github.com/zostera/django-bootstrap4/blob/main/LICENSE" target="_blank">BSD 3-Clause</a> license.{% endblocktrans %}</li>
+    <li>{% blocktrans %}<a href="https://github.com/deschler/django-modeltranslation" target="_blank">django-modeltranslation</a> licensed under the <a href="https://github.com/deschler/django-modeltranslation/blob/master/LICENSE.txt" target="_blank">BSD 3-Clause</a> license.{% endblocktrans %}</li>
+</ul>
+{% if VOTE_LOCAL_LEGALS %}
+<h3>Local legals</h3>
+{{VOTE_LOCAL_LEGALS | safe}}
+{% endif %}
+{% endblock %}

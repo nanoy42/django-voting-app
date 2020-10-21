@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% block container %}
+<h2>{{vote.name}}</h2>
+{% if vote.document_set.all %}
+<h3>Documents</h3>
+{% trans "Please note that the following documents are available and may help you in your vote : "%}<br><br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">{% trans "Name of document" %}</th>
+            <th scope="col">{% trans "Download" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for document in vote.document_set.all %}
+        <tr>
+            <th scope="row">{{document.pk}}</th>
+            <td>{{document.name}}</td>
+            <td><a href="{{document.document.url}}" class="btn btn-secondary" target="_blank"><i
+                        class="fa fa-download"></i></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<hr>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    {% for question in questions %}
+    <h3>{{forloop.counter}} - {{question.text}}</h3>
+    {% for answer in question.answer_set.all %}
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="question-{{question.pk}}"
+            id="question-{{question.pk}}-answer-{{answer.pk}}" value="{{answer.pk}}" required>
+        <label class="form-check-label" for="question-{{question.pk}}-answer-{{answer.pk}}">
+            {{answer.answer}}
+        </label>
+    </div>
+    {% endfor %}
+    <hr>
+    {% endfor %}
+    <center>{% trans "Please note that once submitted your vote cannot be changed or deleted" %}</center>
+    <br><br>
+    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-vote-yea"></i> {% trans "Vote" %} <i
+            class="fa fa-vote-yea"></i></button>
+</form>
+
+{% endblock %}

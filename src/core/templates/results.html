@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% block container %}
+<h2>{% trans "Votes with results" %}</h2>
+<table class="table table-bordered">
+    <tr>
+        <td class="table-warning">{% trans "Not yet active" %}</td>
+        <td class="table-success">{% trans "Active" %}</td>
+        <td class="table-danger">{% trans "Finished" %}</td>
+    </tr>
+</table>
+<div class="list-group">
+    {% for vote in votes %}
+    <a href="{% url 'results-detail' vote.pk %}"
+        class="list-group-item list-group-item-action{% if vote.before %} list-group-item-warning{% elif vote.active %} list-group-item-success{% else %} list-group-item-danger{% endif %}">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{vote.name}}</h5>
+            <small>{% blocktrans %}{{vote.get_total_ballots}} voters{% endblocktrans %}</small>
+        </div>
+        <p class="mb-1">{{vote.description}}</p>
+        <small><i class="fa fa-calendar"></i> {{vote.begin_date}} - {{vote.end_date}} <i class="fa fa-file"></i>
+            {% blocktrans count documents_nb=vote.document_set.count %}1
+            document available{% plural %}{{documents_nb}} documents available{% endblocktrans %}</small>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
