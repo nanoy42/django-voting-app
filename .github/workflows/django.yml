@@ -1,0 +1,41 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r dev-requirements.txt
+        cp src/django_voting_app/local_settings.example.py src/django_voting_app/local_settings.py
+    - name: Create media directory
+      run: | 
+        mkdir src/media
+    - name: Run Tests
+      run: |
+        python src/manage.py test
+        coverage run --source='src' src/manage.py test core 
+      
+    - name: Coveralls
+      run: |
+        export COVERALLS_REPO_TOKEN="${{ secrets.COVERALLS_TOKEN }}"
+        coveralls
