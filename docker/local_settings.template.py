@@ -1,6 +1,5 @@
 # django-voting-app - Simple django app to organise votes
-# Copyright (C) 2020 Yoann Piétri
-
+# Copyright (C) 2020 The authors
 # django-voting-app is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -82,8 +81,8 @@ import ldap
 from django_auth_ldap.config import LDAPSearch, GroupOfUniqueNamesType
 
 AUTHENTICATION_BACKENDS = (
-   "django.contrib.auth.backends.ModelBackend",
-   "django_auth_ldap.backend.LDAPBackend",
+    "django.contrib.auth.backends.ModelBackend",
+    "django_auth_ldap.backend.LDAPBackend",
 )
 
 AUTH_LDAP_SERVER_URI = "${LDAP_URI}"
