@@ -21,7 +21,7 @@ import hashlib
 import os
 
 from django.conf import settings
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 from django.db import IntegrityError, models, transaction
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
@@ -135,10 +135,7 @@ class Vote(models.Model):
         Returns:
             bool: True if the user has already voted for this vote, False otherwise.
         """
-        to_hash = user.username + self.name
-        req = Ballot.objects.filter(
-            vote=self, user_hash=hashlib.sha224(to_hash.encode("utf-8")).hexdigest()
-        )
+        req = Ballot.objects.filter(vote=self, user=user)
         if req.count():
             return True
         return False
@@ -218,9 +215,8 @@ class Vote(models.Model):
                 if not answer.question.vote == self:
                     raise Exception("Incorrect ballot")
                 answer.vote()
-            to_hash = user.username + self.name
             Ballot.objects.create(
-                user_hash=hashlib.sha224(to_hash.encode("utf-8")).hexdigest(),
+                user=user,
                 vote=self,
             )
         else:
@@ -319,7 +315,7 @@ class Ballot(models.Model):
         verbose_name = _("ballot")
         verbose_name_plural = _("ballots")
 
-    user_hash = models.CharField(max_length=255, verbose_name=_("user's hash"))
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("user"))
     vote = models.ForeignKey(Vote, on_delete=models.CASCADE, verbose_name=_("vote"))
 
 
