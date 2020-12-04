@@ -77,6 +77,12 @@ You can run the tests using the command
 python3 manage.py test core
 ```
 
+Using with coverage : 
+
+```
+coverage run --source='src' src/manage.py test core
+```
+
 You can install the dev requirements with 
 
 ```
