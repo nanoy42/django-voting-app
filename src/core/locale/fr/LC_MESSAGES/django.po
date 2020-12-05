@@ -4,12 +4,10 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-
 # django-voting-app is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 #
@@ -18,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-20 00:33+0200\n"
-"PO-Revision-Date: 2020-11-30 22:30+0200\n"
+"POT-Creation-Date: 2020-12-05 08:17+0100\n"
+"PO-Revision-Date: 2020-12-05 08:17+0200\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -28,98 +26,102 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: core/models.py:24 core/models.py:93 core/models.py:106 core/models.py:137
-#: core/models.py:145
+#: core/models.py:71 core/models.py:242 core/models.py:272 core/models.py:319
+#: core/models.py:337
 msgid "vote"
 msgstr "vote"
 
-#: core/models.py:25
+#: core/models.py:72
 msgid "votes"
 msgstr "votes"
 
-#: core/models.py:27 core/models.py:146
+#: core/models.py:74 core/models.py:338
 msgid "name"
 msgstr "nom"
 
-#: core/models.py:28
+#: core/models.py:75
 msgid "description"
 msgstr "description"
 
-#: core/models.py:29
+#: core/models.py:76
 msgid "begin date"
 msgstr "date de début"
 
-#: core/models.py:30
+#: core/models.py:77
 msgid "end date"
 msgstr "date de fin"
 
-#: core/models.py:31
+#: core/models.py:78
 msgid "ready"
 msgstr "prêt"
 
-#: core/models.py:45
+#: core/models.py:116
 msgid "This vote is not open"
 msgstr "Le vote n'est pas ouvert"
 
-#: core/models.py:48
+#: core/models.py:119
 msgid "This vote is closed"
 msgstr "Le vote est fermé"
 
-#: core/models.py:51
+#: core/models.py:122
 msgid "You are not allowed to vote in this vote"
 msgstr "Vous ne pouvez pas participer à ce vote"
 
-#: core/models.py:54 core/views.py:50
+#: core/models.py:125
 msgid "You already voted for this vote"
 msgstr "Vous avez déjà voté pour ce vote"
 
-#: core/models.py:90
+#: core/models.py:239
 msgid "question"
 msgstr "question"
 
-#: core/models.py:91
+#: core/models.py:240
 msgid "questions"
 msgstr "questions"
 
-#: core/models.py:94
+#: core/models.py:243
 msgid "text"
 msgstr "texte"
 
-#: core/models.py:102 core/models.py:108
+#: core/models.py:268 core/models.py:274
 msgid "answer"
 msgstr "réponse"
 
-#: core/models.py:103
+#: core/models.py:269
 msgid "answers"
 msgstr "réponses"
 
-#: core/models.py:109
+#: core/models.py:275
 msgid "number"
 msgstr "nombre"
 
-#: core/models.py:133
+#: core/models.py:315
 msgid "ballot"
 msgstr "bulletin"
 
-#: core/models.py:134
+#: core/models.py:316
 msgid "ballots"
 msgstr "bulletins"
 
-#: core/models.py:136
-msgid "user's hash"
-msgstr "hash utilisateur"
+#: core/models.py:318
+msgid "user"
+msgstr ""
 
-#: core/models.py:142 core/models.py:147
+#: core/models.py:334 core/models.py:339
 msgid "document"
 msgstr "document"
 
-#: core/models.py:143
+#: core/models.py:335
 msgid "documents"
 msgstr "documents"
 
-#: core/templates/footer.html:12
-msgid "Made with ❤ by Nanoy ♦ Version 0.1.0"
-msgstr "Fait avec des ❤ par nanoy ♦ 0.1.0"
+#: core/templates/footer.html:12 core/templates/legals.html:5
+msgid "Legals"
+msgstr ""
+
+#: core/templates/footer.html:16
+msgid "Made with ❤ by nanoy ♦ Version 1.0.0"
+msgstr "Fait avec des ❤ par nanoy ♦ 1.0.0"
 
 #: core/templates/home.html:5
 msgid "Available votes"
@@ -157,7 +159,79 @@ msgid_plural ""
 msgstr[0] "Groupe autorisé"
 msgstr[1] "Groupes autorisés"
 
-#: core/templates/login.html:18 core/templates/login.html:22
+#: core/templates/legals.html:9
+msgid ""
+"\n"
+"    django-voting-app - Simple django app to organise votes<br>\n"
+"    Copyright (C) 2020 Yoann Piétri\n"
+"    "
+msgstr ""
+
+#: core/templates/legals.html:16
+msgid ""
+"\n"
+"    django-voting-app is free software: you can redistribute it and/or "
+"modify\n"
+"    it under the terms of the GNU General Public License as published by\n"
+"    the Free Software Foundation, either version 3 of the License, or\n"
+"    (at your option) any later version.\n"
+"    "
+msgstr ""
+
+#: core/templates/legals.html:25
+msgid ""
+"\n"
+"    django-voting-app is distributed in the hope that it will be useful,\n"
+"    but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"    GNU General Public License for more details.\n"
+"    "
+msgstr ""
+
+#: core/templates/legals.html:34
+msgid ""
+"\n"
+"    You should have received a copy of the GNU General Public License\n"
+"    along with django-voting-app. If not, see <a href=\"https://www.gnu.org/"
+"licenses/\">https://www.gnu.org/licenses/</a>.\n"
+"    "
+msgstr ""
+
+#: core/templates/legals.html:41
+msgid "The main contributor of django-voting-app is Yoann `nanoy` Piétri."
+msgstr ""
+
+#: core/templates/legals.html:44
+msgid ""
+"<a href=\"https://www.djangoproject.com/\" target=\"_blank\">django</a> "
+"licensed under the <a href=\"https://github.com/django/django/blob/master/"
+"LICENSE\" target=\"_blank\">BSD 3-Clause</a> license."
+msgstr ""
+
+#: core/templates/legals.html:45
+msgid ""
+"<a href=\"https://getbootstrap.com/\" target=\"_blank\">bootstrap4</a> (css "
+"and js toolkit) licensed under the <a href=\"https://github.com/twbs/"
+"bootstrap/blob/main/LICENSE\" target=\"_blank\">MIT</a> license."
+msgstr ""
+
+#: core/templates/legals.html:46
+msgid ""
+"<a href=\"https://github.com/zostera/django-bootstrap4\" target=\"_blank"
+"\">django-bootstrap4</a> licensed under the <a href=\"https://github.com/"
+"zostera/django-bootstrap4/blob/main/LICENSE\" target=\"_blank\">BSD 3-"
+"Clause</a> license."
+msgstr ""
+
+#: core/templates/legals.html:47
+msgid ""
+"<a href=\"https://github.com/deschler/django-modeltranslation\" target="
+"\"_blank\">django-modeltranslation</a> licensed under the <a href=\"https://"
+"github.com/deschler/django-modeltranslation/blob/master/LICENSE.txt\" target="
+"\"_blank\">BSD 3-Clause</a> license."
+msgstr ""
+
+#: core/templates/login.html:23 core/templates/login.html:27
 msgid "Login"
 msgstr "Connexion"
 
@@ -281,26 +355,29 @@ msgstr "Le vote est terminé"
 msgid "Make the vote ready"
 msgstr "Render le vote prêt"
 
-#: core/templatetags/core_extras.py:10
+#: core/templatetags/core_extras.py:38
 msgid "You voted"
 msgstr "Vous avez voté"
 
-#: core/templatetags/core_extras.py:11
+#: core/templatetags/core_extras.py:39
 msgid "You have not yet voted"
 msgstr "Vous n'avez pas encore voté"
 
-#: core/views.py:38 core/views.py:45
+#: core/views.py:90 core/views.py:97
 msgid "Your ballot is incorrect"
 msgstr "Le bulletin est incorrect"
 
-#: core/views.py:52
+#: core/views.py:101
 msgid "Thank you for voting"
 msgstr "A voté"
 
-#: core/views.py:79
+#: core/views.py:157
 msgid "You can't see results before the end of the vote"
 msgstr "Vous ne pouvez pas voir les résultats avant la fin du vote"
 
-#: core/views.py:95
+#: core/views.py:182
 msgid "Vote is ready."
 msgstr "Le vote est prêt"
+
+#~ msgid "user's hash"
+#~ msgstr "hash utilisateur"
