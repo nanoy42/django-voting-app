@@ -1,16 +1,13 @@
 # django-voting-app - Simple django app to organise votes
-# Copyright (C) 2020 Yoann Piétri
-
+# Copyright (C) 2020 The authors
 # django-voting-app is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-
 # django-voting-app is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 #
@@ -19,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-20 00:33+0200\n"
+"POT-Creation-Date: 2020-12-05 08:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,10 +26,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: django_vote/settings.py:123
+#: django_voting_app/settings.py:104
 msgid "English"
 msgstr "Anglais"
 
-#: django_vote/settings.py:124
+#: django_voting_app/settings.py:105
 msgid "French"
 msgstr "Français"

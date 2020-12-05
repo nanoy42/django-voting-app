@@ -1,14 +1,21 @@
-# Version 0.1.0
-## Functionnalities
+# Changelog
 
- * Create votes, with a limited time (time of beginning and time of end)
- * Restrict votes to groups
- * Restrict the access to active members
- * Create as many questions and as many possible answers in a vote (no free choice allowed though)
- * Attach documents to a vote
- * Votes are anonymous, but it is possible to know who voted (this is required (we could find solution without) to ensure that someone doesn't vote twice)
- * Translate votes, questions and answers.
+## 1.0.0 (2020-12-05)
 
-## Update information
+#### Fixes
 
-No update information.
+* :bug: Fix a language bug affecting the voting system
+* :pencil2: Fix minor typo in french translation
+#### Docs
+
+* :memo: Add contributing file
+#### Others
+
+* :green_heart: Only run coveralls if secret is available
+* :memo: Add command line to run test with coverage
+* :page_facing_up: Add authors file and change license information
+* Add docker
+
+## 0.1.0
+
+* Initial commit
