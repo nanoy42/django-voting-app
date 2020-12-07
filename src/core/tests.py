@@ -195,6 +195,22 @@ class VoteTestCase(TestCase):
         with self.assertRaises(Exception):
             self.vote.vote(self.user, [self.answer2])
 
+        vote2 = Vote.objects.create(
+            name="Test vote",
+            description="This is a test vote",
+            begin_date=timezone.now(),
+            end_date=timezone.now() + timedelta(hours=1),
+        )
+        question21 = Question.objects.create(vote=vote2, text="Yellow or red ?")
+        answer211 = Answer.objects.create(question=question21, answer="Yellow")
+        answer212 = Answer.objects.create(question=question21, answer="Red")
+        question22 = Question.objects.create(vote=vote2, text="Blue or green ?")
+        answer221 = Answer.objects.create(question=question22, answer="Blue")
+        answer222 = Answer.objects.create(question=question22, answer="Green")
+
+        with self.assertRaises(Exception):
+            vote2.vote(self.user, [answer211, answer212])
+
 
 class QuestionTestCase(TestCase):
     """Test for the Question model."""
