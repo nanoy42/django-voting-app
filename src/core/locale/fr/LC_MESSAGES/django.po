@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-05 08:17+0100\n"
-"PO-Revision-Date: 2020-12-05 08:17+0200\n"
+"POT-Creation-Date: 2020-12-14 22:41+0100\n"
+"PO-Revision-Date: 2020-12-14 22:43+0100\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -26,8 +26,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: core/models.py:71 core/models.py:242 core/models.py:272 core/models.py:319
-#: core/models.py:337
+#: core/models.py:71 core/models.py:244 core/models.py:274 core/models.py:321
+#: core/models.py:339
 msgid "vote"
 msgstr "vote"
 
@@ -35,7 +35,7 @@ msgstr "vote"
 msgid "votes"
 msgstr "votes"
 
-#: core/models.py:74 core/models.py:338
+#: core/models.py:74 core/models.py:340
 msgid "name"
 msgstr "nom"
 
@@ -71,47 +71,47 @@ msgstr "Vous ne pouvez pas participer à ce vote"
 msgid "You already voted for this vote"
 msgstr "Vous avez déjà voté pour ce vote"
 
-#: core/models.py:239
+#: core/models.py:241
 msgid "question"
 msgstr "question"
 
-#: core/models.py:240
+#: core/models.py:242
 msgid "questions"
 msgstr "questions"
 
-#: core/models.py:243
+#: core/models.py:245
 msgid "text"
 msgstr "texte"
 
-#: core/models.py:268 core/models.py:274
+#: core/models.py:270 core/models.py:276
 msgid "answer"
 msgstr "réponse"
 
-#: core/models.py:269
+#: core/models.py:271
 msgid "answers"
 msgstr "réponses"
 
-#: core/models.py:275
+#: core/models.py:277
 msgid "number"
 msgstr "nombre"
 
-#: core/models.py:315
+#: core/models.py:317
 msgid "ballot"
 msgstr "bulletin"
 
-#: core/models.py:316
+#: core/models.py:318
 msgid "ballots"
 msgstr "bulletins"
 
-#: core/models.py:318
+#: core/models.py:320
 msgid "user"
 msgstr ""
 
-#: core/models.py:334 core/models.py:339
+#: core/models.py:336 core/models.py:341
 msgid "document"
 msgstr "document"
 
-#: core/models.py:335
+#: core/models.py:337
 msgid "documents"
 msgstr "documents"
 
@@ -120,8 +120,8 @@ msgid "Legals"
 msgstr ""
 
 #: core/templates/footer.html:16
-msgid "Made with ❤ by nanoy ♦ Version 1.0.0"
-msgstr "Fait avec des ❤ par nanoy ♦ 1.0.0"
+msgid "Made with ❤ ♦ Version 1.0.0-dev"
+msgstr "Fait avec des ❤ ♦ 1.0.0-dev"
 
 #: core/templates/home.html:5
 msgid "Available votes"
@@ -378,6 +378,3 @@ msgstr "Vous ne pouvez pas voir les résultats avant la fin du vote"
 #: core/views.py:182
 msgid "Vote is ready."
 msgstr "Le vote est prêt"
-
-#~ msgid "user's hash"
-#~ msgstr "hash utilisateur"
