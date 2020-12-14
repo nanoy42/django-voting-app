@@ -1,5 +1,7 @@
-Configuration
-=============
+Configuration file
+==================
+
+.. warning:: The following page describe the structure of the configuration file for django-voting-app. However, for now, you can't edit any value in the docker image for the configuration.
 
 The configuration is done in a ``local_settings.py``. You can copy a canvas for this file in the ``src/django_voting_app`` directory : 
 
@@ -59,15 +61,15 @@ Default:
         }
     }
 
-If you use a postgresql database, on the same host as where you installed DinoMail, with the above values, it should look like this:
+If you use a postgresql database, on the same host as where you installed django-voting-app, it should look like this:
 
 .. code-block:: python
 
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "dinomail",
-            "USER": "dinomail",
+            "NAME": "django-voting-app",
+            "USER": "django-voting-app",
             "PASSWORD": "secret",
             "HOST": "localhost",
         }

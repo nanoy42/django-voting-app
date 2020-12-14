@@ -1,0 +1,81 @@
+Installation
+============
+
+Using the sources
+#################
+
+You will need to clone the repository with the command
+
+.. code-block:: sh
+
+    git clone https://github.com/nanoy42/django-voting-app
+
+
+You will then need to install the python dependencies. They can be installed with the command :
+
+.. code-block:: sh
+
+    pip install -r requirements.txt
+
+
+If you are using pipenv you can also use the following command 
+
+.. code-block:: sh
+
+    pipenv install
+
+.. note:: If you use a virtual environnement (using virtualenv or pipenv for instance), you may need to slightly modify the wsgi.py file.
+
+Using docker
+############
+
+The container image is available as nanoy/django-voting-app. Here is an example of a docker-compose.yml file in order to run the app : 
+
+.. code-block:: yaml
+
+    version: '3.6'
+
+    services:
+    voting:
+        image: nanoy/django-voting-app
+        ports:
+        - "8000:8000"
+        environment:
+        - DJANGO_SECRET=secret
+        - HOST=localhost
+        - LDAP_URI=ldap://ldap
+        - LDAP_BIND_DN=cn=readonly,dc=example,dc=com
+        - LDAP_BIND_PASSWORD=changeme
+        - LDAP_USER_BASE=ou=people,dc=example,dc=com
+        - LDAP_USER_FILTER=(mail=%(user)s)
+        - LDAP_GROUP_BASE=ou=groups,dc=example,dc=com
+        - LDAP_STAFF_GROUP=cn=staff,ou=groups,dc=example,dc=com
+        - LDAP_SUPERUSER_GROUP=cn=superuser,ou=groups,dc=example,dc=com
+    ldap:
+        image: osixia/openldap
+        restart: always
+        environment:
+        - LDAP_ORGANISATION=Example Org
+        - LDAP_DOMAIN=example.com
+        - LDAP_ADMIN_PASSWORD=changeme
+        - LDAP_READONLY_USER=true
+        - LDAP_READONLY_USER_USERNAME=readonly
+        - LDAP_READONLY_USER_PASSWORD=changeme
+        volumes:
+        - ldap_data:/var/lib/ldap
+        - ldap_config:/etc/ldap/slapd.d
+    ldap_admin:
+        image: osixia/phpldapadmin
+        restart: always
+        ports:
+        - "8001:80"
+        environment:
+        - PHPLDAPADMIN_LDAP_HOSTS=ldap
+        - PHPLDAPADMIN_HTTPS=false
+        depends_on:
+        - ldap
+    volumes:
+        ldap_data:
+        ldap_config:
+
+Here the ldap is used but may be unnecessary in your case (if you already have a working ldap instance for example).
