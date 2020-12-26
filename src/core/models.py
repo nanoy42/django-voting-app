@@ -224,6 +224,14 @@ class Vote(models.Model):
         else:
             raise Exception(msg)
 
+    @property
+    def nb_questions(self):
+        return self.question_set.count
+
+    @property
+    def nb_documents(self):
+        return self.document_set.count
+
 
 class Question(models.Model):
     """Question model.
@@ -251,6 +259,10 @@ class Question(models.Model):
             string: representation of the question in format vote - question
         """
         return "{} - {}".format(str(self.vote), self.text)
+
+    @property
+    def nb_answers(self):
+        return self.answer_set.count
 
 
 class Answer(models.Model):
