@@ -211,6 +211,9 @@ class VoteTestCase(TestCase):
         with self.assertRaises(Exception):
             vote2.vote(self.user, [answer211, answer212])
 
+    def test_nb_questions(self):
+        self.assertEqual(self.vote.nb_questions(), 1)
+
 
 class QuestionTestCase(TestCase):
     """Test for the Question model."""
@@ -284,6 +287,9 @@ class AnswerTestCase(TestCase):
         with self.assertRaises(Exception):
             Answer.objects.create(question=self.question, answer="Blue")
 
+    def test_question_nb_answers(self):
+        self.assertEqual(self.question.nb_answers(), 2)
+
 
 @override_settings(MEDIA_ROOT=tempfile.gettempdir())
 class DocumentTestCase(TestCase):
@@ -327,6 +333,9 @@ class DocumentTestCase(TestCase):
         self.assertTrue(os.path.isfile(self.document.document.path))
         self.document.delete()
         self.assertFalse(os.path.isfile(self.document.document.path))
+
+    def test_vote_nb_documents(self):
+        self.assertEqual(self.vote.nb_documents(), 1)
 
 
 class ViewsTestCase(TestCase):
@@ -475,3 +484,12 @@ class ViewsTestCase(TestCase):
 
         response = self.c.get("")
         self.assertEqual(response.status_code, 200)
+
+    def test_make_ready_action(self):
+        self.c.login(username=self.superuser.username, password=self.password)
+        self.assertFalse(self.vote2.ready)
+        data = {"action": "make_ready", "_selected_action": [self.vote2.pk]}
+        response = self.c.post("/admin/core/vote/", data)
+        self.vote2.refresh_from_db()
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(self.vote2.ready)
