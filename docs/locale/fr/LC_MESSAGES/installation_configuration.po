@@ -1,0 +1,283 @@
+# django-voting-app - Simple django app to organise votes
+# Copyright (C) 2020 The authors
+# django-voting-app is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# django-voting-app is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-14 22:49+0100\n"
+"PO-Revision-Date: 2020-12-29 20:55+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../installation_configuration.rst:2
+msgid "Configuration file"
+msgstr "Fichier de configuration"
+
+#: ../../installation_configuration.rst:4
+msgid ""
+"The following page describe the structure of the configuration file for "
+"django-voting-app. However, for now, you can't edit any value in the "
+"docker image for the configuration."
+msgstr ""
+"Cette page décrit la structure du fichier de configuration pour "
+"django-voting-app. Néanmoins, pour le moment, il est impossible d'éditer "
+"n'importe quelle valeur lors de l'installation par docker."
+
+#: ../../installation_configuration.rst:6
+msgid ""
+"The configuration is done in a ``local_settings.py``. You can copy a "
+"canvas for this file in the ``src/django_voting_app`` directory :"
+msgstr ""
+"La configuration est fait dans le fichier ``local_settings.py``. Vous pouvez copier "
+"un fichier d'example dpeuis ``src/django_voting_app/local_settings.example.py``."
+
+#: ../../installation_configuration.rst:12
+msgid "Then you must edit the values in it."
+msgstr "Ensuite, il faut éditer les valeurs dans le fichier."
+
+#: ../../installation_configuration.rst:14
+msgid ""
+"The ``local_settings.py`` is included at the end of the configuration "
+"file so you can overwrite **any** django settings, but we encourage to "
+"edit only the ones listed in the example local settings file."
+msgstr ""
+"Le fichier ``local_settings.py`` est inclus à la fin du fichier de configuration "
+"donc il est possible de remplaçer **n'importe quelle valeur** des paramètres. "
+"Néanmoins, nous conseillons d'éditer que les valeurs dans le fichier d'exemple, "
+"listées ci-après"
+
+#: ../../installation_configuration.rst:17
+msgid "Django settings"
+msgstr "Les paramètres relatifs à Django"
+
+#: ../../installation_configuration.rst:19
+msgid ""
+"Please see the `django documentation "
+"<https://docs.djangoproject.com/fr/3.0/ref/settings>`_ for extended "
+"documentation."
+msgstr ""
+"Pour plus de détails, merci de se référer à la documentation officielle : "
+"<https://docs.djangoproject.com/fr/3.0/ref/settings>`_"
+
+#: ../../installation_configuration.rst:23
+msgid "Default: ``\"\"``"
+msgstr "Valeur par défaut : ``\"\"``"
+
+#: ../../installation_configuration.rst:25
+msgid ""
+"A secret key for a particular Django installation. This is used to "
+"provide cryptographic signing, and should be set to a unique, "
+"unpredictable value. This value should be kept secret."
+msgstr ""
+
+#: ../../installation_configuration.rst:28
+msgid "Django can't run without a secret key."
+msgstr "Django ne démarrera pas sans clé secrète."
+
+#: ../../installation_configuration.rst:32
+msgid "Default: ``False``"
+msgstr "Valeur par défaut : ``False``"
+
+#: ../../installation_configuration.rst:34
+msgid ""
+"A boolean that turns on/off debug mode. You should use ``DEBUG=False`` "
+"for production."
+msgstr ""
+"Un booléen qui active ou désactive le mode débug. En production, il faut "
+"utiliser ``False``."
+
+#: ../../installation_configuration.rst:38
+#: ../../installation_configuration.rst:47
+msgid "Default: ``[]``"
+msgstr "Valeur par défaut : ``[]``"
+
+#: ../../installation_configuration.rst:40
+msgid ""
+"A list of strings representing the host/domain names that this Django "
+"site can serve."
+msgstr ""
+"Une liste de chaines de caratères représentant les IPs et domaines sur lesquels"
+"django peut tourner."
+
+#: ../../installation_configuration.rst:43
+msgid "Django can't run with ``DEBUG=False`` and ``ALLOWED_HOSTS=[]``."
+msgstr "Django ne démarrera pas si ``DEBUG=False`` et ``ALLOWED_HOSTS=[]``."
+
+#: ../../installation_configuration.rst:49
+msgid "A list of tuples representing the admins in the format (name, email)."
+msgstr "Une liste de tuples représentant les admins au format (nom, mail)"
+
+#: ../../installation_configuration.rst:53
+msgid "Default:"
+msgstr "Valeur par défaut : "
+
+#: ../../installation_configuration.rst:64
+msgid ""
+"If you use a postgresql database, on the same host as where you installed"
+" django-voting-app, it should look like this:"
+msgstr ""
+"Si vous utilisez une bade de données postgresql, sur la même machine que "
+"django-voting-app, ça devrait ressembler à :"
+
+#: ../../installation_configuration.rst:80
+msgid "Default: ``\"UTC\"``"
+msgstr "Valeur par défaut : ``\"UTC\"``"
+
+#: ../../installation_configuration.rst:82
+msgid "Time zone of the server."
+msgstr "Fuseau horaire du serveur."
+
+#: ../../installation_configuration.rst:86
+msgid "Default: ``BASE_DIR / \"staticfiles\"``"
+msgstr "Valeur par défaut : ``BASE_DIR / \"staticfiles\"``"
+
+#: ../../installation_configuration.rst:88
+msgid ""
+"Folder in which the static files should be copied. You should make an "
+"alias for ``/static`` to this directory."
+msgstr ""
+"Dossier dans lequle les fichiers statics seront copiés. Il faudra faire un alias "
+"de ``/static`` vers ce répertoire."
+
+#: ../../installation_configuration.rst:92
+msgid "Default: ``BASE_DIR / \"media\"``"
+msgstr ""
+
+#: ../../installation_configuration.rst:94
+msgid ""
+"Folder in which the media files should be uploaded. You should make an "
+"alias for ``/media`` to this directory."
+msgstr ""
+
+#: ../../installation_configuration.rst:97
+msgid "Model translation settings"
+msgstr ""
+
+#: ../../installation_configuration.rst:99
+msgid ""
+"django-voting-app uses `django-modeltranslation "
+"<https://github.com/deschler/django-modeltranslation>`_ to translate the "
+"instances of the models."
+msgstr ""
+
+#: ../../installation_configuration.rst:101
+msgid ""
+"It should work out of the box with the configuration, but if you want to "
+"make some modification, there are some parameters worth noting (we, "
+"however, redirect you to the full documentation for more parameters and "
+"details)."
+msgstr ""
+
+#: ../../installation_configuration.rst:103
+msgid "django-voting-languages supports the following languages :"
+msgstr ""
+
+#: ../../installation_configuration.rst:105
+msgid "English (en)"
+msgstr ""
+
+#: ../../installation_configuration.rst:106
+msgid "French (fr)"
+msgstr ""
+
+#: ../../installation_configuration.rst:108
+msgid "To set the default language for your models your models, you can use"
+msgstr ""
+
+#: ../../installation_configuration.rst:112
+msgid "Default: ``\"en\"``"
+msgstr ""
+
+#: ../../installation_configuration.rst:114
+msgid ""
+"Also, you may want to use other languages than English qnd French for "
+"your models, that can be done by setting he following attribute:"
+msgstr ""
+
+#: ../../installation_configuration.rst:118
+msgid "Default is ``LANGUAGES``"
+msgstr ""
+
+#: ../../installation_configuration.rst:121
+msgid ""
+"However note that he would still be possible to change to any language "
+"set in ``LANGUAGES``, so you may have to overwrite the ``LANGUAGES`` "
+"setting as well."
+msgstr ""
+
+#: ../../installation_configuration.rst:123
+msgid "Todo"
+msgstr ""
+
+#: ../../installation_configuration.rst:123
+msgid ""
+"Get available languages from ``MODELTRANSLATION_LANGUAGES`` and not from "
+"``LANGUAGES``."
+msgstr ""
+
+#: ../../installation_configuration.rst:127
+msgid "django-voting-app settings"
+msgstr ""
+
+#: ../../installation_configuration.rst:129
+msgid "There are 3 parameters fro django-voting-app:"
+msgstr ""
+
+#: ../../installation_configuration.rst:133
+msgid ""
+"Default: ``\"Django Voting app\"`` This text is displayed in the navbar "
+"and in the tab name."
+msgstr ""
+
+#: ../../installation_configuration.rst:138
+msgid ""
+"Default: ``False`` If set to True, staff can see the results of a vote "
+"before its end."
+msgstr ""
+
+#: ../../installation_configuration.rst:143
+msgid ""
+"Default: empty string Text displayed on the legals page. If it is an "
+"empty string, the section is not displayed."
+msgstr ""
+
+#: ../../installation_configuration.rst:148
+msgid "Link to LDAP"
+msgstr ""
+
+#: ../../installation_configuration.rst:150
+msgid ""
+"This app was initially developed to plug to LDAP, and make a voting app "
+"for an organization."
+msgstr ""
+
+#: ../../installation_configuration.rst:152
+msgid ""
+"This is totally independent of django-voting-app but here is an example "
+"of how you can do it.\\"
+msgstr ""
+
+#: ../../installation_configuration.rst:154
+msgid ""
+"Install the `django-auth-ldap <https://github.com/django-auth-ldap"
+"/django-auth-ldap>`_ package and configure it like so"
+msgstr ""
+

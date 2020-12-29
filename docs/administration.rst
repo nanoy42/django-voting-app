@@ -33,7 +33,7 @@ A vote is accessible to a user if the 3 following conditions are met :
 
 * the vote has begun (ie the begin date is passed) and has not yet ended (ie the end date is not passed)
 * the vote is ready (see related section)
-* the vote has the right of vote for this vote (ie he has not yet voted and the conditions on groups are met)
+* the user has the right of vote for this vote (ie he has not yet voted and the conditions on groups are met)
 
 Questions
 ~~~~~~~~~

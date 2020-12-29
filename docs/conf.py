@@ -56,3 +56,6 @@ html_static_path = ["_static"]
 master_doc = "index"
 pygments_style = "sphinx"
 todo_include_todos = True
+
+locale_dirs = ["locale/"]
+gettext_compact = False

@@ -1,0 +1,86 @@
+# django-voting-app - Simple django app to organise votes
+# Copyright (C) 2020 The authors
+# django-voting-app is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# django-voting-app is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-14 22:49+0100\n"
+"PO-Revision-Date: 2020-12-29 20:55+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../index.rst:23
+msgid "Contents:"
+msgstr "Contenu : "
+
+#: ../../index.rst:7
+msgid "Welcome to django-voting-app's documentation!"
+msgstr "Bienvenue sur la documentation de django-voting-app !"
+
+#: ../../index.rst:9
+msgid "This is documentation for django-voting-app version 1.0.0-dev."
+msgstr "Il s'agit de la documentation de la version 1.0.0-dev de django-voting-app."
+
+#: ../../index.rst:11
+msgid "django-voting-app is small django app tor organize votes."
+msgstr "dajngo-voting-app est une petite application django pour organiser des votes."
+
+#: ../../index.rst:13
+msgid "Here is a quick recap of the functionalities :"
+msgstr "Ici un récapitulatif des fonctionnalités :"
+
+#: ../../index.rst:15
+msgid "Create votes, with a limited time (time of beginning and time of end)"
+msgstr "Créer des votes, dans un intervalle de temps (date et heure de début et date et heure de fin)"
+
+#: ../../index.rst:16
+msgid "Restrict votes to groups"
+msgstr "Restreindre des votes à des groupes"
+
+#: ../../index.rst:17
+msgid "Restrict the access to active members"
+msgstr "Restreindre l'accès aux membres actifs"
+
+#: ../../index.rst:18
+msgid ""
+"Create as many questions and as many possible answers in a vote (no free "
+"choice allowed though)"
+msgstr ""
+"Créer un nombre illimité de questions avec un nombre illimité de responses (pas"
+"de champ de réponse libre)"
+
+#: ../../index.rst:19
+msgid "Attach documents to a vote"
+msgstr "Lier des documents à un vote"
+
+#: ../../index.rst:20
+msgid ""
+"Votes are anonymous, but it is possible to know who voted (this is "
+"required (we could find solution without) to ensure that someone doesn't "
+"vote twice)"
+msgstr ""
+"Les votes sont anonymes mais il est possible de savoir qui a voté dans quel vote"
+"(nécessaire pour empêcher que les gens votent deux fois)"
+
+#: ../../index.rst:21
+msgid "Translate votes, questions and answers."
+msgstr ""
+"Traduire les votes, les questions et les réponses."

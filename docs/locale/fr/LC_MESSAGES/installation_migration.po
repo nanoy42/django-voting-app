@@ -1,0 +1,180 @@
+# django-voting-app - Simple django app to organise votes
+# Copyright (C) 2020 The authors
+# django-voting-app is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# django-voting-app is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-14 22:49+0100\n"
+"PO-Revision-Date: 2020-12-29 20:55+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../installation_migration.rst:2
+msgid "Post-installation and update procedures"
+msgstr "Procédures post-installation et de mise à jour"
+
+#: ../../installation_migration.rst:4
+msgid ""
+"After the installation or after an update, you may have to perform "
+"additional operation."
+msgstr ""
+"Après l'installation, ou après une mise à jour, il peut y avoir des "
+"opérations supplémentaires à effectuer."
+
+#: ../../installation_migration.rst:7
+msgid "Migrations"
+msgstr "Migrations"
+
+#: ../../installation_migration.rst:9
+msgid ""
+"Migrations are all the structural operations on the database. They should"
+" be run after an installation."
+msgstr "Les migrations sont les opérations structurelles sur la base de "
+"données. Elles doivent être effectuées après l'installation."
+
+#: ../../installation_migration.rst:11
+msgid ""
+"They should also be run whenever new migrations appears. Migrations can "
+"come from :"
+msgstr ""
+"Elles doivent aussi être réalisées lorsque des nouvelles migrations "
+"apparaissent. Cela peut venir :"
+
+#: ../../installation_migration.rst:13
+msgid "migrations from django"
+msgstr "de migrations de django"
+
+#: ../../installation_migration.rst:14
+msgid "migrations from other dependencies (djanog-modeltranslations for instance)"
+msgstr "de migrations d'autre dépendances (django-modeltranslations par exemple)"
+
+#: ../../installation_migration.rst:15
+msgid "internal migrations."
+msgstr "de migrations internes."
+
+#: ../../installation_migration.rst:17
+msgid "Migrations should be run when migrating to"
+msgstr "Les migrations doivent être appliqués en mettant à jour vers"
+
+#: ../../installation_migration.rst:19
+msgid "1.0.0"
+msgstr "1.0.0"
+
+#: ../../installation_migration.rst:20
+msgid "0.1.0"
+msgstr "0.1.0"
+
+#: ../../installation_migration.rst:22
+msgid "The command to apply migrations is"
+msgstr "La commande pour appliquer les migrations est"
+
+#: ../../installation_migration.rst:28
+msgid "Migrations are applied automatically when using docker."
+msgstr "Les migrations sont appliquées automatiquement avec l'image docker."
+
+#: ../../installation_migration.rst:31
+msgid "Superuser"
+msgstr "Super-utilisateur"
+
+#: ../../installation_migration.rst:33
+msgid ""
+"Once the installation finished, you may want to create a super user. You "
+"can do it using the command"
+msgstr ""
+"Une fois l'installation terminée, vous pouvez créer un super-utilisateur "
+"avec la commande :"
+
+#: ../../installation_migration.rst:39
+msgid "and fill in the requested information."
+msgstr "et remplir les informations demandées."
+
+#: ../../installation_migration.rst:42
+msgid "Statics"
+msgstr "Les fichiers statiques"
+
+#: ../../installation_migration.rst:44
+msgid "In production statics are **NOT** served by django. You should"
+msgstr "En production, les fichiers statiques ne sont **pas** servis par django. Vous devez : "
+
+#: ../../installation_migration.rst:46
+msgid "Create a directory for static files"
+msgstr "Créer un réportoire pour les fichiers statiques"
+
+#: ../../installation_migration.rst:47
+msgid "Set ``STATIC_ROOT`` to the directory's path in the configuration file"
+msgstr "Mettre le paramètre ``STATIC_ROOT`` au chemin du répertoire nouvellement créé."
+
+#: ../../installation_migration.rst:48
+msgid ""
+"Create an alias for '/static/' to the directory you created in th web "
+"server (see apache example configuration file)"
+msgstr ""
+"Créer un alias pour l'url '/static/' vers le répertoire en question (voir "
+"la configuration apache pour exemple)."
+
+#: ../../installation_migration.rst:49
+msgid "Run the django command to copy static files to the directory"
+msgstr "Exécuter la commande django pour copier les fichiers statiques"
+
+#: ../../installation_migration.rst:51
+msgid "The command to be run is"
+msgstr "La commande est "
+
+#: ../../installation_migration.rst:58
+msgid "Translations"
+msgstr "Traductions"
+
+#: ../../installation_migration.rst:60
+msgid "You can compile the translations files with"
+msgstr "Vous pouvez compiler les fichiers de traduction avec cette commande :"
+
+#: ../../installation_migration.rst:67
+msgid "Example of apache configuration"
+msgstr "Exemple de configuration apache"
+
+#: ../../installation_migration.rst:70
+msgid ""
+"When configuring apache, make sure to make alias for the media root and "
+"static root. An example of configuration can be found below:"
+msgstr ""
+"Lors de la configuration d'apache, il ne faut pas oublier de créer un alias "
+"pour le répertoire des fichiers statiques et des médias. Un exemple peut "
+"être trouvé ci-dessous :"
+
+#: ../../installation_migration.rst:106
+msgid "Modification of wsgi file to use in virtual env"
+msgstr "Modification du fichier wsgi pour les virtualenvs"
+
+#: ../../installation_migration.rst:108
+msgid ""
+"If you are using a virtualenv, a slight modification if the ``wsgi.py`` "
+"file is required. This file is located in ``src/django_voting_app``."
+msgstr ""
+"Si vous utilisez un virtualenv, il faut légèrement modifier le ``wsgi.py``. Le "
+"fichier se trouve dans ``src/django_voting_app``."
+
+#: ../../installation_migration.rst:110
+msgid ""
+"We suppose that the virtualenv directory is located at ``/var/www/django-"
+"voting-app/.venv``."
+msgstr ""
+"On suppose ici que le répertoire du virtualenv se trouve au "
+"``/var/www/django-voting-app/.venv``"
