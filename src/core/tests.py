@@ -24,11 +24,11 @@ from datetime import timedelta
 from django.contrib.auth.models import Group, User
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db import IntegrityError
+from django.template import Template, TemplateSyntaxError
 from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from core.models import Answer, Document, Question, Vote, is_member_or
-from django.template import TemplateSyntaxError, Template
 
 
 class IsMemberOfTestCase(TestCase):

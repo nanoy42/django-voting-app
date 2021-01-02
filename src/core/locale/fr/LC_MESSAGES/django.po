@@ -120,8 +120,8 @@ msgid "Legals"
 msgstr ""
 
 #: core/templates/footer.html:16
-msgid "Made with ❤ ♦ Version 1.0.0-dev"
-msgstr "Fait avec des ❤ ♦ 1.0.0-dev"
+msgid "Made with ❤ ♦ Version 1.1.0"
+msgstr "Fait avec des ❤ ♦ 1.1.0"
 
 #: core/templates/home.html:5
 msgid "Available votes"
