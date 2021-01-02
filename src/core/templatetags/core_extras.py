@@ -54,7 +54,7 @@ def do_get_modeltransaltion_available_languages(parser, token):
     """
     Store a list of available languages in the context.
     Usage::
-        {% get_available_languages as languages %}
+        {% get_modeltranslation_available_languages as languages %}
         {% for language in languages %}
         ...
         {% endfor %}

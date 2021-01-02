@@ -28,6 +28,7 @@ from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from core.models import Answer, Document, Question, Vote, is_member_or
+from django.template import TemplateSyntaxError, Template
 
 
 class IsMemberOfTestCase(TestCase):
@@ -493,3 +494,11 @@ class ViewsTestCase(TestCase):
         self.vote2.refresh_from_db()
         self.assertEqual(response.status_code, 302)
         self.assertTrue(self.vote2.ready)
+
+    def test_templatetags(self):
+        template = """
+        {% load core_extras %}
+        {% get_modeltranslation_available_languages %}
+        """
+        with self.assertRaises(TemplateSyntaxError):
+            Template(template, {})
