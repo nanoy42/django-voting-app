@@ -1,7 +1,7 @@
 Post-installation and update procedures
 =======================================
 
-After the installation or after an update, you may have to perform additional operation.
+After the installation or after an update, you may have to perform additional operations.
 
 Migrations
 ##########
@@ -11,7 +11,7 @@ Migrations are all the structural operations on the database. They should be run
 They should also be run whenever new migrations appears. Migrations can come from :
 
 * migrations from django
-* migrations from other dependencies (djanog-modeltranslations for instance)
+* migrations from other dependencies (django-modeltranslations for instance)
 * internal migrations.
 
 Migrations should be run when migrating to
@@ -30,7 +30,7 @@ The command to apply migrations is
 Superuser
 #########
 
-Once the installation finished, you may want to create a super user. You can do it using the command 
+Once the installation is finished, you may want to create a super user. You can do it using the command 
 
 .. code-block:: sh
 
@@ -45,7 +45,7 @@ In production statics are **NOT** served by django. You should
 
 1. Create a directory for static files
 2. Set ``STATIC_ROOT`` to the directory's path in the configuration file
-3. Create an alias for '/static/' to the directory you created in th web server (see apache example configuration file) 
+3. Create an alias for '/static/' to the directory you created in the web server (see apache example configuration file) 
 4. Run the django command to copy static files to the directory
 
 The command to be run is 

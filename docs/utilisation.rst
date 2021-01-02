@@ -1,7 +1,7 @@
 User guide
 ==========
 
-Normal users have access to the list of votes. Eac vote appears in one of three colors :
+Normal users have access to the list of votes. Each vote appears in one of three colors :
 
 * yellow : the vote is ready but has not begun
 * green : the vote is ongoing

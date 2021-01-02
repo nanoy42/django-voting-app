@@ -4,12 +4,10 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-
 # django-voting-app is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 #
@@ -18,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-14 22:49+0100\n"
-"PO-Revision-Date: 2020-12-29 20:55+0100\n"
+"POT-Creation-Date: 2021-01-02 14:20+0100\n"
+"PO-Revision-Date: 2021-01-02 14:25+0100\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: fr\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +32,7 @@ msgstr "Procédures post-installation et de mise à jour"
 #: ../../installation_migration.rst:4
 msgid ""
 "After the installation or after an update, you may have to perform "
-"additional operation."
+"additional operations."
 msgstr ""
 "Après l'installation, ou après une mise à jour, il peut y avoir des "
 "opérations supplémentaires à effectuer."
@@ -47,8 +45,9 @@ msgstr "Migrations"
 msgid ""
 "Migrations are all the structural operations on the database. They should"
 " be run after an installation."
-msgstr "Les migrations sont les opérations structurelles sur la base de "
-"données. Elles doivent être effectuées après l'installation."
+msgstr ""
+"Les migrations sont les opérations structurelles sur la base de données. "
+"Elles doivent être effectuées après l'installation."
 
 #: ../../installation_migration.rst:11
 msgid ""
@@ -63,7 +62,7 @@ msgid "migrations from django"
 msgstr "de migrations de django"
 
 #: ../../installation_migration.rst:14
-msgid "migrations from other dependencies (djanog-modeltranslations for instance)"
+msgid "migrations from other dependencies (django-modeltranslations for instance)"
 msgstr "de migrations d'autre dépendances (django-modeltranslations par exemple)"
 
 #: ../../installation_migration.rst:15
@@ -96,8 +95,8 @@ msgstr "Super-utilisateur"
 
 #: ../../installation_migration.rst:33
 msgid ""
-"Once the installation finished, you may want to create a super user. You "
-"can do it using the command"
+"Once the installation is finished, you may want to create a super user. "
+"You can do it using the command"
 msgstr ""
 "Une fois l'installation terminée, vous pouvez créer un super-utilisateur "
 "avec la commande :"
@@ -112,7 +111,9 @@ msgstr "Les fichiers statiques"
 
 #: ../../installation_migration.rst:44
 msgid "In production statics are **NOT** served by django. You should"
-msgstr "En production, les fichiers statiques ne sont **pas** servis par django. Vous devez : "
+msgstr ""
+"En production, les fichiers statiques ne sont **pas** servis par django. "
+"Vous devez : "
 
 #: ../../installation_migration.rst:46
 msgid "Create a directory for static files"
@@ -120,15 +121,17 @@ msgstr "Créer un réportoire pour les fichiers statiques"
 
 #: ../../installation_migration.rst:47
 msgid "Set ``STATIC_ROOT`` to the directory's path in the configuration file"
-msgstr "Mettre le paramètre ``STATIC_ROOT`` au chemin du répertoire nouvellement créé."
+msgstr ""
+"Mettre le paramètre ``STATIC_ROOT`` au chemin du répertoire nouvellement "
+"créé."
 
 #: ../../installation_migration.rst:48
 msgid ""
-"Create an alias for '/static/' to the directory you created in th web "
+"Create an alias for '/static/' to the directory you created in the web "
 "server (see apache example configuration file)"
 msgstr ""
-"Créer un alias pour l'url '/static/' vers le répertoire en question (voir "
-"la configuration apache pour exemple)."
+"Créer un alias pour l'url '/static/' vers le répertoire en question (voir"
+" la configuration apache pour exemple)."
 
 #: ../../installation_migration.rst:49
 msgid "Run the django command to copy static files to the directory"
@@ -155,9 +158,9 @@ msgid ""
 "When configuring apache, make sure to make alias for the media root and "
 "static root. An example of configuration can be found below:"
 msgstr ""
-"Lors de la configuration d'apache, il ne faut pas oublier de créer un alias "
-"pour le répertoire des fichiers statiques et des médias. Un exemple peut "
-"être trouvé ci-dessous :"
+"Lors de la configuration d'apache, il ne faut pas oublier de créer un "
+"alias pour le répertoire des fichiers statiques et des médias. Un exemple"
+" peut être trouvé ci-dessous :"
 
 #: ../../installation_migration.rst:106
 msgid "Modification of wsgi file to use in virtual env"
@@ -168,13 +171,14 @@ msgid ""
 "If you are using a virtualenv, a slight modification if the ``wsgi.py`` "
 "file is required. This file is located in ``src/django_voting_app``."
 msgstr ""
-"Si vous utilisez un virtualenv, il faut légèrement modifier le ``wsgi.py``. Le "
-"fichier se trouve dans ``src/django_voting_app``."
+"Si vous utilisez un virtualenv, il faut légèrement modifier le "
+"``wsgi.py``. Le fichier se trouve dans ``src/django_voting_app``."
 
 #: ../../installation_migration.rst:110
 msgid ""
 "We suppose that the virtualenv directory is located at ``/var/www/django-"
 "voting-app/.venv``."
 msgstr ""
-"On suppose ici que le répertoire du virtualenv se trouve au "
-"``/var/www/django-voting-app/.venv``"
+"On suppose ici que le répertoire du virtualenv se trouve au ``/var/www"
+"/django-voting-app/.venv``"
+

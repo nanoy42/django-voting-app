@@ -3,7 +3,7 @@ Administration guide
 
 This guide targets the administrators that want to know how to create votes, questions and answers on django-voting-app.
 
-Note that the vast majority of the described operations can be done in the admin panel (accessible with the ``/admin`` url or by clicking on your username and then Admin).
+All the described operations can be done in the admin panel (accessible with the ``/admin`` url or by clicking on your username and then Admin).
 
 Create votes, questions an answers
 ##################################
@@ -28,12 +28,11 @@ If you don't specify any group, any (active) user can access the vote.
 
 User who are not active can't connect to the interface.
 
-
 A vote is accessible to a user if the 3 following conditions are met :
 
-* the vote has begun (ie the begin date is passed) and has not yet ended (ie the end date is not passed)
+* the vote has begun (i.e. the begin date is passed) and has not yet ended (i.e. the end date is not passed)
 * the vote is ready (see related section)
-* the user has the right of vote for this vote (ie he has not yet voted and the conditions on groups are met)
+* the user has the right of vote for this vote (i.e. he has not yet voted and the conditions on groups are met)
 
 Questions
 ~~~~~~~~~
@@ -58,7 +57,7 @@ A question must be related to a unique vote.
 Answers
 ~~~~~~~
 
-For each question, you can create an unlimited number of answers. Users will be able to select a unique answer for each question.
+For each question, you can create an unlimited number of answers. Users will have to select a unique answer for each question.
 
 You can create answers on the admin panel. You need to specify : 
 
@@ -99,6 +98,7 @@ When you make a vote ready, you should no longer make any modification. The app 
 
 When a vote is ready, you cannot make the vote not ready again (you have to delete it and start again).
 
+To make a vote ready, you can use the action ont the admin panel or go to the administrators index of votes.
 See results
 ###########
 
@@ -111,12 +111,12 @@ Only administrators can see the results.
 A note on translations
 ######################
 
-Some fields may be translated to another languages. For now you can translate to any languages supported by the app, namely 
+Some fields may be translated to another languages. By default you can translate to any languages supported by the app, namely 
 
 * en (English)
 * fr (French)
 
-.. note:: It can be some sort of limitations. Future versions of django-voting-app will work on making a less restrictive translation system.
+If you want more (or less) languages, you can edit the ``MODELTRANSLATION_LANGUAGES`` parameter.
 
 The following fields can be translated :
 
