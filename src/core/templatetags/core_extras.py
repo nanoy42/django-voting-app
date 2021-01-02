@@ -18,8 +18,9 @@ Templatetags for core app.
 """
 
 from django import template
-from django.utils.translation import gettext, gettext_lazy as _
 from django.conf import settings
+from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
 register = template.Library()
 

@@ -15,6 +15,7 @@ sphinx-rtd-theme = "*"
 docstr-coverage = "*"
 pyyaml = "*"
 sphinx-intl = "*"
+auto-changelog = "*"
 
 [packages]
 django = "*"
