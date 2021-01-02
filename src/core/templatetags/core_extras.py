@@ -18,9 +18,20 @@ Templatetags for core app.
 """
 
 from django import template
+from django.conf import settings
+from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
 register = template.Library()
+
+
+class GetModelTranslationAvailableLanguagesNode(template.Node):
+    def __init__(self, variable):
+        self.variable = variable
+
+    def render(self, context):
+        context[self.variable] = [k for k in settings.MODELTRANSLATION_LANGUAGES]
+        return ""
 
 
 @register.simple_tag
@@ -39,17 +50,22 @@ def has_voted(vote, user):
     return _("You have not yet voted")
 
 
-@register.simple_tag
-def language_flag(language_code):
-    """Return the flag for the corresponding language code.
-
-    Args:
-        language_code (string): language code
-
-    Returns:
-        string: flag
+@register.tag("get_modeltranslation_available_languages")
+def do_get_modeltransaltion_available_languages(parser, token):
     """
-    if language_code == "fr":
-        return "🇫🇷"
-    else:
-        return "🇬🇧"
+    Store a list of available languages in the context.
+    Usage::
+        {% get_modeltranslation_available_languages as languages %}
+        {% for language in languages %}
+        ...
+        {% endfor %}
+    This puts settings.MODELTRANSLATIONLANGUAGES into the named variable.
+    """
+    # token.split_contents() isn't useful here because this tag doesn't accept variable as arguments
+    args = token.contents.split()
+    if len(args) != 3 or args[1] != "as":
+        raise template.TemplateSyntaxError(
+            "'get_modeltranslation_available_languages' requires 'as variable' (got %r)"
+            % args
+        )
+    return GetModelTranslationAvailableLanguagesNode(args[2])

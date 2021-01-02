@@ -23,17 +23,35 @@ from modeltranslation.admin import TranslationAdmin
 from .models import Answer, Ballot, Document, Question, Vote
 
 
+def make_ready(modeladmin, request, queryset):
+    """Custom action to make every vote of the queryset ready"""
+    queryset.update(ready=True)
+
+
+make_ready.short_description = "Mark selected votes as ready"
+
+
 class VoteAdmin(TranslationAdmin):
     """Admin class for Vote model."""
 
     fields = ("name", "description", "begin_date", "end_date", "groups")
+    list_display = (
+        "name",
+        "ready",
+        "begin_date",
+        "end_date",
+        "nb_questions",
+        "nb_documents",
+    )
+    list_filter = ("ready",)
+    actions = (make_ready,)
 
 
 class QuestionAdmin(TranslationAdmin):
-    """Admin class for Question model.
+    """Admin class for Question model."""
 
-    We need it for translations.
-    """
+    list_display = ("text", "vote", "nb_answers")
+    list_filter = ("vote",)
 
     pass
 
@@ -46,14 +64,15 @@ class AnswerAdmin(TranslationAdmin):
         "answer",
     )
 
+    list_display = ("answer", "question")
+    list_filter = ("question", "question__vote")
+
 
 class DocumentAdmin(TranslationAdmin):
-    """Admin class for Document model.
+    """Admin class for Document model."""
 
-    We need it for translations.
-    """
-
-    pass
+    list_display = ("name", "vote")
+    list_filter = ("vote",)
 
 
 admin.site.register(Vote, VoteAdmin)

@@ -27,15 +27,14 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans "Login" %}</button>
             <p class="mt-5 mb-3 text-muted">{{VOTE_NAME}}</p>
         </form>
-            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                {% for language in languages %}
-                <button type="submit"
-                    class="dropdown-item {% if language.code == LANGUAGE_CODE %} disabled {% endif %}"
-                    name="language" value="{{ language.code }}">{% language_flag language.code %}
-                    {{language.name_local | title}}
-                    ({{language.code}})</button>
-                {% endfor %}
-            </form>
+        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            {% for language in languages %}
+            <button type="submit" class="dropdown-item {% if language.code == LANGUAGE_CODE %} disabled {% endif %}"
+                name="language" value="{{ language.code }}">
+                {{language.name_local | title}}
+                ({{language.code}})</button>
+            {% endfor %}
+        </form>
     </div>
 </body>
 <style>

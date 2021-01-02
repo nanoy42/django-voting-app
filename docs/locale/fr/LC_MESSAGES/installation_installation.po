@@ -1,0 +1,81 @@
+# django-voting-app - Simple django app to organise votes
+# Copyright (C) 2020 The authors
+# django-voting-app is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# django-voting-app is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-14 22:49+0100\n"
+"PO-Revision-Date: 2020-12-29 20:55+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../installation_installation.rst:2
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../installation_installation.rst:5
+msgid "Using the sources"
+msgstr "Par les sources"
+
+#: ../../installation_installation.rst:7
+msgid "You will need to clone the repository with the command"
+msgstr "Il faut tout d'abord cloner le dépôt avec la commande"
+
+#: ../../installation_installation.rst:14
+msgid ""
+"You will then need to install the python dependencies. They can be "
+"installed with the command :"
+msgstr ""
+"Il faut ensuite installer les dependances python. Cela peut se faire "
+"avec la commande :"
+
+#: ../../installation_installation.rst:21
+msgid "If you are using pipenv you can also use the following command"
+msgstr "Il est aussi possible d'utiliser pipenv avec la commande suivante"
+
+#: ../../installation_installation.rst:27
+msgid ""
+"If you use a virtual environnement (using virtualenv or pipenv for "
+"instance), you may need to slightly modify the wsgi.py file."
+msgstr ""
+"Si vous utilisez un environnement virtuel (virtualenv ou pipenv par "
+"exemple), il faudra changer légèrement le fichier wsgi.py"
+
+#: ../../installation_installation.rst:30
+msgid "Using docker"
+msgstr "En utilisant docker"
+
+#: ../../installation_installation.rst:32
+msgid ""
+"The container image is available as nanoy/django-voting-app. Here is an "
+"example of a docker-compose.yml file in order to run the app :"
+msgstr ""
+"L'image docker est disponible sous le nom nanoy/django-voting-app. Un "
+"exemple de fichier docker-compose.yml est donné ci-dessous :"
+
+#: ../../installation_installation.rst:81
+msgid ""
+"Here the ldap is used but may be unnecessary in your case (if you already"
+" have a working ldap instance for example)."
+msgstr ""
+"Ici une image docker pour le ldap est utilisé mais pourrait être inutile dans votre cas (si "
+"un ldap existe déjà par exemple)."
+

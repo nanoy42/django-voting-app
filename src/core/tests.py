@@ -24,6 +24,7 @@ from datetime import timedelta
 from django.contrib.auth.models import Group, User
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db import IntegrityError
+from django.template import Template, TemplateSyntaxError
 from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
@@ -195,6 +196,25 @@ class VoteTestCase(TestCase):
         with self.assertRaises(Exception):
             self.vote.vote(self.user, [self.answer2])
 
+        vote2 = Vote.objects.create(
+            name="Test vote",
+            description="This is a test vote",
+            begin_date=timezone.now(),
+            end_date=timezone.now() + timedelta(hours=1),
+        )
+        question21 = Question.objects.create(vote=vote2, text="Yellow or red ?")
+        answer211 = Answer.objects.create(question=question21, answer="Yellow")
+        answer212 = Answer.objects.create(question=question21, answer="Red")
+        question22 = Question.objects.create(vote=vote2, text="Blue or green ?")
+        answer221 = Answer.objects.create(question=question22, answer="Blue")
+        answer222 = Answer.objects.create(question=question22, answer="Green")
+
+        with self.assertRaises(Exception):
+            vote2.vote(self.user, [answer211, answer212])
+
+    def test_nb_questions(self):
+        self.assertEqual(self.vote.nb_questions(), 1)
+
 
 class QuestionTestCase(TestCase):
     """Test for the Question model."""
@@ -268,6 +288,9 @@ class AnswerTestCase(TestCase):
         with self.assertRaises(Exception):
             Answer.objects.create(question=self.question, answer="Blue")
 
+    def test_question_nb_answers(self):
+        self.assertEqual(self.question.nb_answers(), 2)
+
 
 @override_settings(MEDIA_ROOT=tempfile.gettempdir())
 class DocumentTestCase(TestCase):
@@ -311,6 +334,9 @@ class DocumentTestCase(TestCase):
         self.assertTrue(os.path.isfile(self.document.document.path))
         self.document.delete()
         self.assertFalse(os.path.isfile(self.document.document.path))
+
+    def test_vote_nb_documents(self):
+        self.assertEqual(self.vote.nb_documents(), 1)
 
 
 class ViewsTestCase(TestCase):
@@ -459,3 +485,20 @@ class ViewsTestCase(TestCase):
 
         response = self.c.get("")
         self.assertEqual(response.status_code, 200)
+
+    def test_make_ready_action(self):
+        self.c.login(username=self.superuser.username, password=self.password)
+        self.assertFalse(self.vote2.ready)
+        data = {"action": "make_ready", "_selected_action": [self.vote2.pk]}
+        response = self.c.post("/admin/core/vote/", data)
+        self.vote2.refresh_from_db()
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(self.vote2.ready)
+
+    def test_templatetags(self):
+        template = """
+        {% load core_extras %}
+        {% get_modeltranslation_available_languages %}
+        """
+        with self.assertRaises(TemplateSyntaxError):
+            Template(template, {})

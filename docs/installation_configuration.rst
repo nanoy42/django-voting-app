@@ -1,5 +1,7 @@
-Configuration
-=============
+Configuration file
+==================
+
+.. warning:: The following page describe the structure of the configuration file for django-voting-app. However, for now, you can't edit any value in the docker image for the configuration.
 
 The configuration is done in a ``local_settings.py``. You can copy a canvas for this file in the ``src/django_voting_app`` directory : 
 
@@ -59,15 +61,15 @@ Default:
         }
     }
 
-If you use a postgresql database, on the same host as where you installed DinoMail, with the above values, it should look like this:
+If you use a postgresql database, on the same host as where you installed django-voting-app, it should look like this:
 
 .. code-block:: python
 
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": "dinomail",
-            "USER": "dinomail",
+            "NAME": "django-voting-app",
+            "USER": "django-voting-app",
             "PASSWORD": "secret",
             "HOST": "localhost",
         }
@@ -103,51 +105,51 @@ django-voting-languages supports the following languages :
  * English (en)
  * French (fr)
 
-To set the default language for your models your models, you can use
+To set the default language for your models, you can use
 
 .. attribute:: MODELTRANSLATION_DEFAULT_LANGUAGE
 
 Default: ``"en"``
 
-Also, you may want to use other languages than English qnd French for your models, that can be done by setting he following attribute:
+Also, you may want to use other languages than English and French for your models, that can be done by setting the following attribute:
 
 .. attribute:: MODELTRANSLATION_LANGUAGES
 
-Default is ``LANGUAGES``
+Default: ``["en", "fr"]``
 
 
-However note that he would still be possible to change to any language set in ``LANGUAGES``, so you may have to overwrite the ``LANGUAGES`` setting as well.
-
-.. todo:: Get available languages from ``MODELTRANSLATION_LANGUAGES`` and not from ``LANGUAGES``.
-
+People will be able to change to any language in ``MODELTRANSLATION_LANGUAGES`` even if the language is not supported by django-voting-app.
 
 django-voting-app settings
 ##########################
 
-There are 3 parameters fro django-voting-app:
+There are 3 parameters for django-voting-app:
 
 .. attribute:: VOTE_NAME
 
 Default: ``"Django Voting app"``
+
 This text is displayed in the navbar and in the tab name.
 
 .. attribute:: VOTE_SEE_BEFORE_END
 
 Default: ``False``
+
 If set to True, staff can see the results of a vote before its end.
 
 .. attribute:: VOTE_LOCAL_LEGALS
 
 Default: empty string
+
 Text displayed on the legals page. If it is an empty string, the section is not displayed.
 
 
 Link to LDAP
 ############
 
-This app was initially developed to plug to LDAP, and make a voting app for an organization.
+This app was initially developed to be plugged to LDAP, and make a voting app for an organization.
 
-This is totally independent of django-voting-app but here is an example of how you can do it.\
+This is totally independent of django-voting-app but here is an example of how you can do it.
 
 Install the `django-auth-ldap <https://github.com/django-auth-ldap/django-auth-ldap>`_ package and configure it like so 
 

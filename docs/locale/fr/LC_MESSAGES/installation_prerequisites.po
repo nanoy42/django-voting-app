@@ -1,0 +1,107 @@
+# django-voting-app - Simple django app to organise votes
+# Copyright (C) 2020 The authors
+# django-voting-app is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# django-voting-app is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-14 22:49+0100\n"
+"PO-Revision-Date: 2020-12-29 20:55+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../installation_prerequisites.rst:2
+msgid "Prerequisites"
+msgstr "Prérequis"
+
+#: ../../installation_prerequisites.rst:5
+msgid "Requirements"
+msgstr "Prérequis"
+
+#: ../../installation_prerequisites.rst:7
+msgid "There are currently two ways of installing django-voting-app :"
+msgstr "Il y a actuellement deux moyens d'installer django-voting-app :"
+
+#: ../../installation_prerequisites.rst:9
+msgid "by source"
+msgstr "par les sources"
+
+#: ../../installation_prerequisites.rst:10
+msgid "with docker"
+msgstr "avec docker"
+
+#: ../../installation_prerequisites.rst:12
+msgid "Installation with docker is considered experimental for now."
+msgstr "L'installation avec docker est considérée comme expérimentale pour le moment."
+
+#: ../../installation_prerequisites.rst:14
+msgid "If you want to install using the source, you need :"
+msgstr "Pour l'installation via les sources, il faut :"
+
+#: ../../installation_prerequisites.rst:16
+msgid "python"
+msgstr "python"
+
+#: ../../installation_prerequisites.rst:17
+msgid "pip"
+msgstr "pip"
+
+#: ../../installation_prerequisites.rst:18
+msgid "a web server (apache or nginx for instance)"
+msgstr "un serveur web (apache ou nginx par exemple)"
+
+#: ../../installation_prerequisites.rst:19
+msgid "a database"
+msgstr "une base de données"
+
+#: ../../installation_prerequisites.rst:21
+msgid "If you want to use docker you only need a working docker installation."
+msgstr "Si vous voulez installer avec docker il faut juste une installation docker en état de marche."
+
+#: ../../installation_prerequisites.rst:25
+msgid "Database"
+msgstr "Base de données"
+
+#: ../../installation_prerequisites.rst:27
+msgid ""
+"You will need a working database for this project. We recommend the use "
+"of PostgreSQL but any database working with django (see `here "
+"<https://docs.djangoproject.com/en/3.1/ref/databases/>`_) will do the "
+"trick."
+msgstr ""
+"Il faut une base de données pour faire fonctionner django-voting-app. "
+"Nous recommandons l'usage de PostgreSQL mais n'importe quelle base de données "
+"compatible avec django peut être utilisé (voir `ici <https://docs.djangoproject.com/en/3.1/ref/databases/>`_)."
+
+#: ../../installation_prerequisites.rst:29
+msgid ""
+"You will need to create, before installation, a database (e.g. django-"
+"voting-app) and a user (e.g. django-voting-app) with some password that "
+"we will denote ``secret`` for the rest of this guide."
+msgstr ""
+"Il faudra créeer, en premier lieu, une base de données (par exemple "
+"django-voting-app) et un utilisateur (django-voting-app pour changer) "
+"avec un certain mot de passe qu'on considerera comme étant ``secret`` "
+"pour la suite de ce guide."
+
+#: ../../installation_prerequisites.rst:31
+msgid "This is an example with PostgreSQL syntax :"
+msgstr "Voici un exemple de syntaxe PostgreSQL pour les opérations ci-dessus :"
+

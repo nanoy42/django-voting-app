@@ -1,0 +1,67 @@
+# django-voting-app - Simple django app to organise votes
+# Copyright (C) 2020 The authors
+# django-voting-app is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# django-voting-app is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-14 22:49+0100\n"
+"PO-Revision-Date: 2020-12-29 20:55+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../installation.rst:2
+msgid "Installation guide"
+msgstr "Guide d'installation"
+
+#: ../../installation.rst:4
+msgid ""
+"This part explains how to obtain a working installation of django-voting-"
+"app. It is designed to be followed part by part."
+msgstr ""
+"Cette partie explique comment installer django-voting-app. C'est fait "
+"pour être suivi partie par partie."
+
+#: ../../installation.rst:15
+msgid ""
+"A note on deployment : django-voting-app uses semantic versioning to name"
+" its versions, meaning something like major.minor.fix."
+msgstr ""
+"Petite note : django-voting-app utilise le versionnage sémantique "
+"pour nommer ses versions, dans le style majeur.mineur.fix."
+
+#: ../../installation.rst:17
+msgid ""
+"The ``main`` branch holds the latest tagged version of django-voting-app "
+"and should always be considered as released."
+msgstr ""
+"La branche ``main`` contient la dernière version taggée de django-voting-app "
+"et doit toujours être considérée comme une branche de production."
+
+#: ../../installation.rst:19
+msgid ""
+"While we try to maintain a no-bug policy in the ``dev`` branch, the code "
+"there should not be considered really for release and should only be used"
+" at your own risks,"
+msgstr ""
+"Nous tentions de maintenir une politique de 'no-bug' sur la branche ``dev`` "
+"mais le code ne doit pas être considéré comme prêt pour la production et "
+"vous l'utilisez à vos risques et périls."
+

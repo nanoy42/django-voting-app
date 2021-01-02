@@ -209,11 +209,13 @@ class Vote(models.Model):
         if res:
             if len(answers) != self.question_set.count():
                 raise Exception("Incorrect ballot")
+            questions_to_answer = [q.pk for q in self.question_set.all()]
             for answer in answers:
                 if not isinstance(answer, Answer):
                     raise Exception("answers must be an iterable of Answer")
-                if not answer.question.vote == self:
+                if answer.question.pk not in questions_to_answer:
                     raise Exception("Incorrect ballot")
+                questions_to_answer.remove(answer.question.pk)
                 answer.vote()
             Ballot.objects.create(
                 user=user,
@@ -221,6 +223,14 @@ class Vote(models.Model):
             )
         else:
             raise Exception(msg)
+
+    @property
+    def nb_questions(self):
+        return self.question_set.count
+
+    @property
+    def nb_documents(self):
+        return self.document_set.count
 
 
 class Question(models.Model):
@@ -249,6 +259,10 @@ class Question(models.Model):
             string: representation of the question in format vote - question
         """
         return "{} - {}".format(str(self.vote), self.text)
+
+    @property
+    def nb_answers(self):
+        return self.answer_set.count
 
 
 class Answer(models.Model):

@@ -78,7 +78,7 @@ VOTE_LOCAL_LEGALS = """
 # See https://django-auth-ldap.readthedocs.io/en/latest/
 
 import ldap
-from django_auth_ldap.config import LDAPSearch, GroupOfUniqueNamesType
+from django_auth_ldap.config import GroupOfUniqueNamesType, LDAPSearch
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",

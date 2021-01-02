@@ -124,6 +124,7 @@ VOTE_LOCAL_LEGALS = """
 """
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
+MODELTRANSLATION_LANGUAGES = [l[0] for l in LANGUAGES]
 
 try:
     from django_voting_app.local_settings import *

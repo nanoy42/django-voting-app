@@ -1,0 +1,86 @@
+# django-voting-app - Simple django app to organise votes
+# Copyright (C) 2020 The authors
+# django-voting-app is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# django-voting-app is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-02 14:20+0100\n"
+"PO-Revision-Date: 2021-01-02 14:24+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../utilisation.rst:2
+msgid "User guide"
+msgstr "Guide d'utilisation"
+
+#: ../../utilisation.rst:4
+msgid ""
+"Normal users have access to the list of votes. Each vote appears in one "
+"of three colors :"
+msgstr ""
+"Les utilisateurs classiques ont accès à la liste de vote. Un vote "
+"apparait dans une des trois couleurs suivantes :"
+
+#: ../../utilisation.rst:6
+msgid "yellow : the vote is ready but has not begun"
+msgstr "jaune : le vote est prêt mais n'a pas encore commencé"
+
+#: ../../utilisation.rst:7
+msgid "green : the vote is ongoing"
+msgstr "vert : le vote est en cours"
+
+#: ../../utilisation.rst:8
+msgid "red : the vote is finished"
+msgstr "rouge : le vote est fini"
+
+#: ../../utilisation.rst:10
+msgid ""
+"You will see all ready votes, even if you have the right to vote in (if "
+"you are not in the good group, or if you have already voted for "
+"instance)."
+msgstr ""
+"Vous verez tous les votes prêts dans la liste, même si vous n'avez pas le"
+" droit de vote (si vous n'êtes pas dans le bon groupe ou si vous avez "
+"déjà voté par exemple)."
+
+#: ../../utilisation.rst:12
+msgid ""
+"For each vote, it will be indicated if you have already voted or not (in "
+"the top right corner)."
+msgstr ""
+"Pour chaque vote, ce sera indiqué si vous avez déjà voté ou non (dans le "
+"coint en haut à gauche)."
+
+#: ../../utilisation.rst:14
+msgid ""
+"If you have the right to vote (the vote is ready, ongoing, you meet the "
+"group requirements and you have not yet already voted), you will be "
+"presented a voting page. You will have access to all the relevant "
+"documents and to every question of the vote. You must select a unique "
+"answer for each question and then validate your vote. Once you have "
+"voted, you can't modify or delete your vote in any way."
+msgstr ""
+"Si vous avez le droit de vote (le vote est prêt, en cours, vous êtes dans"
+" un des bons groupes et vous n'avez pas encore voté), vous serez emmené "
+"sur une page de vote. Il y a aura tous les documents nécessaires au vote "
+"ainsi que toutes les questions incluses dans le vote. Vous devez "
+"sélectionner une unique réponse pour chaque question dans le vote, puis "
+"valider le vote. Une fois validé, il n'est plus possible de modifier ou "
+"supprimer le vote."
+

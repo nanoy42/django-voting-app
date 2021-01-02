@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = "django-voting-app"
-copyright = "2020, Yoann Piétri"
-author = "Yoann Piétri"
+copyright = "2020, The django-voting-app authors"
+author = "The django-voting-app authors"
 
 # The full version, including alpha/beta/rc tags
-release = "1.0.0"
+release = "1.1.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -56,3 +56,6 @@ html_static_path = ["_static"]
 master_doc = "index"
 pygments_style = "sphinx"
 todo_include_todos = True
+
+locale_dirs = ["locale/"]
+gettext_compact = False
