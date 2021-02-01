@@ -44,6 +44,7 @@ class VoteAdmin(TranslationAdmin):
         "nb_documents",
     )
     list_filter = ("ready",)
+    ordering = ("-begin_date",)
     actions = (make_ready,)
 
 

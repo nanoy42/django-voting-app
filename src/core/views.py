@@ -57,7 +57,7 @@ def home(request):
     Returns:
         HttpResponse: django response object.
     """
-    votes = Vote.objects.filter(ready=True)
+    votes = Vote.objects.filter(ready=True).order_by("-begin_date")
     return render(request, "home.html", {"votes": votes, "active": "home"})
 
 
@@ -117,7 +117,7 @@ def votes_index(request):
     Returns:
         HttpResponse: django response object.
     """
-    votes = Vote.objects.all()
+    votes = Vote.objects.all().order_by("-begin_date")
     return render(request, "votes_index.html", {"votes": votes, "active": "index"})
 
 
@@ -135,7 +135,7 @@ def results(request):
     Returns:
         HttpResponse: django response object.
     """
-    votes = Vote.objects.filter(ready=True)
+    votes = Vote.objects.filter(ready=True).order_by("-begin_date")
     return render(request, "results.html", {"votes": votes, "active": "results"})
 
 
