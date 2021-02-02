@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-14 22:41+0100\n"
-"PO-Revision-Date: 2020-12-14 22:43+0100\n"
+"PO-Revision-Date: 2021-02-02 09:15+0100\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -265,8 +265,8 @@ msgstr "Votes avec résultats"
 
 #: core/templates/results.html:18
 #, python-format
-msgid "%(vote.get_total_ballots)s voters"
-msgstr "%(vote.get_total_ballots)s votants"
+msgid "%(nb_voters)s voters"
+msgstr "%(nb_voters)s votants"
 
 #: core/templates/results.html:22
 #, python-format
