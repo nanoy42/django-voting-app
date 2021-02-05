@@ -226,10 +226,20 @@ class Vote(models.Model):
 
     @property
     def nb_questions(self):
+        """Return the number of questions in the vote.
+
+        Returns:
+            int: number of questions included in the vote.
+        """
         return self.question_set.count
 
     @property
     def nb_documents(self):
+        """Return the number of documents in the vote.
+
+        Returns:
+            int: number of documents included in the vote.
+        """
         return self.document_set.count
 
 
@@ -262,6 +272,11 @@ class Question(models.Model):
 
     @property
     def nb_answers(self):
+        """Return the number of possible answers for the question.
+
+        Returns:
+            int: number of possible answer for the question.
+        """
         return self.answer_set.count
 
 

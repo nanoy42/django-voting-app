@@ -213,6 +213,9 @@ class VoteTestCase(TestCase):
             vote2.vote(self.user, [answer211, answer212])
 
     def test_nb_questions(self):
+        """
+        Test the nb_questions method.
+        """
         self.assertEqual(self.vote.nb_questions(), 1)
 
 
@@ -289,6 +292,9 @@ class AnswerTestCase(TestCase):
             Answer.objects.create(question=self.question, answer="Blue")
 
     def test_question_nb_answers(self):
+        """
+        Test the nb_answers method.
+        """
         self.assertEqual(self.question.nb_answers(), 2)
 
 
@@ -336,6 +342,9 @@ class DocumentTestCase(TestCase):
         self.assertFalse(os.path.isfile(self.document.document.path))
 
     def test_vote_nb_documents(self):
+        """
+        Test the nb_documents method.
+        """
         self.assertEqual(self.vote.nb_documents(), 1)
 
 
@@ -487,6 +496,9 @@ class ViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_make_ready_action(self):
+        """
+        Test the custom action to make votes ready
+        """
         self.c.login(username=self.superuser.username, password=self.password)
         self.assertFalse(self.vote2.ready)
         data = {"action": "make_ready", "_selected_action": [self.vote2.pk]}
@@ -496,6 +508,9 @@ class ViewsTestCase(TestCase):
         self.assertTrue(self.vote2.ready)
 
     def test_templatetags(self):
+        """
+        Test the custom templatetag to get available languages.
+        """
         template = """
         {% load core_extras %}
         {% get_modeltranslation_available_languages %}
