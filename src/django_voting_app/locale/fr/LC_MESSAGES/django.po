@@ -14,22 +14,22 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: django-voting-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-14 22:41+0100\n"
-"PO-Revision-Date: 2020-12-14 22:41+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2021-02-05 15:37+0100\n"
+"PO-Revision-Date: 2020-02-05 15:37+0100\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: django_voting_app/settings.py:104
+#: src/django_voting_app/settings.py:109
 msgid "English"
 msgstr "Anglais"
 
-#: django_voting_app/settings.py:105
+#: src/django_voting_app/settings.py:110
 msgid "French"
 msgstr "Français"
