@@ -77,6 +77,7 @@ class Vote(models.Model):
     end_date = models.DateTimeField(verbose_name=_("end date"))
     ready = models.BooleanField(default=False, verbose_name=_("ready"))
     groups = models.ManyToManyField(Group, blank=True)
+    see_voters = models.BooleanField(default=False, verbose_name=_("see voters"))
 
     def __str__(self):
         """string representation of a vote (name)
@@ -241,6 +242,17 @@ class Vote(models.Model):
             int: number of documents included in the vote.
         """
         return self.document_set.count
+
+    @property
+    def voters(self):
+        """Return the list of voters
+
+        Returns:
+            list<User>: list of voters
+        """
+        if self.see_voters:
+            return [ballot.user for ballot in Ballot.objects.filter(vote=self)]
+        return None
 
 
 class Question(models.Model):
