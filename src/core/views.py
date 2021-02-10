@@ -21,7 +21,6 @@ import hashlib
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.conf import settings
 from django.db import IntegrityError, transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
