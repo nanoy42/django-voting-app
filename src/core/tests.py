@@ -30,7 +30,6 @@ from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from core.models import Answer, Document, Question, Vote, is_member_or
-from django_voting_app.local_settings import VOTE_SEE_VOTERS
 
 
 class IsMemberOfTestCase(TestCase):
@@ -361,7 +360,6 @@ class DocumentTestCase(TestCase):
         self.assertEqual(self.vote.nb_documents(), 1)
 
 
-@override_settings(VOTE_SEE_VOTERS=True)
 class ViewsTestCase(TestCase):
     """Test class for views."""
 
