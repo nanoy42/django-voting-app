@@ -21,6 +21,7 @@ import hashlib
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.conf import settings
 from django.db import IntegrityError, transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -153,6 +154,7 @@ def results_detail(request, pk):
         HttpResponse: django response object.
     """
     vote = get_object_or_404(Vote, pk=pk)
+    voters = vote.voters
     if not vote.can_see_results:
         messages.warning(request, _("You can't see results before the end of the vote"))
         return redirect(reverse("results"))
@@ -160,7 +162,7 @@ def results_detail(request, pk):
     return render(
         request,
         "results_detail.html",
-        {"vote": vote, "questions": questions, "active": "results"},
+        {"vote": vote, "questions": questions, "active": "results", "voters": voters},
     )
 
 
