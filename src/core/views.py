@@ -57,7 +57,7 @@ def home(request):
     Returns:
         HttpResponse: django response object.
     """
-    votes = Vote.objects.filter(ready=True)
+    votes = Vote.objects.filter(ready=True).order_by("-begin_date")
     return render(request, "home.html", {"votes": votes, "active": "home"})
 
 
@@ -117,13 +117,12 @@ def votes_index(request):
     Returns:
         HttpResponse: django response object.
     """
-    votes = Vote.objects.all()
+    votes = Vote.objects.all().order_by("-begin_date")
     return render(request, "votes_index.html", {"votes": votes, "active": "index"})
 
 
 @login_required
 @user_passes_test(lambda user: user.is_active)
-@user_passes_test(lambda user: user.is_staff)
 def results(request):
     """Votes results. Display all the active votes.
 
@@ -135,13 +134,17 @@ def results(request):
     Returns:
         HttpResponse: django response object.
     """
-    votes = Vote.objects.filter(ready=True)
+    if request.user.is_staff:
+        votes = Vote.objects.filter(ready=True).order_by("-begin_date")
+    else:
+        votes = Vote.objects.filter(ready=True, public_results=True).order_by(
+            "-begin_date"
+        )
     return render(request, "results.html", {"votes": votes, "active": "results"})
 
 
 @login_required
 @user_passes_test(lambda user: user.is_active)
-@user_passes_test(lambda user: user.is_staff)
 def results_detail(request, pk):
     """Results details for a vote.
 
@@ -153,14 +156,18 @@ def results_detail(request, pk):
         HttpResponse: django response object.
     """
     vote = get_object_or_404(Vote, pk=pk)
-    if not vote.can_see_results:
-        messages.warning(request, _("You can't see results before the end of the vote"))
+    voters = vote.voters
+    if not vote.can_see_results(request.user):
+        messages.warning(
+            request,
+            _("You can't see the results (vote not finished or insufficient rights)"),
+        )
         return redirect(reverse("results"))
     questions = vote.question_set.all()
     return render(
         request,
         "results_detail.html",
-        {"vote": vote, "questions": questions, "active": "results"},
+        {"vote": vote, "questions": questions, "active": "results", "voters": voters},
     )
 
 

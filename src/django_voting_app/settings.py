@@ -13,6 +13,11 @@
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 
+"""
+Main settings file for django-voting-app.
+Should be completed with local settings.
+"""
+
 import sys
 from pathlib import Path
 
@@ -113,6 +118,7 @@ LOGOUT_REDIRECT_URL = "login"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_ROOT = BASE_DIR / "media"
+STATICFILES_DIRS = [BASE_DIR / "statics"]
 
 MEDIA_URL = "/media/"
 

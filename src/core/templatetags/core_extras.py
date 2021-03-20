@@ -26,10 +26,25 @@ register = template.Library()
 
 
 class GetModelTranslationAvailableLanguagesNode(template.Node):
+    """
+    Node to get the possible languages
+    """
+
     def __init__(self, variable):
+        """
+        Init
+        """
         self.variable = variable
 
     def render(self, context):
+        """Render
+
+        Args:
+            context (Context): context
+
+        Returns:
+            string: empty string
+        """
         context[self.variable] = [k for k in settings.MODELTRANSLATION_LANGUAGES]
         return ""
 

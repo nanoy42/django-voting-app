@@ -13,6 +13,10 @@
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 
+"""
+ASGI file for django-voting-app.
+"""
+
 import os
 
 from django.core.asgi import get_asgi_application

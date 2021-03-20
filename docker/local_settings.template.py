@@ -13,6 +13,10 @@
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 
+"""
+Local settings file template for django-voting-app
+"""
+
 ############################## NOTICE ##############################
 ####################################################################
 # Please copy this file to src/django_voting_app/local_settings.py #

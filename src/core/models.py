@@ -77,6 +77,10 @@ class Vote(models.Model):
     end_date = models.DateTimeField(verbose_name=_("end date"))
     ready = models.BooleanField(default=False, verbose_name=_("ready"))
     groups = models.ManyToManyField(Group, blank=True)
+    see_voters = models.BooleanField(default=False, verbose_name=_("see voters"))
+    public_results = models.BooleanField(
+        default=False, verbose_name=_("public results")
+    )
 
     def __str__(self):
         """string representation of a vote (name)
@@ -177,8 +181,7 @@ class Vote(models.Model):
         self.ready = True
         self.save()
 
-    @property
-    def can_see_results(self):
+    def can_see_results(self, user):
         """Test if the results are available
 
         This depends on the VOTE_SEE_BEFORE_END
@@ -186,7 +189,10 @@ class Vote(models.Model):
         Returns:
             bool: True if the results can be seen.
         """
-        return settings.VOTE_SEE_BEFORE_END or self.after
+        user_right = self.public_results or user.is_staff
+        if settings.VOTE_SEE_BEFORE_END:
+            return user_right
+        return self.after and user_right
 
     @transaction.atomic
     def vote(self, user, answers):
@@ -226,11 +232,32 @@ class Vote(models.Model):
 
     @property
     def nb_questions(self):
+        """Return the number of questions in the vote.
+
+        Returns:
+            int: number of questions included in the vote.
+        """
         return self.question_set.count
 
     @property
     def nb_documents(self):
+        """Return the number of documents in the vote.
+
+        Returns:
+            int: number of documents included in the vote.
+        """
         return self.document_set.count
+
+    @property
+    def voters(self):
+        """Return the list of voters
+
+        Returns:
+            list<User>: list of voters
+        """
+        if self.see_voters:
+            return [ballot.user for ballot in Ballot.objects.filter(vote=self)]
+        return None
 
 
 class Question(models.Model):
@@ -262,6 +289,11 @@ class Question(models.Model):
 
     @property
     def nb_answers(self):
+        """Return the number of possible answers for the question.
+
+        Returns:
+            int: number of possible answer for the question.
+        """
         return self.answer_set.count
 
 

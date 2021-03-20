@@ -13,6 +13,10 @@
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 
+"""
+Main URLs file for django-voting-app.
+"""
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin

@@ -16,14 +16,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-02 14:20+0100\n"
+"POT-Creation-Date: 2021-03-20 17:52+0100\n"
 "PO-Revision-Date: 2021-01-02 14:45+0100\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.0\n"
+"Generated-By: Babel 2.8.0\n"
 
 #: ../../administration.rst:2
 msgid "Administration guide"
@@ -60,7 +60,7 @@ msgstr ""
 "Vous pouvez créer des votes sur l'interface d'aministration. Vous devez "
 "spécifier :"
 
-#: ../../administration.rst:16 ../../administration.rst:85
+#: ../../administration.rst:16 ../../administration.rst:89
 msgid "a name"
 msgstr "un nom"
 
@@ -72,23 +72,39 @@ msgstr "une date et heure de départ"
 msgid "a end date"
 msgstr "une date et heure de fin"
 
+#: ../../administration.rst:19
+msgid "if voters will be displayed on the results page"
+msgstr "oui si les votants doivent être affichés sur la page de résultats"
+
 #: ../../administration.rst:20
+msgid "if the results are public (i.e. can be accessed by non staff members)"
+msgstr "oui si les résultats doivent être publics (qui peuvent être vus par des personnes non staff)"
+
+#: ../../administration.rst:22
+msgid ""
+"The see_voters option will only be editable when creating the vote and "
+"not editing it afterwards."
+msgstr ""
+"L'option see_voters est éditable à la création du vote et ne sera "
+"pas éditable après."
+
+#: ../../administration.rst:24
 msgid "You can optionally add :"
 msgstr "Optionnellement, vous pouvez ajouter : "
 
-#: ../../administration.rst:22
+#: ../../administration.rst:26
 msgid "a description"
 msgstr "une description"
 
-#: ../../administration.rst:23
+#: ../../administration.rst:27
 msgid "restrictions on groups"
 msgstr "des restrictions relatives aux groupes"
 
-#: ../../administration.rst:24
+#: ../../administration.rst:28
 msgid "translation of some fields (see the related section)"
 msgstr "des traductions pour certains champs (voir le paragraphe correspondant)"
 
-#: ../../administration.rst:26
+#: ../../administration.rst:30
 msgid ""
 "The restriction to a specific vote is made using groups. If you specify "
 "one (or more) group(s) the user must be in one the groups in order to "
@@ -101,17 +117,17 @@ msgstr ""
 "spécifiez aucun groupe, tous les utilisateurs actifs auront accès au "
 "vote."
 
-#: ../../administration.rst:29
+#: ../../administration.rst:33
 msgid "User who are not active can't connect to the interface."
 msgstr "Les utilisateurs non actifs me peuvent pas se connecter à l'interface."
 
-#: ../../administration.rst:31
+#: ../../administration.rst:35
 msgid "A vote is accessible to a user if the 3 following conditions are met :"
 msgstr ""
 "Un vote est accessible à un utilisateur si les trois conditions suivantes"
 " sont réunies :"
 
-#: ../../administration.rst:33
+#: ../../administration.rst:37
 msgid ""
 "the vote has begun (i.e. the begin date is passed) and has not yet ended "
 "(i.e. the end date is not passed)"
@@ -119,11 +135,11 @@ msgstr ""
 "le vote a commencé (i.e. la date de départ est passé) et n'est pas fini "
 "(i.e. la date de fin n'est pas passé)."
 
-#: ../../administration.rst:34
+#: ../../administration.rst:38
 msgid "the vote is ready (see related section)"
 msgstr "le vote est prêt (voir la estion correspondante)."
 
-#: ../../administration.rst:35
+#: ../../administration.rst:39
 msgid ""
 "the user has the right of vote for this vote (i.e. he has not yet voted "
 "and the conditions on groups are met)"
@@ -131,11 +147,11 @@ msgstr ""
 "le votant a le droit de vote pour ce vote (i.e. il n'a pas encore voté et"
 " les conditions sur les groupes sont remplies)."
 
-#: ../../administration.rst:38
+#: ../../administration.rst:42
 msgid "Questions"
 msgstr "Questions"
 
-#: ../../administration.rst:40
+#: ../../administration.rst:44
 msgid ""
 "For each vote, you can create an unlimited number of questions. On the "
 "voting page, all questions will be displayed and the user must answer to "
@@ -145,7 +161,7 @@ msgstr ""
 "la page de vote, chaque questions sera affichée et le votant devra "
 "choisir une unique réponse pour chaque question."
 
-#: ../../administration.rst:42
+#: ../../administration.rst:46
 msgid ""
 "If you want your users to be able to skip a question of the vote, you can"
 " always add a \"don't know\" answer."
@@ -153,34 +169,34 @@ msgstr ""
 "Si vous voulez que vos utilisateurs puissent passer une question, vous "
 "pouvez toujours créer une réponse \"Ne se prononce pas\""
 
-#: ../../administration.rst:44
+#: ../../administration.rst:48
 msgid "You can create questions on the admin panel. You need to specify :"
 msgstr ""
 "Vous pouvez créer des questions sur le panneau d'administration. Vous "
 "devez spécifier :"
 
-#: ../../administration.rst:46
+#: ../../administration.rst:50
 msgid "a related vote"
 msgstr "a un vote lié"
 
-#: ../../administration.rst:47
+#: ../../administration.rst:51
 msgid "a text, which is the question"
 msgstr "un texte, qui est la question"
 
-#: ../../administration.rst:49 ../../administration.rst:67
-#: ../../administration.rst:88
+#: ../../administration.rst:53 ../../administration.rst:71
+#: ../../administration.rst:92
 msgid "Additionally you can add :"
 msgstr "Optionnellement, vous pouvez ajouter :"
 
-#: ../../administration.rst:51 ../../administration.rst:90
+#: ../../administration.rst:55 ../../administration.rst:94
 msgid "translations for some fields (see the related section)"
 msgstr "des traductions pour certains champs (voir la section correspondante)"
 
-#: ../../administration.rst:53
+#: ../../administration.rst:57
 msgid "A question must be related to a unique vote."
 msgstr "Une question doit être liée à un unique vote."
 
-#: ../../administration.rst:55
+#: ../../administration.rst:59
 msgid ""
 "It is a bad idea to change the vote of an answer afterwards (after the "
 "vote has begun to be more precise). You will get wrong results if you do "
@@ -190,11 +206,11 @@ msgstr ""
 "que vote ait commençé pour être précis). Vous aurez des mauvais résultats"
 " si vous le faites."
 
-#: ../../administration.rst:58
+#: ../../administration.rst:62
 msgid "Answers"
 msgstr "Questions"
 
-#: ../../administration.rst:60
+#: ../../administration.rst:64
 msgid ""
 "For each question, you can create an unlimited number of answers. Users "
 "will have to select a unique answer for each question."
@@ -202,29 +218,29 @@ msgstr ""
 "Pour chaque question, vous pouvez créer un nombre illimité de réponses. "
 "Les votants pourront selectionner une seule réponse par question."
 
-#: ../../administration.rst:62
+#: ../../administration.rst:66
 msgid "You can create answers on the admin panel. You need to specify :"
 msgstr ""
 "Vous pouvez créer des réponses sur le panneau d'aministration. Il faut "
 "spécifier :"
 
-#: ../../administration.rst:64
+#: ../../administration.rst:68
 msgid "a related question"
 msgstr "la question liée"
 
-#: ../../administration.rst:65
+#: ../../administration.rst:69
 msgid "the answer"
 msgstr "la réponse"
 
-#: ../../administration.rst:69
+#: ../../administration.rst:73
 msgid "translations for some fields (see the related section)."
 msgstr "des traductions pour certains champs (voir le paragraphe correspondant)."
 
-#: ../../administration.rst:71
+#: ../../administration.rst:75
 msgid "An answer must be related to a unique question."
 msgstr "Une réponse doit être liée à une unique question."
 
-#: ../../administration.rst:73
+#: ../../administration.rst:77
 msgid ""
 "It is a bad idea to change the question of an answer afterwards (after "
 "the vote has begun to be more precise). You will get wrong results if you"
@@ -234,11 +250,11 @@ msgstr ""
 " (après que le vote ait commencé pour être précis). Vous aurez des faux "
 "résultats si vous le faites."
 
-#: ../../administration.rst:76
+#: ../../administration.rst:80
 msgid "Documents"
 msgstr "Documents"
 
-#: ../../administration.rst:78
+#: ../../administration.rst:82
 msgid ""
 "Documents are files to help people vote. There are displayed on the "
 "voting page."
@@ -246,7 +262,7 @@ msgstr ""
 "Les documents sont des fichiers pour aider les personnes à votes. Ils "
 "sont affichés sur la page de vote."
 
-#: ../../administration.rst:80
+#: ../../administration.rst:84
 msgid ""
 "For each vote, you can link an unlimited number of documents. A document "
 "is related to a unique vote."
@@ -254,25 +270,25 @@ msgstr ""
 "Pour chaque vote, il est possible de lier u nombre illimité de documents."
 " Un document lui est lié à un unique vote."
 
-#: ../../administration.rst:82
+#: ../../administration.rst:86
 msgid "You can create documents on the admin panel. You need to specify :"
 msgstr ""
 "Vous pouvez créer les documents sur le panneau d'administration. Il faut "
 "spécifier :"
 
-#: ../../administration.rst:84
+#: ../../administration.rst:88
 msgid "a vote"
 msgstr "un vote"
 
-#: ../../administration.rst:86
+#: ../../administration.rst:90
 msgid "a file"
 msgstr "un fichier"
 
-#: ../../administration.rst:93
+#: ../../administration.rst:97
 msgid "Readyness"
 msgstr "Être prêt"
 
-#: ../../administration.rst:95
+#: ../../administration.rst:99
 msgid ""
 "Votes will not begin if they are not ready. In fact they will not be "
 "displayed on available votes."
@@ -280,7 +296,7 @@ msgstr ""
 "Un vote ne commençera pas s'il n'est pas prêt. En vérité un vote non prêt"
 " ne sera même pas affiché sur la liste des votes disponibles."
 
-#: ../../administration.rst:97
+#: ../../administration.rst:101
 msgid ""
 "When you make a vote ready, you should no longer make any modification. "
 "The app will prevent you from doing certain modification but not all of "
@@ -289,7 +305,7 @@ msgstr ""
 "Lorsqu'un vote est rendu prêt, il ne doit plus subir aucune modification."
 " L'app empêchera certaines des modifications mais pas toutes."
 
-#: ../../administration.rst:99
+#: ../../administration.rst:103
 msgid ""
 "When a vote is ready, you cannot make the vote not ready again (you have "
 "to delete it and start again)."
@@ -297,13 +313,13 @@ msgstr ""
 "Lorsqu'un vote a été rendu prêt, il n'est plus possible de revenir en "
 "arrière (il faut le supprimer et recommençer)."
 
-#: ../../administration.rst:101
+#: ../../administration.rst:105
 msgid ""
 "To make a vote ready, you can use the action ont the admin panel or go to"
 " the administrators index of votes. See results ###########"
 msgstr ""
 
-#: ../../administration.rst:105
+#: ../../administration.rst:109
 msgid ""
 "Depending on ``VOTE_SEE_BEFORE_END`` you will be able to see the results "
 "as the vote goes or when the vote is passed."
@@ -311,86 +327,86 @@ msgstr ""
 "Selon la valeur du paramètre ``VOTE_SEE_BEFORE_END``, il sera possible de"
 " voir les résultats en temps réel ou seulement après le vote."
 
-#: ../../administration.rst:107
+#: ../../administration.rst:111
 msgid "You can see the results of all the votes on the corresponding page."
 msgstr ""
 "Il est possible de voir les résultats de tous les votes sur la page "
 "correspondante."
 
-#: ../../administration.rst:109
+#: ../../administration.rst:113
 msgid "Only administrators can see the results."
 msgstr "Seuls les administrateurs peuvent voir les résultats."
 
-#: ../../administration.rst:112
+#: ../../administration.rst:116
 msgid "A note on translations"
 msgstr "Un point sur les traductions"
 
-#: ../../administration.rst:114
+#: ../../administration.rst:118
 msgid ""
-"Some fields may be translated to another languages. By default you can translate "
-"to any languages supported by the app, namely"
+"Some fields may be translated to another languages. By default you can "
+"translate to any languages supported by the app, namely"
 msgstr ""
-"Certains champs peuvent être traduits dans d'autres langues. Par "
-"défaut, vous pouvez traduire dans les langues supportées par "
-"django-voting-app, soit :"
+"Certains champs peuvent être traduits dans d'autres langues. Par défaut, "
+"vous pouvez traduire dans les langues supportées par django-voting-app, "
+"soit :"
 
-#: ../../administration.rst:116
+#: ../../administration.rst:120
 msgid "en (English)"
 msgstr "en (Anglais)"
 
-#: ../../administration.rst:117
+#: ../../administration.rst:121
 msgid "fr (French)"
 msgstr "fr (Français)"
 
-#: ../../administration.rst:119
+#: ../../administration.rst:123
 msgid ""
 "If you want more (or less) languages, you can edit the "
 "``MODELTRANSLATION_LANGUAGES`` parameter."
 msgstr ""
-"Si vous voulez plus (ou moins) de langues, vous pouvez "
-"modifier la valeur de ``MODELTRANSLATION_LANGUAGES``."
+"Si vous voulez plus (ou moins) de langues, vous pouvez modifier la valeur"
+" de ``MODELTRANSLATION_LANGUAGES``."
 
-#: ../../administration.rst:121
+#: ../../administration.rst:125
 msgid "The following fields can be translated :"
 msgstr "Les champs suivants peuvent être traduits :"
 
-#: ../../administration.rst:124
+#: ../../administration.rst:128
 msgid "Model"
 msgstr "Modèle"
 
-#: ../../administration.rst:124
+#: ../../administration.rst:128
 msgid "Translatable fields"
 msgstr "Champs traduisibles"
 
-#: ../../administration.rst:126
+#: ../../administration.rst:130
 msgid "Vote"
 msgstr "Vote"
 
-#: ../../administration.rst:126
+#: ../../administration.rst:130
 msgid "name, description"
 msgstr "nom, description"
 
-#: ../../administration.rst:128
+#: ../../administration.rst:132
 msgid "Question"
 msgstr "Question"
 
-#: ../../administration.rst:128
+#: ../../administration.rst:132
 msgid "text"
 msgstr "texte"
 
-#: ../../administration.rst:130
+#: ../../administration.rst:134
 msgid "Answer"
 msgstr "Réponse"
 
-#: ../../administration.rst:130
+#: ../../administration.rst:134
 msgid "answer"
 msgstr "réponse"
 
-#: ../../administration.rst:132
+#: ../../administration.rst:136
 msgid "Document"
 msgstr "Document"
 
-#: ../../administration.rst:132
+#: ../../administration.rst:136
 msgid "name, document"
 msgstr "nom, document"
 

@@ -3,6 +3,13 @@
 {% block container %}
 <h2>{% blocktrans count nb_participation=vote.get_total_ballots %}{{vote}} : 1 participation
     {% plural %}{{vote}} : {{nb_participation}} participations{% endblocktrans %}</h2>
+{% if voters %}
+<ul>
+    {% for voter in voters %}
+    <li>{{ user }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% for question in questions %}
 <h3>{{forloop.counter}} - {{question.text}}</h3>
 {% for answer in question.answer_set.all %}

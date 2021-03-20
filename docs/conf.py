@@ -1,3 +1,6 @@
+"""
+Configuration file for the Sphinx documentation builder.
+"""
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -22,7 +25,7 @@ copyright = "2020, The django-voting-app authors"
 author = "The django-voting-app authors"
 
 # The full version, including alpha/beta/rc tags
-release = "1.1.0"
+release = "1.2.0"
 
 
 # -- General configuration ---------------------------------------------------

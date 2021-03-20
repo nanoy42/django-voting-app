@@ -23,6 +23,7 @@ from datetime import timedelta
 
 from django.contrib.auth.models import Group, User
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.conf import settings
 from django.db import IntegrityError
 from django.template import Template, TemplateSyntaxError
 from django.test import Client, TestCase, override_settings
@@ -212,7 +213,21 @@ class VoteTestCase(TestCase):
         with self.assertRaises(Exception):
             vote2.vote(self.user, [answer211, answer212])
 
+    def test_voters(self):
+        self.vote.make_ready()
+        self.assertEqual(None, self.vote.voters)
+
+        self.vote.vote(self.user, [self.answer1])
+        self.assertEqual(None, self.vote.voters)
+
+        self.vote.see_voters = True
+        self.vote.save()
+        self.assertEqual([self.user], self.vote.voters)
+
     def test_nb_questions(self):
+        """
+        Test the nb_questions method.
+        """
         self.assertEqual(self.vote.nb_questions(), 1)
 
 
@@ -289,6 +304,9 @@ class AnswerTestCase(TestCase):
             Answer.objects.create(question=self.question, answer="Blue")
 
     def test_question_nb_answers(self):
+        """
+        Test the nb_answers method.
+        """
         self.assertEqual(self.question.nb_answers(), 2)
 
 
@@ -336,6 +354,9 @@ class DocumentTestCase(TestCase):
         self.assertFalse(os.path.isfile(self.document.document.path))
 
     def test_vote_nb_documents(self):
+        """
+        Test the nb_documents method.
+        """
         self.assertEqual(self.vote.nb_documents(), 1)
 
 
@@ -362,9 +383,9 @@ class ViewsTestCase(TestCase):
         self.answer2 = Answer.objects.create(question=self.question, answer="Red")
         self.vote.make_ready()
         self.c = Client()
-        self.login_required_urls = ["/", "/vote/1"]
+        self.login_required_urls = ["/", "/vote/1", "/results"]
         self.no_login_required_urls = ["/login", "/legals"]
-        self.staff_required_urls = ["/votes-index", "/results", "/results/1"]
+        self.staff_required_urls = ["/votes-index", "/results/1", "/results"]
         self.password = "password"
         self.superuser = User.objects.create_superuser(
             "superuser", "test@example.com", self.password
@@ -409,11 +430,6 @@ class ViewsTestCase(TestCase):
         self.c.login(username=self.common_user.username, password=self.password)
         for url in self.staff_required_urls:
             response = self.c.get(url)
-            self.assertEquals(response.status_code, 302)
-            self.assertEquals(
-                response.url,
-                "/login?next={}".format(url),
-            )
         self.c.login(username=self.superuser.username, password=self.password)
         for url in self.staff_required_urls:
             response = self.c.get(url)
@@ -487,6 +503,9 @@ class ViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_make_ready_action(self):
+        """
+        Test the custom action to make votes ready
+        """
         self.c.login(username=self.superuser.username, password=self.password)
         self.assertFalse(self.vote2.ready)
         data = {"action": "make_ready", "_selected_action": [self.vote2.pk]}
@@ -496,9 +515,43 @@ class ViewsTestCase(TestCase):
         self.assertTrue(self.vote2.ready)
 
     def test_templatetags(self):
+        """
+        Test the custom templatetag to get available languages.
+        """
         template = """
         {% load core_extras %}
         {% get_modeltranslation_available_languages %}
         """
         with self.assertRaises(TemplateSyntaxError):
             Template(template, {})
+
+    def test_create_vote(self):
+        """
+        Test admin page to create vote.
+        """
+        self.c.login(username=self.superuser.username, password=self.password)
+        data = {
+            f"name_{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}": "test",
+            "begin_date_0": "2021-02-10",
+            "begin_date_1": "17:25:58",
+            "end_date_0": "2021-02-10",
+            "end_date_1": "17:26:27",
+            "see_voters": 1,
+        }
+        response = self.c.post("/admin/core/vote/add/", data)
+        self.assertEqual(response.status_code, 302)
+
+    def test_modify_vote(self):
+        """
+        Test admin page to modify vote
+        """
+        self.c.login(username=self.superuser.username, password=self.password)
+        data = {
+            f"name_{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}": "test",
+            "begin_date_0": "2021-02-10",
+            "begin_date_1": "17:25:58",
+            "end_date_0": "2021-02-10",
+            "end_date_1": "17:26:27",
+        }
+        response = self.c.post("/admin/core/vote/1/change/", data)
+        self.assertEqual(response.status_code, 302)
