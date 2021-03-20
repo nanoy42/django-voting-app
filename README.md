@@ -1,4 +1,5 @@
 # django-voting-app
+<p align="center">
 
 [![Documentation Status](https://readthedocs.org/projects/django-voting-app/badge/?version=latest)](https://django-voting-app.readthedocs.io/en/latest/?badge=latest)
 [![Coverage Status](https://coveralls.io/repos/github/nanoy42/django-voting-app/badge.svg?branch=main)](https://coveralls.io/github/nanoy42/django-voting-app?branch=main)
@@ -7,6 +8,9 @@
 [![Code style black](https://img.shields.io/badge/code%20style-black-000000.svg)]("https://github.com/psf/black)
 [![GitHub release](https://img.shields.io/github/release/nanoy42/django-voting-app.svg)](https://github.com/nanoy42/django-voting-app/releases/)
 
+![logo](https://github.com/nanoy42/django-voting-app/raw/main/res/logo/logo.png "Logo")
+
+</p>
 django-voting-app is a simple django app to organise votes.
 
 Summary :

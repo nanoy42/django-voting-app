@@ -1,6 +1,7 @@
 {% load bootstrap4 %}
 {% load i18n %}
 {% bootstrap_css %}
+{% load static %}
 {% bootstrap_javascript jquery='full' %}
 {% load core_extras %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -13,13 +14,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/8c3175a7a7.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'logo/logo.png' %}">
     <title>{{VOTE_NAME}}</title>
 </head>
 
 <body class="text-center">
     <div class="form-signin">
         <form method="post" class="">
-            <i class="fas fa-vote-yea mb-4" style="font-size: 72px;"></i>
+            <img src="{% static 'logo/logo.png' %}" width="72px"/>
+            <br><br>
             <h1 class="h3 mb-3 font-weight-normal">{% trans "Login" %}</h1>
             {% bootstrap_messages %}
             {% csrf_token %}

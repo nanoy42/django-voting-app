@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="43.140045mm"
+   height="54.083775mm"
+   viewBox="0 0 43.140045 54.083775"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs2">
+    <rect
+       x="75.654678"
+       y="75.671059"
+       width="33.692909"
+       height="10.692543"
+       id="rect16" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-92.117139"
+     inkscape:cy="27.000624"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:snap-global="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="985"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-4.6128402,-0.45378214)">
+    <rect
+       style="fill:#000000;fill-rule:evenodd;stroke-width:0.264583"
+       id="rect10"
+       width="43.140045"
+       height="41.779648"
+       x="4.6128402"
+       y="12.757911" />
+    <text
+       xml:space="preserve"
+       id="text14"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect16);fill:#ffffff;fill-opacity:1;stroke:none;" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="85.901115"
+       y="80.646637"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         x="85.901115"
+         y="80.646637"
+         style="fill:#ffffff;stroke-width:0.264583" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:21.6117px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.540293"
+       x="7.4168334"
+       y="44.670082"
+       id="text849"
+       transform="scale(0.97183676,1.0289794)"><tspan
+         sodipodi:role="line"
+         id="tspan847"
+         x="7.4168334"
+         y="44.670082"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;fill:#ffffff;stroke-width:0.540293">DVA</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="rect851"
+       width="29.202995"
+       height="2.6705747"
+       x="11.951173"
+       y="14.572623" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.263;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect855"
+       width="21.899136"
+       height="16.756847"
+       x="15.189825"
+       y="0.58528215" />
+    <circle
+       style="fill:#000000;stroke-width:0.455411"
+       id="path875"
+       cx="26.277483"
+       cy="7.7899418"
+       r="2.5" />
+    <ellipse
+       style="fill:#000000;stroke-width:0.363766"
+       id="path877"
+       cx="26.443773"
+       cy="11.687719"
+       rx="4"
+       ry="1.9759679" />
+    <rect
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="rect879"
+       width="9.7865648"
+       height="4.5335374"
+       x="21.785738"
+       y="11.461081" />
+  </g>
+</svg>
