@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 17:41+0100\n"
-"PO-Revision-Date: 2021-02-10 17:44+0100\n"
+"POT-Creation-Date: 2021-03-20 17:46+0100\n"
+"PO-Revision-Date: 2021-03-20 17:48+0100\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -25,127 +25,131 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/core/models.py:71 src/core/models.py:274 src/core/models.py:313
-#: src/core/models.py:360 src/core/models.py:378
+#: core/models.py:71 core/models.py:279 core/models.py:318 core/models.py:365
+#: core/models.py:383
 msgid "vote"
 msgstr "vote"
 
-#: src/core/models.py:72
+#: core/models.py:72
 msgid "votes"
 msgstr "votes"
 
-#: src/core/models.py:74 src/core/models.py:379
+#: core/models.py:74 core/models.py:384
 msgid "name"
 msgstr "nom"
 
-#: src/core/models.py:75
+#: core/models.py:75
 msgid "description"
 msgstr "description"
 
-#: src/core/models.py:76
+#: core/models.py:76
 msgid "begin date"
 msgstr "date de début"
 
-#: src/core/models.py:77
+#: core/models.py:77
 msgid "end date"
 msgstr "date de fin"
 
-#: src/core/models.py:78
+#: core/models.py:78
 msgid "ready"
 msgstr "prêt"
 
-#: src/core/models.py:80
+#: core/models.py:80
 msgid "see voters"
 msgstr "voir les votants"
 
-#: src/core/models.py:117
+#: core/models.py:82
+msgid "public results"
+msgstr "résultats publics"
+
+#: core/models.py:120
 msgid "This vote is not open"
 msgstr "Le vote n'est pas ouvert"
 
-#: src/core/models.py:120
+#: core/models.py:123
 msgid "This vote is closed"
 msgstr "Le vote est fermé"
 
-#: src/core/models.py:123
+#: core/models.py:126
 msgid "You are not allowed to vote in this vote"
 msgstr "Vous ne pouvez pas participer à ce vote"
 
-#: src/core/models.py:126
+#: core/models.py:129
 msgid "You already voted for this vote"
 msgstr "Vous avez déjà voté pour ce vote"
 
-#: src/core/models.py:271
+#: core/models.py:276
 msgid "question"
 msgstr "question"
 
-#: src/core/models.py:272
+#: core/models.py:277
 msgid "questions"
 msgstr "questions"
 
-#: src/core/models.py:275
+#: core/models.py:280
 msgid "text"
 msgstr "texte"
 
-#: src/core/models.py:309 src/core/models.py:315
+#: core/models.py:314 core/models.py:320
 msgid "answer"
 msgstr "réponse"
 
-#: src/core/models.py:310
+#: core/models.py:315
 msgid "answers"
 msgstr "réponses"
 
-#: src/core/models.py:316
+#: core/models.py:321
 msgid "number"
 msgstr "nombre"
 
-#: src/core/models.py:356
+#: core/models.py:361
 msgid "ballot"
 msgstr "bulletin"
 
-#: src/core/models.py:357
+#: core/models.py:362
 msgid "ballots"
 msgstr "bulletins"
 
-#: src/core/models.py:359
+#: core/models.py:364
 msgid "user"
 msgstr ""
 
-#: src/core/models.py:375 src/core/models.py:380
+#: core/models.py:380 core/models.py:385
 msgid "document"
 msgstr "document"
 
-#: src/core/models.py:376
+#: core/models.py:381
 msgid "documents"
 msgstr "documents"
 
-#: src/core/templates/footer.html:12 src/core/templates/legals.html:5
+#: core/templates/footer.html:12 core/templates/legals.html:5
 msgid "Legals"
 msgstr ""
 
-#: src/core/templates/footer.html:16
-msgid "Made with ❤ ♦ Version 1.1.0"
-msgstr "Fait avec des ❤ ♦ 1.1.0"
+#: core/templates/footer.html:16
+msgid "Made with ❤ ♦ Version 1.2.0"
+msgstr "Fait avec des ❤ ♦ Version 1.2.0"
 
-#: src/core/templates/home.html:5
+#: core/templates/home.html:5
 msgid "Available votes"
 msgstr "Votes disponibles"
 
-#: src/core/templates/home.html:8 src/core/templates/results.html:7
-#: src/core/templates/votes_index.html:9
+#: core/templates/home.html:8 core/templates/results.html:7
+#: core/templates/votes_index.html:9
 msgid "Not yet active"
 msgstr "Pas encore actif"
 
-#: src/core/templates/home.html:9 src/core/templates/results.html:8
-#: src/core/templates/votes_index.html:10
+#: core/templates/home.html:9 core/templates/results.html:8
+#: core/templates/votes_index.html:10
 msgid "Active"
 msgstr "Actif"
 
-#: src/core/templates/home.html:10 src/core/templates/results.html:9
-#: src/core/templates/votes_index.html:11
+#: core/templates/home.html:10 core/templates/results.html:9
+#: core/templates/votes_index.html:11
 msgid "Finished"
 msgstr "Fini"
 
-#: src/core/templates/home.html:23
+#: core/templates/home.html:23
 #, python-format
 msgid "1 document available"
 msgid_plural ""
@@ -154,7 +158,7 @@ msgid_plural ""
 msgstr[0] "1 document disponible"
 msgstr[1] "%(nb_documents)s documents disponibles"
 
-#: src/core/templates/home.html:25
+#: core/templates/home.html:25
 msgid "Restricted to group : "
 msgid_plural ""
 " Restricted to groups :\n"
@@ -162,7 +166,7 @@ msgid_plural ""
 msgstr[0] "Groupe autorisé"
 msgstr[1] "Groupes autorisés"
 
-#: src/core/templates/legals.html:9
+#: core/templates/legals.html:9
 msgid ""
 "\n"
 "    django-voting-app - Simple django app to organise votes<br>\n"
@@ -174,7 +178,7 @@ msgstr ""
 "    Copyright (C) 2020 Yoann Piétri\n"
 "    "
 
-#: src/core/templates/legals.html:16
+#: core/templates/legals.html:16
 msgid ""
 "\n"
 "    django-voting-app is free software: you can redistribute it and/or "
@@ -192,7 +196,7 @@ msgstr ""
 "    (at your option) any later version.\n"
 "    "
 
-#: src/core/templates/legals.html:25
+#: core/templates/legals.html:25
 msgid ""
 "\n"
 "    django-voting-app is distributed in the hope that it will be useful,\n"
@@ -208,7 +212,7 @@ msgstr ""
 "    GNU General Public License for more details.\n"
 "    "
 
-#: src/core/templates/legals.html:34
+#: core/templates/legals.html:34
 msgid ""
 "\n"
 "    You should have received a copy of the GNU General Public License\n"
@@ -222,11 +226,12 @@ msgstr ""
 "licenses/\">https://www.gnu.org/licenses/</a>.\n"
 "    "
 
-#: src/core/templates/legals.html:41
+#: core/templates/legals.html:41
 msgid "The main contributor of django-voting-app is Yoann `nanoy` Piétri."
-msgstr "Le principal contributeur de django-voting-app est Yoann `nanoy` Piétri."
+msgstr ""
+"Le principal contributeur de django-voting-app est Yoann `nanoy` Piétri."
 
-#: src/core/templates/legals.html:44
+#: core/templates/legals.html:44
 msgid ""
 "<a href=\"https://www.djangoproject.com/\" target=\"_blank\">django</a> "
 "licensed under the <a href=\"https://github.com/django/django/blob/master/"
@@ -236,7 +241,7 @@ msgstr ""
 "licensed under the <a href=\"https://github.com/django/django/blob/master/"
 "LICENSE\" target=\"_blank\">BSD 3-Clause</a> license."
 
-#: src/core/templates/legals.html:45
+#: core/templates/legals.html:45
 msgid ""
 "<a href=\"https://getbootstrap.com/\" target=\"_blank\">bootstrap4</a> (css "
 "and js toolkit) licensed under the <a href=\"https://github.com/twbs/"
@@ -246,7 +251,7 @@ msgstr ""
 "and js toolkit) licensed under the <a href=\"https://github.com/twbs/"
 "bootstrap/blob/main/LICENSE\" target=\"_blank\">MIT</a> license."
 
-#: src/core/templates/legals.html:46
+#: core/templates/legals.html:46
 msgid ""
 "<a href=\"https://github.com/zostera/django-bootstrap4\" target=\"_blank"
 "\">django-bootstrap4</a> licensed under the <a href=\"https://github.com/"
@@ -258,7 +263,7 @@ msgstr ""
 "zostera/django-bootstrap4/blob/main/LICENSE\" target=\"_blank\">BSD 3-"
 "Clause</a> license."
 
-#: src/core/templates/legals.html:47
+#: core/templates/legals.html:47
 msgid ""
 "<a href=\"https://github.com/deschler/django-modeltranslation\" target="
 "\"_blank\">django-modeltranslation</a> licensed under the <a href=\"https://"
@@ -270,44 +275,44 @@ msgstr ""
 "github.com/deschler/django-modeltranslation/blob/master/LICENSE.txt\" target="
 "\"_blank\">BSD 3-Clause</a> license."
 
-#: src/core/templates/login.html:23 src/core/templates/login.html:27
+#: core/templates/login.html:26 core/templates/login.html:30
 msgid "Login"
 msgstr "Connexion"
 
-#: src/core/templates/nav.html:16
+#: core/templates/nav.html:16
 msgid "Home"
 msgstr "Accueil"
 
-#: src/core/templates/nav.html:21
+#: core/templates/nav.html:21
 msgid "Votes"
 msgstr "Votes"
 
-#: src/core/templates/nav.html:25
+#: core/templates/nav.html:26
 msgid "Results"
 msgstr "Résultats"
 
-#: src/core/templates/nav.html:53
+#: core/templates/nav.html:53
 msgid "My groups"
 msgstr "Mes groupes"
 
-#: src/core/templates/nav.html:57
+#: core/templates/nav.html:57
 msgid "Admin"
 msgstr "Admin"
 
-#: src/core/templates/nav.html:60
+#: core/templates/nav.html:60
 msgid "Logout"
 msgstr "Déconnnexion"
 
-#: src/core/templates/results.html:4
+#: core/templates/results.html:4
 msgid "Votes with results"
 msgstr "Votes avec résultats"
 
-#: src/core/templates/results.html:18
+#: core/templates/results.html:18
 #, python-format
 msgid "%(nb_voters)s voters"
 msgstr "%(nb_voters)s votants"
 
-#: src/core/templates/results.html:22
+#: core/templates/results.html:22
 #, python-format
 msgid ""
 "1\n"
@@ -316,7 +321,7 @@ msgid_plural "%(documents_nb)s documents available"
 msgstr[0] "1 document disponible"
 msgstr[1] "%(documents_nb)s documents disponibles"
 
-#: src/core/templates/results_detail.html:4
+#: core/templates/results_detail.html:4
 #, python-format
 msgid ""
 "%(vote)s : 1 participation\n"
@@ -325,7 +330,7 @@ msgid_plural "%(vote)s : %(nb_participation)s participations"
 msgstr[0] "%(vote)s : 1 participation"
 msgstr[1] "%(vote)s : %(nb_participation)s participations"
 
-#: src/core/templates/vote.html:7
+#: core/templates/vote.html:7
 msgid ""
 "Please note that the following documents are available and may help you in "
 "your vote : "
@@ -333,29 +338,29 @@ msgstr ""
 "Veuillez noter que les documents suivants sont disponibles et qu'ils "
 "pourront vous aider à voter"
 
-#: src/core/templates/vote.html:12
+#: core/templates/vote.html:12
 msgid "Name of document"
 msgstr "Nom du document"
 
-#: src/core/templates/vote.html:13
+#: core/templates/vote.html:13
 msgid "Download"
 msgstr "Télécharger"
 
-#: src/core/templates/vote.html:44
+#: core/templates/vote.html:44
 msgid "Please note that once submitted your vote cannot be changed or deleted"
 msgstr ""
 "Notez qu'une fois le vote effectué, ce dernier ne peut ni être changé ni "
 "supprimé"
 
-#: src/core/templates/vote.html:46
+#: core/templates/vote.html:46
 msgid "Vote"
 msgstr "Vote"
 
-#: src/core/templates/votes_index.html:5
+#: core/templates/votes_index.html:5
 msgid "All votes"
 msgstr "Tous les votes"
 
-#: src/core/templates/votes_index.html:6
+#: core/templates/votes_index.html:6
 msgid ""
 "You will find here a recap of all the votes. Whenever a vote is ready, you "
 "can click on the big ready. Please note that once a vote is ready, you can't "
@@ -366,59 +371,59 @@ msgstr ""
 "fois le vote prêt, il n'est plus possible de le modifier lui ni aucune des "
 "questions le composant"
 
-#: src/core/templates/votes_index.html:21
+#: core/templates/votes_index.html:21
 msgid "Groups authorised"
 msgstr "Groupes autorisés"
 
-#: src/core/templates/votes_index.html:22
+#: core/templates/votes_index.html:22
 msgctxt "plural"
 msgid "All"
 msgstr "Tous"
 
-#: src/core/templates/votes_index.html:28
+#: core/templates/votes_index.html:28
 msgid "Documents"
 msgstr "Documents"
 
-#: src/core/templates/votes_index.html:44
+#: core/templates/votes_index.html:44
 msgid "This vote is ready"
 msgstr "Le vote est prêt"
 
-#: src/core/templates/votes_index.html:46
+#: core/templates/votes_index.html:46
 msgid "The vote has not yet started"
 msgstr "Le vote n'a pas encore commencé"
 
-#: src/core/templates/votes_index.html:48
+#: core/templates/votes_index.html:48
 msgid "The vote is ongoing"
 msgstr "Le vote est encore"
 
-#: src/core/templates/votes_index.html:50
+#: core/templates/votes_index.html:50
 msgid "The vote is finished"
 msgstr "Le vote est terminé"
 
-#: src/core/templates/votes_index.html:53
+#: core/templates/votes_index.html:53
 msgid "Make the vote ready"
 msgstr "Render le vote prêt"
 
-#: src/core/templatetags/core_extras.py:64
+#: core/templatetags/core_extras.py:64
 msgid "You voted"
 msgstr "Vous avez voté"
 
-#: src/core/templatetags/core_extras.py:65
+#: core/templatetags/core_extras.py:65
 msgid "You have not yet voted"
 msgstr "Vous n'avez pas encore voté"
 
-#: src/core/views.py:91 src/core/views.py:98
+#: core/views.py:90 core/views.py:97
 msgid "Your ballot is incorrect"
 msgstr "Le bulletin est incorrect"
 
-#: src/core/views.py:102
+#: core/views.py:101
 msgid "Thank you for voting"
 msgstr "A voté"
 
-#: src/core/views.py:159
-msgid "You can't see results before the end of the vote"
-msgstr "Vous ne pouvez pas voir les résultats avant la fin du vote"
+#: core/views.py:163
+msgid "You can't see the results (vote not finished or insufficient rights)"
+msgstr "Vous ne pouvez pas voir les résultats avant la fin du vote (vote non terminé ou droits insuffisants)"
 
-#: src/core/views.py:184
+#: core/views.py:189
 msgid "Vote is ready."
 msgstr "Le vote est prêt"

@@ -6,7 +6,7 @@
 Welcome to django-voting-app's documentation!
 =============================================
 
-This is documentation for django-voting-app version 1.1.0.
+This is documentation for django-voting-app version 1.2.0.
 
 django-voting-app is small django app tor organize votes.
 

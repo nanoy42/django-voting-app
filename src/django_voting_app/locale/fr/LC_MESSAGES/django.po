@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-10 17:41+0100\n"
+"POT-Creation-Date: 2021-03-20 17:46+0100\n"
 "PO-Revision-Date: 2020-02-10 17:41+0100\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
@@ -26,10 +26,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/django_voting_app/settings.py:109
+#: django_voting_app/settings.py:109
 msgid "English"
 msgstr "Anglais"
 
-#: src/django_voting_app/settings.py:110
+#: django_voting_app/settings.py:110
 msgid "French"
 msgstr "Français"

@@ -17,6 +17,7 @@ You can create votes ont the admin panel. You need to specify
 * a begin date
 * a end date
 * if voters will be displayed on the results page
+* if the results are public (i.e. can be accessed by non staff members)
 
 .. warning:: The see_voters option will only be editable when creating the vote and not editing it afterwards.
 
