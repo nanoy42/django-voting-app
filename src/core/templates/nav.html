@@ -20,11 +20,11 @@
                 <a class="nav-link" href="{% url 'votes-index' %}"><i class="fas fa-vote-yea"></i>
                     {% trans "Votes" %}</a>
             </li>
+            {% endif %}
             <li class="nav-item {% if active == 'results' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'results' %}"><i class="fas fa-poll"></i>
                     {% trans "Results" %}</a>
             </li>
-            {% endif %}
         </ul>
         <ul class="navbar-nav navbar-right">
             <li class="nav-item dropdown">

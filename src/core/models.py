@@ -78,6 +78,9 @@ class Vote(models.Model):
     ready = models.BooleanField(default=False, verbose_name=_("ready"))
     groups = models.ManyToManyField(Group, blank=True)
     see_voters = models.BooleanField(default=False, verbose_name=_("see voters"))
+    public_results = models.BooleanField(
+        default=False, verbose_name=_("public results")
+    )
 
     def __str__(self):
         """string representation of a vote (name)
@@ -178,8 +181,7 @@ class Vote(models.Model):
         self.ready = True
         self.save()
 
-    @property
-    def can_see_results(self):
+    def can_see_results(self, user):
         """Test if the results are available
 
         This depends on the VOTE_SEE_BEFORE_END
@@ -187,7 +189,10 @@ class Vote(models.Model):
         Returns:
             bool: True if the results can be seen.
         """
-        return settings.VOTE_SEE_BEFORE_END or self.after
+        user_right = self.public_results or user.is_staff
+        if settings.VOTE_SEE_BEFORE_END:
+            return user_right
+        return self.after and user_right
 
     @transaction.atomic
     def vote(self, user, answers):

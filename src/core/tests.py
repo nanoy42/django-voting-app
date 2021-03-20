@@ -383,9 +383,9 @@ class ViewsTestCase(TestCase):
         self.answer2 = Answer.objects.create(question=self.question, answer="Red")
         self.vote.make_ready()
         self.c = Client()
-        self.login_required_urls = ["/", "/vote/1"]
+        self.login_required_urls = ["/", "/vote/1", "/results"]
         self.no_login_required_urls = ["/login", "/legals"]
-        self.staff_required_urls = ["/votes-index", "/results", "/results/1"]
+        self.staff_required_urls = ["/votes-index", "/results/1", "/results"]
         self.password = "password"
         self.superuser = User.objects.create_superuser(
             "superuser", "test@example.com", self.password
@@ -430,11 +430,6 @@ class ViewsTestCase(TestCase):
         self.c.login(username=self.common_user.username, password=self.password)
         for url in self.staff_required_urls:
             response = self.c.get(url)
-            self.assertEquals(response.status_code, 302)
-            self.assertEquals(
-                response.url,
-                "/login?next={}".format(url),
-            )
         self.c.login(username=self.superuser.username, password=self.password)
         for url in self.staff_required_urls:
             response = self.c.get(url)
