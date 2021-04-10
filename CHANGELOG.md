@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 (2021-04-11)
+
+#### Fixes
+
+* :bug: Quick fix list of voters ([#23](https://github.com/nanoy42/django-voting-app/issues/23))
+
 ## 1.2.0 (2021-03-20)
 
 #### New Features

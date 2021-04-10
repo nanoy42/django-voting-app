@@ -36,8 +36,8 @@ msgid "Welcome to django-voting-app's documentation!"
 msgstr "Bienvenue sur la documentation de django-voting-app !"
 
 #: ../../index.rst:9
-msgid "This is documentation for django-voting-app version 1.2.0."
-msgstr "Il s'agit de la documentation de la version 1.2.0 de django-voting-app."
+msgid "This is documentation for django-voting-app version 1.2.1."
+msgstr "Il s'agit de la documentation de la version 1.2.1 de django-voting-app."
 
 #: ../../index.rst:11
 msgid "django-voting-app is small django app tor organize votes."
