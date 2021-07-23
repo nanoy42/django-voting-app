@@ -34,7 +34,15 @@ make_ready.short_description = "Mark selected votes as ready"
 class VoteAdmin(TranslationAdmin):
     """Admin class for Vote model."""
 
-    fields = ("name", "description", "begin_date", "end_date", "groups", "see_voters")
+    fields = (
+        "name",
+        "description",
+        "begin_date",
+        "end_date",
+        "groups",
+        "see_voters",
+        "public_results",
+    )
     list_display = (
         "name",
         "ready",
@@ -43,6 +51,7 @@ class VoteAdmin(TranslationAdmin):
         "nb_questions",
         "nb_documents",
         "see_voters",
+        "public_results",
     )
     list_filter = ("ready",)
     ordering = ("-begin_date",)
@@ -50,7 +59,7 @@ class VoteAdmin(TranslationAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
-            return ["see_voters"]
+            return ["see_voters", "public_results"]
         else:
             return []
 
