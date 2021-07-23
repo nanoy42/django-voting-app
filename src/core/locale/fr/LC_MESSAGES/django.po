@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-23 10:43+0200\n"
+"POT-Creation-Date: 2021-07-23 17:56+0200\n"
 "PO-Revision-Date: 2021-07-23 10:44+0200\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
@@ -166,6 +166,19 @@ msgid_plural ""
 msgstr[0] "Groupe autorisé"
 msgstr[1] "Groupes autorisés"
 
+#: core/templates/home.html:27 core/templates/votes_index.html:25
+msgid "See voters"
+msgstr "Liste des votants disponible"
+
+#: core/templates/home.html:27 core/templates/votes_index.html:25
+#: core/templates/votes_index.html:27
+msgid "Yes,No"
+msgstr "Oui, Non"
+
+#: core/templates/home.html:27 core/templates/votes_index.html:27
+msgid "Public results"
+msgstr "Résultats publics"
+
 #: core/templates/legals.html:9
 msgid ""
 "\n"
@@ -307,7 +320,7 @@ msgstr "Admin"
 msgid "Logout"
 msgstr "Déconnnexion"
 
-#: core/templates/new_vote.html:15 core/templates/vote.html:46
+#: core/templates/new_vote.html:15 core/templates/vote.html:56
 msgid "Vote"
 msgstr "Vote"
 
@@ -345,7 +358,9 @@ msgstr "Groupes"
 
 #: core/templates/new_vote.html:55
 msgid "Use Control or Command to select more than one or to unselect."
-msgstr "Utiliser la touche Control ou Command pour sélectionner plusieurs groupes ou les déselectionner."
+msgstr ""
+"Utiliser la touche Control ou Command pour sélectionner plusieurs groupes ou "
+"les déselectionner."
 
 #: core/templates/new_vote.html:63
 msgid "See voters ?"
@@ -363,7 +378,7 @@ msgstr "Questions"
 msgid "Add a question"
 msgstr "Ajouter une question"
 
-#: core/templates/new_vote.html:81 core/templates/votes_index.html:28
+#: core/templates/new_vote.html:81 core/templates/votes_index.html:32
 msgid "Documents"
 msgstr "Documents"
 
@@ -387,7 +402,7 @@ msgstr "Ajouter une réponse"
 msgid "Delete question"
 msgstr "Supprimer la question"
 
-#: core/templates/new_vote.html:109 core/templates/vote.html:12
+#: core/templates/new_vote.html:109 core/templates/vote.html:22
 msgid "Name of document"
 msgstr "Nom du document"
 
@@ -436,17 +451,29 @@ msgstr[1] "%(vote)s : %(nb_participation)s participations"
 
 #: core/templates/vote.html:7
 msgid ""
+"Please note that the list of voters will be available on the results page "
+"(votes are still anonymous)"
+msgstr ""
+"Veuillez noter que la liste des votants sera disponible sur la page des résultats "
+"(les votes sont tout de même anonymes)"
+
+#: core/templates/vote.html:12
+msgid "Please note that the results will be public"
+msgstr "Veuillew noter que les résultats seront publics"
+
+#: core/templates/vote.html:17
+msgid ""
 "Please note that the following documents are available and may help you in "
 "your vote : "
 msgstr ""
 "Veuillez noter que les documents suivants sont disponibles et qu'ils "
 "pourront vous aider à voter"
 
-#: core/templates/vote.html:13
+#: core/templates/vote.html:23
 msgid "Download"
 msgstr "Télécharger"
 
-#: core/templates/vote.html:44
+#: core/templates/vote.html:54
 msgid "Please note that once submitted your vote cannot be changed or deleted"
 msgstr ""
 "Notez qu'une fois le vote effectué, ce dernier ne peut ni être changé ni "
@@ -476,23 +503,23 @@ msgctxt "plural"
 msgid "All"
 msgstr "Tous"
 
-#: core/templates/votes_index.html:44
+#: core/templates/votes_index.html:48
 msgid "This vote is ready"
 msgstr "Le vote est prêt"
 
-#: core/templates/votes_index.html:46
+#: core/templates/votes_index.html:50
 msgid "The vote has not yet started"
 msgstr "Le vote n'a pas encore commencé"
 
-#: core/templates/votes_index.html:48
+#: core/templates/votes_index.html:52
 msgid "The vote is ongoing"
 msgstr "Le vote est encore"
 
-#: core/templates/votes_index.html:50
+#: core/templates/votes_index.html:54
 msgid "The vote is finished"
 msgstr "Le vote est terminé"
 
-#: core/templates/votes_index.html:53
+#: core/templates/votes_index.html:57
 msgid "Make the vote ready"
 msgstr "Render le vote prêt"
 

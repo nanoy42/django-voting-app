@@ -21,6 +21,10 @@
         {% trans "Groups authorised" %} : {% if vote.groups.all %} {{vote.groups.all | join:", " }} {% else %}
         {% trans "All" context "plural" %}
         {% endif %}
+        <br>
+        {% trans "See voters" %} : {{ vote.see_voters|yesno:_("Yes,No") }}
+        <br>
+        {% trans "Public results" %} : {{ vote.public_results|yesno:_("Yes,No") }}
 
         <br><br>
 

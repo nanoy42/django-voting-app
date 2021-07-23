@@ -2,6 +2,16 @@
 {% load i18n %}
 {% block container %}
 <h2>{{vote.name}}</h2>
+{% if vote.see_voters %}
+<div class="alert alert-warning" role="alert">
+    {% trans "Please note that the list of voters will be available on the results page (votes are still anonymous)" %}
+</div>
+{% endif %}
+{% if vote.see_voters %}
+<div class="alert alert-warning" role="alert">
+    {% trans "Please note that the results will be public" %}
+</div>
+{% endif %}
 {% if vote.document_set.all %}
 <h3>Documents</h3>
 {% trans "Please note that the following documents are available and may help you in your vote : "%}<br><br>
