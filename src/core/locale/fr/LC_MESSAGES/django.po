@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-20 17:46+0100\n"
-"PO-Revision-Date: 2021-03-20 17:48+0100\n"
+"POT-Creation-Date: 2021-07-23 10:43+0200\n"
+"PO-Revision-Date: 2021-07-23 10:44+0200\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -112,7 +112,7 @@ msgstr "bulletins"
 
 #: core/models.py:364
 msgid "user"
-msgstr ""
+msgstr "utilisateur"
 
 #: core/models.py:380 core/models.py:385
 msgid "document"
@@ -124,7 +124,7 @@ msgstr "documents"
 
 #: core/templates/footer.html:12 core/templates/legals.html:5
 msgid "Legals"
-msgstr ""
+msgstr "Mentions légales"
 
 #: core/templates/footer.html:16
 msgid "Made with ❤ ♦ Version 1.2.1"
@@ -287,21 +287,125 @@ msgstr "Accueil"
 msgid "Votes"
 msgstr "Votes"
 
-#: core/templates/nav.html:26
+#: core/templates/nav.html:25 core/templates/new_vote.html:9
+msgid "New vote"
+msgstr "Nouveau vote"
+
+#: core/templates/nav.html:30
 msgid "Results"
 msgstr "Résultats"
 
-#: core/templates/nav.html:53
+#: core/templates/nav.html:57
 msgid "My groups"
 msgstr "Mes groupes"
 
-#: core/templates/nav.html:57
+#: core/templates/nav.html:61
 msgid "Admin"
 msgstr "Admin"
 
-#: core/templates/nav.html:60
+#: core/templates/nav.html:64
 msgid "Logout"
 msgstr "Déconnnexion"
+
+#: core/templates/new_vote.html:15 core/templates/vote.html:46
+msgid "Vote"
+msgstr "Vote"
+
+#: core/templates/new_vote.html:20
+msgid "Name"
+msgstr "Nom"
+
+#: core/templates/new_vote.html:21
+msgid "Name of the vote"
+msgstr "Nom du vote"
+
+#: core/templates/new_vote.html:25
+msgid "Description"
+msgstr "Description"
+
+#: core/templates/new_vote.html:26
+msgid "Description of the vote"
+msgstr "Description du vote"
+
+#: core/templates/new_vote.html:35
+msgid "Begin date"
+msgstr "Date de début"
+
+#: core/templates/new_vote.html:37 core/templates/new_vote.html:42
+msgid "In the format YYYY-MM-DDTHH-MM-SS"
+msgstr "Au format YYYY-MM-DDTHH-MM-SS"
+
+#: core/templates/new_vote.html:40
+msgid "End date"
+msgstr "Date de fin"
+
+#: core/templates/new_vote.html:48
+msgid "Groups"
+msgstr "Groupes"
+
+#: core/templates/new_vote.html:55
+msgid "Use Control or Command to select more than one or to unselect."
+msgstr "Utiliser la touche Control ou Command pour sélectionner plusieurs groupes ou les déselectionner."
+
+#: core/templates/new_vote.html:63
+msgid "See voters ?"
+msgstr "Voir les votants ?"
+
+#: core/templates/new_vote.html:71
+msgid "Public results ?"
+msgstr "Résultats publics ?"
+
+#: core/templates/new_vote.html:77
+msgid "Questions"
+msgstr "Questions"
+
+#: core/templates/new_vote.html:78
+msgid "Add a question"
+msgstr "Ajouter une question"
+
+#: core/templates/new_vote.html:81 core/templates/votes_index.html:28
+msgid "Documents"
+msgstr "Documents"
+
+#: core/templates/new_vote.html:82
+msgid "Add a document"
+msgstr "Adjouter un document"
+
+#: core/templates/new_vote.html:86
+msgid "Submit"
+msgstr "Enregistrer"
+
+#: core/templates/new_vote.html:97
+msgid "Text of question"
+msgstr "Texte de la question"
+
+#: core/templates/new_vote.html:97
+msgid "Add answer"
+msgstr "Ajouter une réponse"
+
+#: core/templates/new_vote.html:97
+msgid "Delete question"
+msgstr "Supprimer la question"
+
+#: core/templates/new_vote.html:109 core/templates/vote.html:12
+msgid "Name of document"
+msgstr "Nom du document"
+
+#: core/templates/new_vote.html:109
+msgid "File of the document"
+msgstr "Fichier du document"
+
+#: core/templates/new_vote.html:109
+msgid "Delete document"
+msgstr "Supprimer le document"
+
+#: core/templates/new_vote.html:127
+msgid "Answer"
+msgstr "Réponse"
+
+#: core/templates/new_vote.html:127
+msgid "Delete answer"
+msgstr "Supprimer la réponse"
 
 #: core/templates/results.html:4
 msgid "Votes with results"
@@ -338,10 +442,6 @@ msgstr ""
 "Veuillez noter que les documents suivants sont disponibles et qu'ils "
 "pourront vous aider à voter"
 
-#: core/templates/vote.html:12
-msgid "Name of document"
-msgstr "Nom du document"
-
 #: core/templates/vote.html:13
 msgid "Download"
 msgstr "Télécharger"
@@ -351,10 +451,6 @@ msgid "Please note that once submitted your vote cannot be changed or deleted"
 msgstr ""
 "Notez qu'une fois le vote effectué, ce dernier ne peut ni être changé ni "
 "supprimé"
-
-#: core/templates/vote.html:46
-msgid "Vote"
-msgstr "Vote"
 
 #: core/templates/votes_index.html:5
 msgid "All votes"
@@ -379,10 +475,6 @@ msgstr "Groupes autorisés"
 msgctxt "plural"
 msgid "All"
 msgstr "Tous"
-
-#: core/templates/votes_index.html:28
-msgid "Documents"
-msgstr "Documents"
 
 #: core/templates/votes_index.html:44
 msgid "This vote is ready"
@@ -412,18 +504,20 @@ msgstr "Vous avez voté"
 msgid "You have not yet voted"
 msgstr "Vous n'avez pas encore voté"
 
-#: core/views.py:90 core/views.py:97
+#: core/views.py:92 core/views.py:99
 msgid "Your ballot is incorrect"
 msgstr "Le bulletin est incorrect"
 
-#: core/views.py:101
+#: core/views.py:103
 msgid "Thank you for voting"
 msgstr "A voté"
 
-#: core/views.py:163
+#: core/views.py:165
 msgid "You can't see the results (vote not finished or insufficient rights)"
-msgstr "Vous ne pouvez pas voir les résultats avant la fin du vote (vote non terminé ou droits insuffisants)"
+msgstr ""
+"Vous ne pouvez pas voir les résultats avant la fin du vote (vote non terminé "
+"ou droits insuffisants)"
 
-#: core/views.py:189
+#: core/views.py:191
 msgid "Vote is ready."
 msgstr "Le vote est prêt"
