@@ -1,0 +1,142 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% load core_extras %}
+{% block container %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_modeltranslation_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+<h2>{% trans "New vote" %}</h2>
+<p>This feature has been released in version 1.3 of django-voting-app, and has been tagged as <b>experimental</b>. You can report bugs <a href="https://github.com/nanoy42/django-voting-app/issues">here</a>.</p>
+
+<p>It is recommended, but not mandatory to fill fields for all languages.</p>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>{% trans "Vote" %}</h3>
+    {% for language in languages %}
+
+    <h4>{{language.code}}</h4>
+    <div class="form-group">
+        <label for="{{language.code}}-idFormName">{% trans "Name" %}</label>
+        <input type="text" class="form-control" id="{{language.code}}-idFormName" placeholder="{% trans 'Name of the vote' %}" name="{{language.code}}-name">
+    </div>
+
+    <div class="form-group">
+        <label for="{{language.code}}-idFormDescription">{% trans "Description" %}</label>
+        <textarea class="form-control" id="{{language.code}}-idFormDescription" rows="3" placeholder="{% trans 'Description of the vote' %}" name="{{language.code}}-description"></textarea>
+    </div>
+    {% endfor %}
+
+    <hr>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col">
+                <label for="idFormBeginDate">{% trans "Begin date" %}</label>
+                <input type="text" class="form-control" placeholder="Begin date of the vote" id="idFormBeginDate" name="begin-date" aria-describedby="formBeginDateHelp">
+                <small id="formBeginDateHelp" class="form-text text-muted">{% trans "In the format YYYY-MM-DDTHH-MM-SS" %}</small>
+            </div>
+            <div class="col">
+                <label for="idFormEndDate">{% trans "End date" %}</label>
+                <input type="text" class="form-control" placeholder="End date of the vote" id="idFormEndDate" name="end-date" aria-describedby="formEndDateHelp">
+                <small id="formEndDateHelp" class="form-text text-muted">{% trans "In the format YYYY-MM-DDTHH-MM-SS" %}</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="idFormGroups">{% trans "Groups" %}</label>
+        <select multiple class="form-control" id="idFormGroups" aria-describedby="groupsHelp" name="groups">
+            {% for group in groups %}
+            <option value="{{group.pk}}">{{group}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <small id="groupsHelp" class="form-text text-muted">{% trans "Use Control or Command to select more than one or to unselect." %}</small>
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="false" id="idFormSeeVoters" name="see-voters">
+                <label class="form-check-label" for="idFormSeeVoters">
+                {% trans "See voters ?" %}
+                </label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="false" id="idFormPublicResults" name="public-results">
+                <label class="form-check-label" for="idFormPublicResults">
+                {% trans "Public results ?" %}
+                </label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h3>{% trans "Questions" %}</h3>
+    <button type="button" class="btn btn-primary btn-sm" id="addQuestionButton">{% trans "Add a question" %}</button><br><br>
+    <div id="questions"></div>
+
+    <h3>{% trans "Documents" %}</h3>
+    <button type="button" class="btn btn-primary btn-sm" id="addDocumentButton">{% trans "Add a document" %}</button><br><br>
+    <div id="documents"></div>
+
+
+<button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+</form>
+<script>
+$(document).ready(function(){
+    last_question_id = 0
+    nb_questions = 0
+
+    $("#addQuestionButton").click(function(){
+        last_question_id += 1;
+        nb_questions += 1;
+
+        to_add = '<div id="question-' + last_question_id.toString() + '"><h4>Question #' + last_question_id.toString() + '</h4>{% for language in languages %}<div class="form-group"><label for="{{language.code}}-idFormQuestionName-' + last_question_id.toString() + '">{% trans "Text of question" %} ({{language.code}})</label><input type="text" class="form-control" id="{{language.code}}-idFormQuestionName-' + last_question_id.toString() + '" placeholder="{% trans "Text of question" %}" name="{{language.code}}-question-name-' + last_question_id.toString() + '"></div>{% endfor %}<button class="btn btn-outline-info btn-sm addAnswer" type="button" questionId="' + last_question_id.toString() + '">{% trans "Add answer" %}</button><br><br><div id="answers-' + last_question_id.toString() + '"></div><button class="btn btn-outline-danger btn-sm delete-question" type="button">{% trans "Delete question" %}</button><hr></div>';
+
+        $("#questions").append(to_add);
+    });
+
+    last_document_id = 0;
+    nb_documents = 0;
+
+    $("#addDocumentButton").click(function(){
+        last_document_id += 1;
+        nb_documents += 1;
+
+        to_add = '<div id="document-' + last_document_id.toString() +'"><h4>Document #' + last_document_id.toString() + '</h4>{% for language in languages %}<div class="form-group"><label for="{{language.code}}-idFormDocumentName-' + last_question_id.toString() + '">{% trans "Name of document" %} ({{language.code}})</label><input type="text" class="form-control" id="{{language.code}}-idFormDocumentName-' + last_document_id.toString() + '" placeholder="{% trans "Name of document" %}" name="{{language.code}}-document-name-' + last_document_id.toString() + '"></div><div class="form-group"><label for="{{language.code}}-idFormDocumentFile-' + last_document_id.toString() +'">{% trans "File of the document" %} ({{language.code}})</label><input type="file" class="form-control-file" id="{{language.code}}-idFormDocumentFile-' + last_document_id.toString() + '" name="{{language.code}}-document-file-' + last_document_id.toString() +'"></div>{% endfor %}<button class="btn btn-outline-danger btn-sm delete-document" type="button">{% trans "Delete document" %}</button><hr></div>'
+    
+        $("#documents").append(to_add);
+    });
+
+
+    $("#questions").on("click", ".delete-question", function(){
+        nb_questions -= 1;
+        $(this).parent().remove();
+    });
+
+    last_answers_id = 0
+    nb_answers = 0
+
+    $("#questions").on("click", ".addAnswer", function(){
+        last_answers_id += 1;
+        nb_answers += 1;
+        question_id = $(this).attr("questionId");
+        $("#answers-" + question_id).append('<h5>{% trans "Answer" %} #' + last_answers_id.toString() + '</h5>{% for language in languages %}<div class="form-group"><label for="{{language.code}}-idFormAnswer' + last_answers_id.toString() + '">{% trans "Answer" %} ({{language.code}})</label><input type="text" class="form-control" id="{{language.code}}-idFormAnswer' + last_answers_id.toString() +'" placeholder="{% trans "Answer" %}" name="{{language.code}}-answer-' + last_answers_id.toString() + '-question-' + question_id.toString() + '"></div>{% endfor %}<button class="btn btn-outline-danger btn-sm delete-answer" type="button">{% trans "Delete answer" %}</button><hr>')
+    });
+
+
+    $("#documents").on("click", ".delete-document", function(){
+        nb_documents -= 1;
+        $(this).parent().remove();
+    });
+
+    $("#questions").on("click", ".delete-answer", function(){
+        nb_answers -= 1;
+        $(this).parent().remove();
+    });
+});
+</script>
+{% endblock %}
