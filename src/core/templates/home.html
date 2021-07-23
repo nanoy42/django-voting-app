@@ -24,7 +24,7 @@
             documents available{% endblocktrans %} {% if vote.groups.all %} <i class="fa fa-users"></i>
             {% blocktrans count nb_groups=vote.groups.count %}Restricted to group : {% plural %} Restricted to groups :
             {% endblocktrans %}
-            {{ vote.groups.all | join:", " }}{% endif %}</small>
+            {{ vote.groups.all | join:", " }}{% endif %}; {% trans "See voters" %} : {{ vote.see_voters|yesno:_("Yes,No") }}; {% trans "Public results" %} : {{ vote.public_results|yesno:_("Yes,No") }}</small>
     </a>
     {% endfor %}
 </div>
