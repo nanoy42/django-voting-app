@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-23 17:56+0200\n"
-"PO-Revision-Date: 2021-07-23 10:44+0200\n"
+"POT-Creation-Date: 2021-07-25 18:08+0200\n"
+"PO-Revision-Date: 2021-07-25 18:12+0200\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -122,6 +122,101 @@ msgstr "document"
 msgid "documents"
 msgstr "documents"
 
+#: core/templates/checks.html:8 core/templates/nav.html:37
+msgid "Admin checks"
+msgstr "Vérifications admin"
+
+#: core/templates/checks.html:20
+msgid "django-voting-app version"
+msgstr "Version de django-voting-app"
+
+#: core/templates/checks.html:24
+msgid "Last django-voting-app version available"
+msgstr "Dernière version de django-voting-app disponible"
+
+#: core/templates/checks.html:28
+msgid "Update strategy"
+msgstr "Stratégie de mise à jour"
+
+#: core/templates/checks.html:32
+msgid "git info"
+msgstr "Informations git"
+
+#: core/templates/checks.html:36
+msgid "Media folder writable"
+msgstr "Dossier media accessible en écriture"
+
+#: core/templates/checks.html:37 core/templates/checks.html:95
+#: core/templates/home.html:27 core/templates/votes_index.html:25
+#: core/templates/votes_index.html:27
+msgid "Yes,No"
+msgstr "Oui, Non"
+
+#: core/templates/checks.html:40
+msgid "Migrations"
+msgstr "Migrations"
+
+#: core/templates/checks.html:41
+msgid "All migrations are applied."
+msgstr "Toutes les migrations ont bien été appliquées"
+
+#: core/templates/checks.html:41
+msgid ""
+"Some migrations are not applied. Consider using the command python3 manage."
+"py migrate"
+msgstr ""
+"Certaines migrations n'ont pas été appliquées. Vous pouvez utilise la commande "
+"python3 manage.py migrate"
+
+#: core/templates/checks.html:51
+msgid "Available languages"
+msgstr "Langues disponibles"
+
+#: core/templates/checks.html:55
+msgid "Current language"
+msgstr "Langue actuelle"
+
+#: core/templates/checks.html:59
+msgid ""
+"If translations are not working properly, don't forget to apply the following "
+"command : python3 manage.py compilemessages"
+msgstr ""
+"Si les traductions ne fonctionnent pas correctement, n'oubliez pas de lancer la "
+" commande suivante : python3 mannage.py compilemessages"
+
+
+#: core/templates/checks.html:71
+msgid "python version"
+msgstr "Version de python"
+
+#: core/templates/checks.html:90
+msgid "Current URL"
+msgstr "URL courante"
+
+#: core/templates/checks.html:94
+msgid "HTTPS enabled ?"
+msgstr "HTTPS activé ?"
+
+#: core/templates/checks.html:104
+msgid "Number of users"
+msgstr "Nombre d'utilisateurs"
+
+#: core/templates/checks.html:108
+msgid "Number of active users"
+msgstr "Nombre d'utilisateurs actifs"
+
+#: core/templates/checks.html:112
+msgid "Number of groups"
+msgstr "Nombre de groupes"
+
+#: core/templates/checks.html:116
+msgid "Number of admins"
+msgstr "Nombre d'admins"
+
+#: core/templates/checks.html:120
+msgid "Number of votes"
+msgstr "Nombbre de vote"
+
 #: core/templates/footer.html:12 core/templates/legals.html:5
 msgid "Legals"
 msgstr "Mentions légales"
@@ -169,11 +264,6 @@ msgstr[1] "Groupes autorisés"
 #: core/templates/home.html:27 core/templates/votes_index.html:25
 msgid "See voters"
 msgstr "Liste des votants disponible"
-
-#: core/templates/home.html:27 core/templates/votes_index.html:25
-#: core/templates/votes_index.html:27
-msgid "Yes,No"
-msgstr "Oui, Non"
 
 #: core/templates/home.html:27 core/templates/votes_index.html:27
 msgid "Public results"
@@ -308,15 +398,15 @@ msgstr "Nouveau vote"
 msgid "Results"
 msgstr "Résultats"
 
-#: core/templates/nav.html:57
+#: core/templates/nav.html:63
 msgid "My groups"
 msgstr "Mes groupes"
 
-#: core/templates/nav.html:61
+#: core/templates/nav.html:67
 msgid "Admin"
 msgstr "Admin"
 
-#: core/templates/nav.html:64
+#: core/templates/nav.html:70
 msgid "Logout"
 msgstr "Déconnnexion"
 
@@ -454,8 +544,8 @@ msgid ""
 "Please note that the list of voters will be available on the results page "
 "(votes are still anonymous)"
 msgstr ""
-"Veuillez noter que la liste des votants sera disponible sur la page des résultats "
-"(les votes sont tout de même anonymes)"
+"Veuillez noter que la liste des votants sera disponible sur la page des "
+"résultats (les votes sont tout de même anonymes)"
 
 #: core/templates/vote.html:12
 msgid "Please note that the results will be public"
@@ -531,20 +621,46 @@ msgstr "Vous avez voté"
 msgid "You have not yet voted"
 msgstr "Vous n'avez pas encore voté"
 
-#: core/views.py:92 core/views.py:99
+#: core/views.py:98 core/views.py:105
 msgid "Your ballot is incorrect"
 msgstr "Le bulletin est incorrect"
 
-#: core/views.py:103
+#: core/views.py:109
 msgid "Thank you for voting"
 msgstr "A voté"
 
-#: core/views.py:165
+#: core/views.py:171
 msgid "You can't see the results (vote not finished or insufficient rights)"
 msgstr ""
 "Vous ne pouvez pas voir les résultats avant la fin du vote (vote non terminé "
 "ou droits insuffisants)"
 
-#: core/views.py:191
+#: core/views.py:197
 msgid "Vote is ready."
 msgstr "Le vote est prêt"
+
+#: core/views.py:341
+msgid "You have the latest version available."
+msgstr "Vous avez la dernière version disponible."
+
+#: core/views.py:343
+msgid ""
+"Your version differs by a patch. Consider using the updater script (git "
+"only)."
+msgstr ""
+"Votre version est diffère par patch. Vous pouvez mettre à jour en "
+"utilisant le script de mise à jour (seulement avec git)"
+
+#: core/views.py:346
+msgid ""
+"Your version differs by minor changes. Consider using the updater script "
+"(git only)."
+msgstr ""
+"Votre version est diffèrent par des changements mineurs. Vous pouvez mettre à "
+"jour en utilisant le script de mise à jour (seulement avec git)"
+
+#: core/views.py:348
+msgid "Your version differs by major changes. Consider a manual update."
+msgstr ""
+"Votre version est diffèrent par des changements majeurs. Vous pouvez mettre à "
+"jour manuellement"

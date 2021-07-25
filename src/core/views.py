@@ -16,8 +16,11 @@
 """
 Views for core app.
 """
-
-import hashlib
+import os
+import sys
+import requests
+from subprocess import call, check_output, STDOUT
+from requests.exceptions import SSLError, ConnectionError
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -25,10 +28,13 @@ from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 from django.conf import settings
+from django.db import DEFAULT_DB_ALIAS
 
+from django_voting_app import __version__
 from .models import Answer, Question, Vote, Document
+from .utils import compare_versions, get_dependencies, is_database_synchronized
 
 
 def legals(request):
@@ -303,3 +309,88 @@ def new_vote(request):
             )
             return redirect(reverse("new-vote"))
     return render(request, "new_vote.html", {"active": "new-vote", "groups": groups})
+
+
+@login_required
+@user_passes_test(lambda user: user.is_active)
+@user_passes_test(lambda user: user.is_staff)
+def checks(request):
+
+    current_version = __version__
+    response = requests.get(
+        "https://api.github.com/repos/nanoy42/django-voting-app/releases/latest"
+    )
+    last_available_version = response.json()["tag_name"][1:]
+
+    use_git = (
+        False
+        if call(["git", "branch"], stderr=STDOUT, stdout=open(os.devnull, "w"))
+        else True
+    )
+
+    branch = None
+    if use_git:
+        branch = (
+            check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+            .strip()
+            .decode("utf8")
+        )
+
+    diff = compare_versions(current_version, last_available_version)
+    update_strategies = {
+        "equal": _("You have the latest version available."),
+        "patch": _(
+            "Your version differs by a patch. Consider using the updater script (git only)."
+        ),
+        "minor": _(
+            "Your version differs by minor changes. Consider using the updater script (git only)."
+        ),
+        "major": _("Your version differs by major changes. Consider a manual update."),
+    }
+    update_strategy = update_strategies[diff]
+
+    dependencies = get_dependencies()
+    python_version_info = sys.version_info
+
+    python_version = f"{python_version_info.major}.{python_version_info.minor}.{python_version_info.micro}"
+
+    current_url = str(request.build_absolute_uri()).split("/")[2]
+
+    https_enabled = True
+    try:
+        requests.get(f"https://{current_url}/")
+    except (SSLError, ConnectionError):
+        https_enabled = False
+
+    user_count = User.objects.all().count()
+    active_user_count = User.objects.filter(is_active=True).count()
+    group_count = Group.objects.all().count()
+    admin_count = User.objects.filter(is_staff=True).count()
+    vote_count = Vote.objects.all().count()
+
+    all_migrations_applied = is_database_synchronized(DEFAULT_DB_ALIAS)
+
+    is_media_writable = os.access(settings.MEDIA_ROOT, os.W_OK)
+    return render(
+        request,
+        "checks.html",
+        {
+            "active": "checks",
+            "current_version": current_version,
+            "last_available_version": last_available_version,
+            "update_strategy": update_strategy,
+            "use_git": use_git,
+            "branch": branch,
+            "dependencies": dependencies,
+            "python_version": python_version,
+            "current_url": current_url,
+            "https_enabled": https_enabled,
+            "user_count": user_count,
+            "active_user_count": active_user_count,
+            "group_count": group_count,
+            "admin_count": admin_count,
+            "vote_count": vote_count,
+            "all_migrations_applied": all_migrations_applied,
+            "is_media_writable": is_media_writable,
+        },
+    )
