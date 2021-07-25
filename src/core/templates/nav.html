@@ -31,6 +31,12 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-right">
+            {% if request.user.is_staff %}
+            <li class="nav-item {% if active == 'checks' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'checks' %}"><i class="fas fa-check"></i>
+                    {% trans "Admin checks" %}</a>
+            </li>
+            {% endif %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">

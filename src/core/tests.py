@@ -30,6 +30,7 @@ from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from core.models import Answer, Document, Question, Vote, is_member_or
+from core.utils import compare_versions
 
 
 class IsMemberOfTestCase(TestCase):
@@ -390,6 +391,7 @@ class ViewsTestCase(TestCase):
             "/results/1",
             "/results",
             "/new-vote",
+            "/checks",
         ]
         self.password = "password"
         self.superuser = User.objects.create_superuser(
@@ -652,3 +654,18 @@ class ViewsTestCase(TestCase):
         response = self.c.post("/new-vote", data)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, "/new-vote")
+
+
+class TestUtils(TestCase):
+    """
+    Test for the utils file.
+    """
+
+    def test_compare_versions(self):
+        """
+        Test the compare_versions fonction.
+        """
+        self.assertEqual(compare_versions("1.0.0", "2.0.0"), "major")
+        self.assertEqual(compare_versions("1.0.0", "1.1.0"), "minor")
+        self.assertEqual(compare_versions("1.0.0", "1.0.1"), "patch")
+        self.assertEqual(compare_versions("1.0.0", "1.0.0"), "equal")

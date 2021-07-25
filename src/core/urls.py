@@ -36,4 +36,5 @@ urlpatterns = [
     path("logout", auth_views.LogoutView.as_view(), name="logout"),
     path("ready/<int:pk>", views.ready, name="ready"),
     path("new-vote", views.new_vote, name="new-vote"),
+    path("checks", views.checks, name="checks"),
 ]
