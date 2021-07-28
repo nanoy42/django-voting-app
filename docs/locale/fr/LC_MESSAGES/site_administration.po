@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, The django-voting-app authors
+# This file is distributed under the same license as the django-voting-app
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-voting-app \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-27 22:16+0200\n"
+"PO-Revision-Date: 2021-07-28 10:19+0200\n"
+"Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
+"Language-Team: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../site_administration.rst:2
+msgid "Site Administration"
+msgstr "Administration du site"
+
+#: ../../site_administration.rst:5
+msgid "Self diagnostic page"
+msgstr "Page de vérification"
+
+#: ../../site_administration.rst:7
+msgid "The site now includes a basic self diagnostic page to see :"
+msgstr "Le site contient maintenant une page de vérification qui permet de voir"
+
+#: ../../site_administration.rst:9
+msgid "the version of django-voting-app (and if a new version is available)"
+msgstr "la version de django-voting-app (et si une nouvelle version est disponible)"
+
+#: ../../site_administration.rst:10
+msgid "the media folder configuration"
+msgstr "la configuration du dossier média"
+
+#: ../../site_administration.rst:11
+msgid "translations configuration"
+msgstr "la configuration des traductions"
+
+#: ../../site_administration.rst:12
+msgid "https"
+msgstr "https"
+
+#: ../../site_administration.rst:13
+msgid "dependencies"
+msgstr "les dépendances"
+
+#: ../../site_administration.rst:16
+msgid "Updater"
+msgstr "Script de mise à jour"
+
+#: ../../site_administration.rst:18
+msgid "The update script was introduced in version 1.3.0."
+msgstr "Le script de mise à jour a été introduit dans la version 1.3.0."
+
+#: ../../site_administration.rst:20
+msgid "It allows a user to update django-voting-app using a script."
+msgstr "Il permet à l'utilisateur de mettre à jour django-voting-app en utilisant un script."
+
+#: ../../site_administration.rst:22
+msgid "Some remarks:"
+msgstr "Quelques remarques"
+
+#: ../../site_administration.rst:24
+msgid ""
+"By default, it will prevent a user to update when major changes are "
+"detected. This behavior can be overwritten with the `-f` (`--force`) "
+"option. It is probably better to make a manual update in this case."
+msgstr ""
+"Par défaut, la mise à jour avec des modificateurs majeures sera empêchée."
+" Ce comportement peut être changé avec l'option `-f` (`--force`)."
+" Il est néanmoins préférable de faire la mise à jour manuellement dans ce cas."
+
+#: ../../site_administration.rst:25
+msgid ""
+"By default, it will prevent a user to update if the current branch is not"
+" main. It can be overwritten with the `-f` (`--force`) option if you know"
+" what you are doing."
+msgstr ""
+"Par défaut, la mise à jour depuis une branche qui n'est pas la branche main"
+" sera empêchée. Ce comportement peut être changé avec l'option `-f` (`--force`)"
+" si vous savez ce que vous faites."
+
+#: ../../site_administration.rst:27
+msgid ""
+"The other option to the script is `-h --help` that will display the help "
+"screen."
+msgstr ""
+"L'autre option du script est `-h --help` qui affiche le message d'aide."
+
+#: ../../site_administration.rst:29
+msgid "This feature is tagged as experimental from version 1.3.0 and onwards."
+msgstr "Cette fonctionnalité est marquée comme expérimentale sur les versions 1.3.0 et suivantes."
+

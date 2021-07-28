@@ -103,6 +103,7 @@ When you make a vote ready, you should no longer make any modification. The app 
 When a vote is ready, you cannot make the vote not ready again (you have to delete it and start again).
 
 To make a vote ready, you can use the action ont the admin panel or go to the administrators index of votes.
+
 See results
 ###########
 
@@ -135,3 +136,13 @@ The following fields can be translated :
 +----------+---------------------+
 | Document | name, document      |
 +----------+---------------------+
+
+
+Dynamic vote creation
+#####################
+
+In addition to the previous documentation, it is possible from version 1.3.0 to create the vote, the questions, the answers and the documents using a single web page.
+
+This is only accessible to staff member. The remarks are the same as before.
+
+.. warning:: This is tagged as experimental on version 1.3.0 and onwards.

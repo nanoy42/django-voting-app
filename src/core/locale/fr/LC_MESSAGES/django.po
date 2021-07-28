@@ -222,8 +222,8 @@ msgid "Legals"
 msgstr "Mentions légales"
 
 #: core/templates/footer.html:16
-msgid "Made with ❤ ♦ Version 1.2.1"
-msgstr "Fait avec des ❤ ♦ Version 1.2.1"
+msgid "Made with ❤ ♦ Version 1.3.0"
+msgstr "Fait avec des ❤ ♦ Version 1.3.0"
 
 #: core/templates/home.html:5
 msgid "Available votes"
