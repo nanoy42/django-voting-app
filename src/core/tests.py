@@ -30,6 +30,7 @@ from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from core.models import Answer, Document, Question, Vote, is_member_or
+from core.utils import compare_versions
 
 
 class IsMemberOfTestCase(TestCase):
@@ -385,7 +386,13 @@ class ViewsTestCase(TestCase):
         self.c = Client()
         self.login_required_urls = ["/", "/vote/1", "/results"]
         self.no_login_required_urls = ["/login", "/legals"]
-        self.staff_required_urls = ["/votes-index", "/results/1", "/results"]
+        self.staff_required_urls = [
+            "/votes-index",
+            "/results/1",
+            "/results",
+            "/new-vote",
+            "/checks",
+        ]
         self.password = "password"
         self.superuser = User.objects.create_superuser(
             "superuser", "test@example.com", self.password
@@ -393,6 +400,8 @@ class ViewsTestCase(TestCase):
         self.common_user = User.objects.create(username="test", email="test@test.test")
         self.common_user.set_password(self.password)
         self.common_user.save()
+        self.group1 = Group.objects.create(name="group1")
+        self.group2 = Group.objects.create(name="group2")
 
     def test_login_required(self):
         """Test that views that require login indeed require login."""
@@ -555,3 +564,108 @@ class ViewsTestCase(TestCase):
         }
         response = self.c.post("/admin/core/vote/1/change/", data)
         self.assertEqual(response.status_code, 302)
+
+    @override_settings(
+        MODELTRANSLATION_LANGUAGES=[settings.MODELTRANSLATION_DEFAULT_LANGUAGE]
+    )
+    def test_create_vote_interactive_1(self):
+        """
+        Test interactive page for the createion of a vote.
+        """
+
+        self.c.login(username=self.superuser.username, password=self.password)
+        fp = open(__file__)
+        data = {
+            "begin-date": "2021-07-23T09:59:59",
+            "end-date": "2021-07-24T10:00:00",
+            "see-voters": 1,
+            "public-results": 1,
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-name": "test vote",
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-description": "test description",
+            "groups": [1, 2],
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-question-name-1": "test question",
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-answer-1-question-1": "test answer",
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-document-name-1": "test document",
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-document-file-1": fp,
+        }
+        response = self.c.post("/new-vote", data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/votes-index")
+
+        self.assertTrue(Vote.objects.filter(begin_date="2021-07-23T09:59:59").exists())
+        vote = Vote.objects.get(begin_date="2021-07-23T09:59:59")
+
+        self.assertEqual(vote.name, "test vote")
+        self.assertEqual(vote.description, "test description")
+        self.assertTrue(vote.see_voters)
+        self.assertTrue(vote.public_results)
+        self.assertTrue(self.group1 in vote.groups.all())
+        self.assertTrue(self.group2 in vote.groups.all())
+
+        self.assertTrue(Question.objects.filter(vote=vote).exists())
+        question = Question.objects.get(vote=vote)
+
+        self.assertEqual(question.text, "test question")
+
+        self.assertTrue(Answer.objects.filter(question=question))
+        answer = Answer.objects.get(question=question)
+
+        self.assertEqual(answer.answer, "test answer")
+
+        fp.close()
+
+    @override_settings(
+        MODELTRANSLATION_LANGUAGES=[settings.MODELTRANSLATION_DEFAULT_LANGUAGE]
+    )
+    def test_create_vote_interactive_2(self):
+        """
+        Test interactive page for the createion of a vote.
+        """
+
+        self.c.login(username=self.superuser.username, password=self.password)
+        data = {
+            "begin-date": "2021-07-23T09:59:59",
+            "end-date": "2021-07-24T10:00:00",
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-name": "test vote",
+            f"{settings.MODELTRANSLATION_DEFAULT_LANGUAGE}-description": "test description",
+        }
+        response = self.c.post("/new-vote", data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/votes-index")
+
+        self.assertTrue(Vote.objects.filter(begin_date="2021-07-23T09:59:59").exists())
+        vote = Vote.objects.get(begin_date="2021-07-23T09:59:59")
+
+        self.assertEqual(vote.name, "test vote")
+        self.assertEqual(vote.description, "test description")
+        self.assertFalse(vote.see_voters)
+        self.assertFalse(vote.public_results)
+
+    @override_settings(
+        MODELTRANSLATION_LANGUAGES=[settings.MODELTRANSLATION_DEFAULT_LANGUAGE]
+    )
+    def test_create_vote_interactive_3(self):
+        """
+        Test interactive page for the createion of a vote.
+        """
+
+        self.c.login(username=self.superuser.username, password=self.password)
+        data = {"begin-date": "false value", "end-date": "another false value"}
+        response = self.c.post("/new-vote", data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, "/new-vote")
+
+
+class TestUtils(TestCase):
+    """
+    Test for the utils file.
+    """
+
+    def test_compare_versions(self):
+        """
+        Test the compare_versions fonction.
+        """
+        self.assertEqual(compare_versions("1.0.0", "2.0.0"), "major")
+        self.assertEqual(compare_versions("1.0.0", "1.1.0"), "minor")
+        self.assertEqual(compare_versions("1.0.0", "1.0.1"), "patch")
+        self.assertEqual(compare_versions("1.0.0", "1.0.0"), "equal")

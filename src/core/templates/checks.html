@@ -1,0 +1,125 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% load core_extras %}
+{% block container %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_modeltranslation_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+<h2>{% trans "Admin checks" %}</h2>
+This page is here to display information and checks about your django-voting-app installation.
+
+<br><br>
+
+<h3>Django voting app</h3>
+
+<br>
+
+<table class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th scope="row">{% trans "django-voting-app version" %}</th>
+      <td>{{current_version}}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Last django-voting-app version available" %}</th>
+      <td><a href="https://github.com/nanoy42/django-voting-app/releases/tag/v{{last_available_version}}" target="_blank">{{last_available_version}}</a></td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Update strategy" %}</th>
+      <td>{{ update_strategy }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "git info"%}</th>
+      <td>{% if use_git %}git found, on branch {{branch}}{% else %}django-voting-app was not installed using git{% endif %}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Media folder writable" %}</th>
+      <td>{{ is_media_writable|yesno:_("Yes,No") }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Migrations" %}</th>
+      <td>{% if all_migrations_applied %}{% trans "All migrations are applied." %}{% else %}{% trans "Some migrations are not applied. Consider using the command python3 manage.py migrate" %}{% endif %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Translations</h3>
+
+<table class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th scope="row">{% trans "Available languages" %}</th>
+      <td>{% for language in languages %}{% if forloop.counter0 != 0 %} ,{% endif %}{{language.name_local}} ({{language.code}}){% endfor %}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Current language" %}</th>
+      <td>{{LANGUAGE_CODE}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">{% trans "If translations are not working properly, don't forget to apply the following command : python3 manage.py compilemessages" %}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Dependencies</h3>
+
+<br>
+
+<table class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th scope="row">{% trans "python version" %}</th>
+      <td>{{python_version}}</td>
+    </tr>
+    {% for dependency in dependencies %}
+    <tr>
+      <th scope="row">{{ dependency.0 }}</th>
+      <td>{{dependency.1}} (recommended from pipfile)</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3>https</h3>
+
+<br>
+
+<table class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th scope="row">{% trans "Current URL" %}</th>
+      <td>{{ current_url }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "HTTPS enabled ?" %}</th>
+      <td>{{ https_enabled|yesno:_("Yes,No") }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Statistics</h3>
+<table class="table table-bordered table-striped">
+  <tbody>
+    <tr>
+      <th scope="row">{% trans "Number of users" %}</th>
+      <td>{{ user_count }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Number of active users" %}</th>
+      <td>{{ active_user_count }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Number of groups" %}</th>
+      <td>{{ group_count }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Number of admins" %}</th>
+      <td>{{ admin_count }}</td>
+    </tr>
+    <tr>
+      <th scope="row">{% trans "Number of votes" %}</th>
+      <td>{{ vote_count }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-voting-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-20 17:46+0100\n"
-"PO-Revision-Date: 2021-03-20 17:48+0100\n"
+"POT-Creation-Date: 2021-07-25 18:08+0200\n"
+"PO-Revision-Date: 2021-07-25 18:12+0200\n"
 "Last-Translator: Yoann Piétri <me@nanoy.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -112,7 +112,7 @@ msgstr "bulletins"
 
 #: core/models.py:364
 msgid "user"
-msgstr ""
+msgstr "utilisateur"
 
 #: core/models.py:380 core/models.py:385
 msgid "document"
@@ -122,13 +122,108 @@ msgstr "document"
 msgid "documents"
 msgstr "documents"
 
+#: core/templates/checks.html:8 core/templates/nav.html:37
+msgid "Admin checks"
+msgstr "Vérifications admin"
+
+#: core/templates/checks.html:20
+msgid "django-voting-app version"
+msgstr "Version de django-voting-app"
+
+#: core/templates/checks.html:24
+msgid "Last django-voting-app version available"
+msgstr "Dernière version de django-voting-app disponible"
+
+#: core/templates/checks.html:28
+msgid "Update strategy"
+msgstr "Stratégie de mise à jour"
+
+#: core/templates/checks.html:32
+msgid "git info"
+msgstr "Informations git"
+
+#: core/templates/checks.html:36
+msgid "Media folder writable"
+msgstr "Dossier media accessible en écriture"
+
+#: core/templates/checks.html:37 core/templates/checks.html:95
+#: core/templates/home.html:27 core/templates/votes_index.html:25
+#: core/templates/votes_index.html:27
+msgid "Yes,No"
+msgstr "Oui, Non"
+
+#: core/templates/checks.html:40
+msgid "Migrations"
+msgstr "Migrations"
+
+#: core/templates/checks.html:41
+msgid "All migrations are applied."
+msgstr "Toutes les migrations ont bien été appliquées"
+
+#: core/templates/checks.html:41
+msgid ""
+"Some migrations are not applied. Consider using the command python3 manage."
+"py migrate"
+msgstr ""
+"Certaines migrations n'ont pas été appliquées. Vous pouvez utilise la commande "
+"python3 manage.py migrate"
+
+#: core/templates/checks.html:51
+msgid "Available languages"
+msgstr "Langues disponibles"
+
+#: core/templates/checks.html:55
+msgid "Current language"
+msgstr "Langue actuelle"
+
+#: core/templates/checks.html:59
+msgid ""
+"If translations are not working properly, don't forget to apply the following "
+"command : python3 manage.py compilemessages"
+msgstr ""
+"Si les traductions ne fonctionnent pas correctement, n'oubliez pas de lancer la "
+" commande suivante : python3 mannage.py compilemessages"
+
+
+#: core/templates/checks.html:71
+msgid "python version"
+msgstr "Version de python"
+
+#: core/templates/checks.html:90
+msgid "Current URL"
+msgstr "URL courante"
+
+#: core/templates/checks.html:94
+msgid "HTTPS enabled ?"
+msgstr "HTTPS activé ?"
+
+#: core/templates/checks.html:104
+msgid "Number of users"
+msgstr "Nombre d'utilisateurs"
+
+#: core/templates/checks.html:108
+msgid "Number of active users"
+msgstr "Nombre d'utilisateurs actifs"
+
+#: core/templates/checks.html:112
+msgid "Number of groups"
+msgstr "Nombre de groupes"
+
+#: core/templates/checks.html:116
+msgid "Number of admins"
+msgstr "Nombre d'admins"
+
+#: core/templates/checks.html:120
+msgid "Number of votes"
+msgstr "Nombbre de vote"
+
 #: core/templates/footer.html:12 core/templates/legals.html:5
 msgid "Legals"
-msgstr ""
+msgstr "Mentions légales"
 
 #: core/templates/footer.html:16
-msgid "Made with ❤ ♦ Version 1.2.1"
-msgstr "Fait avec des ❤ ♦ Version 1.2.1"
+msgid "Made with ❤ ♦ Version 1.3.0"
+msgstr "Fait avec des ❤ ♦ Version 1.3.0"
 
 #: core/templates/home.html:5
 msgid "Available votes"
@@ -165,6 +260,14 @@ msgid_plural ""
 "            "
 msgstr[0] "Groupe autorisé"
 msgstr[1] "Groupes autorisés"
+
+#: core/templates/home.html:27 core/templates/votes_index.html:25
+msgid "See voters"
+msgstr "Liste des votants disponible"
+
+#: core/templates/home.html:27 core/templates/votes_index.html:27
+msgid "Public results"
+msgstr "Résultats publics"
 
 #: core/templates/legals.html:9
 msgid ""
@@ -287,21 +390,127 @@ msgstr "Accueil"
 msgid "Votes"
 msgstr "Votes"
 
-#: core/templates/nav.html:26
+#: core/templates/nav.html:25 core/templates/new_vote.html:9
+msgid "New vote"
+msgstr "Nouveau vote"
+
+#: core/templates/nav.html:30
 msgid "Results"
 msgstr "Résultats"
 
-#: core/templates/nav.html:53
+#: core/templates/nav.html:63
 msgid "My groups"
 msgstr "Mes groupes"
 
-#: core/templates/nav.html:57
+#: core/templates/nav.html:67
 msgid "Admin"
 msgstr "Admin"
 
-#: core/templates/nav.html:60
+#: core/templates/nav.html:70
 msgid "Logout"
 msgstr "Déconnnexion"
+
+#: core/templates/new_vote.html:15 core/templates/vote.html:56
+msgid "Vote"
+msgstr "Vote"
+
+#: core/templates/new_vote.html:20
+msgid "Name"
+msgstr "Nom"
+
+#: core/templates/new_vote.html:21
+msgid "Name of the vote"
+msgstr "Nom du vote"
+
+#: core/templates/new_vote.html:25
+msgid "Description"
+msgstr "Description"
+
+#: core/templates/new_vote.html:26
+msgid "Description of the vote"
+msgstr "Description du vote"
+
+#: core/templates/new_vote.html:35
+msgid "Begin date"
+msgstr "Date de début"
+
+#: core/templates/new_vote.html:37 core/templates/new_vote.html:42
+msgid "In the format YYYY-MM-DDTHH-MM-SS"
+msgstr "Au format YYYY-MM-DDTHH-MM-SS"
+
+#: core/templates/new_vote.html:40
+msgid "End date"
+msgstr "Date de fin"
+
+#: core/templates/new_vote.html:48
+msgid "Groups"
+msgstr "Groupes"
+
+#: core/templates/new_vote.html:55
+msgid "Use Control or Command to select more than one or to unselect."
+msgstr ""
+"Utiliser la touche Control ou Command pour sélectionner plusieurs groupes ou "
+"les déselectionner."
+
+#: core/templates/new_vote.html:63
+msgid "See voters ?"
+msgstr "Voir les votants ?"
+
+#: core/templates/new_vote.html:71
+msgid "Public results ?"
+msgstr "Résultats publics ?"
+
+#: core/templates/new_vote.html:77
+msgid "Questions"
+msgstr "Questions"
+
+#: core/templates/new_vote.html:78
+msgid "Add a question"
+msgstr "Ajouter une question"
+
+#: core/templates/new_vote.html:81 core/templates/votes_index.html:32
+msgid "Documents"
+msgstr "Documents"
+
+#: core/templates/new_vote.html:82
+msgid "Add a document"
+msgstr "Adjouter un document"
+
+#: core/templates/new_vote.html:86
+msgid "Submit"
+msgstr "Enregistrer"
+
+#: core/templates/new_vote.html:97
+msgid "Text of question"
+msgstr "Texte de la question"
+
+#: core/templates/new_vote.html:97
+msgid "Add answer"
+msgstr "Ajouter une réponse"
+
+#: core/templates/new_vote.html:97
+msgid "Delete question"
+msgstr "Supprimer la question"
+
+#: core/templates/new_vote.html:109 core/templates/vote.html:22
+msgid "Name of document"
+msgstr "Nom du document"
+
+#: core/templates/new_vote.html:109
+msgid "File of the document"
+msgstr "Fichier du document"
+
+#: core/templates/new_vote.html:109
+msgid "Delete document"
+msgstr "Supprimer le document"
+
+#: core/templates/new_vote.html:127
+msgid "Answer"
+msgstr "Réponse"
+
+#: core/templates/new_vote.html:127
+msgid "Delete answer"
+msgstr "Supprimer la réponse"
 
 #: core/templates/results.html:4
 msgid "Votes with results"
@@ -332,29 +541,33 @@ msgstr[1] "%(vote)s : %(nb_participation)s participations"
 
 #: core/templates/vote.html:7
 msgid ""
+"Please note that the list of voters will be available on the results page "
+"(votes are still anonymous)"
+msgstr ""
+"Veuillez noter que la liste des votants sera disponible sur la page des "
+"résultats (les votes sont tout de même anonymes)"
+
+#: core/templates/vote.html:12
+msgid "Please note that the results will be public"
+msgstr "Veuillew noter que les résultats seront publics"
+
+#: core/templates/vote.html:17
+msgid ""
 "Please note that the following documents are available and may help you in "
 "your vote : "
 msgstr ""
 "Veuillez noter que les documents suivants sont disponibles et qu'ils "
 "pourront vous aider à voter"
 
-#: core/templates/vote.html:12
-msgid "Name of document"
-msgstr "Nom du document"
-
-#: core/templates/vote.html:13
+#: core/templates/vote.html:23
 msgid "Download"
 msgstr "Télécharger"
 
-#: core/templates/vote.html:44
+#: core/templates/vote.html:54
 msgid "Please note that once submitted your vote cannot be changed or deleted"
 msgstr ""
 "Notez qu'une fois le vote effectué, ce dernier ne peut ni être changé ni "
 "supprimé"
-
-#: core/templates/vote.html:46
-msgid "Vote"
-msgstr "Vote"
 
 #: core/templates/votes_index.html:5
 msgid "All votes"
@@ -380,27 +593,23 @@ msgctxt "plural"
 msgid "All"
 msgstr "Tous"
 
-#: core/templates/votes_index.html:28
-msgid "Documents"
-msgstr "Documents"
-
-#: core/templates/votes_index.html:44
+#: core/templates/votes_index.html:48
 msgid "This vote is ready"
 msgstr "Le vote est prêt"
 
-#: core/templates/votes_index.html:46
+#: core/templates/votes_index.html:50
 msgid "The vote has not yet started"
 msgstr "Le vote n'a pas encore commencé"
 
-#: core/templates/votes_index.html:48
+#: core/templates/votes_index.html:52
 msgid "The vote is ongoing"
 msgstr "Le vote est encore"
 
-#: core/templates/votes_index.html:50
+#: core/templates/votes_index.html:54
 msgid "The vote is finished"
 msgstr "Le vote est terminé"
 
-#: core/templates/votes_index.html:53
+#: core/templates/votes_index.html:57
 msgid "Make the vote ready"
 msgstr "Render le vote prêt"
 
@@ -412,18 +621,46 @@ msgstr "Vous avez voté"
 msgid "You have not yet voted"
 msgstr "Vous n'avez pas encore voté"
 
-#: core/views.py:90 core/views.py:97
+#: core/views.py:98 core/views.py:105
 msgid "Your ballot is incorrect"
 msgstr "Le bulletin est incorrect"
 
-#: core/views.py:101
+#: core/views.py:109
 msgid "Thank you for voting"
 msgstr "A voté"
 
-#: core/views.py:163
+#: core/views.py:171
 msgid "You can't see the results (vote not finished or insufficient rights)"
-msgstr "Vous ne pouvez pas voir les résultats avant la fin du vote (vote non terminé ou droits insuffisants)"
+msgstr ""
+"Vous ne pouvez pas voir les résultats avant la fin du vote (vote non terminé "
+"ou droits insuffisants)"
 
-#: core/views.py:189
+#: core/views.py:197
 msgid "Vote is ready."
 msgstr "Le vote est prêt"
+
+#: core/views.py:341
+msgid "You have the latest version available."
+msgstr "Vous avez la dernière version disponible."
+
+#: core/views.py:343
+msgid ""
+"Your version differs by a patch. Consider using the updater script (git "
+"only)."
+msgstr ""
+"Votre version est diffère par patch. Vous pouvez mettre à jour en "
+"utilisant le script de mise à jour (seulement avec git)"
+
+#: core/views.py:346
+msgid ""
+"Your version differs by minor changes. Consider using the updater script "
+"(git only)."
+msgstr ""
+"Votre version est diffèrent par des changements mineurs. Vous pouvez mettre à "
+"jour en utilisant le script de mise à jour (seulement avec git)"
+
+#: core/views.py:348
+msgid "Your version differs by major changes. Consider a manual update."
+msgstr ""
+"Votre version est diffèrent par des changements majeurs. Vous pouvez mettre à "
+"jour manuellement"

@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.3.0 (2021-07-27)
+
+#### New Features
+
+* :sparkles: Add updater.sh ([#28](https://github.com/nanoy42/django-voting-app/issues/28))
+* :sparkles: Add a self diagnotstic page ([#29](https://github.com/nanoy42/django-voting-app/issues/29))
+* :sparkles: Add interactive vote creation ([#25](https://github.com/nanoy42/django-voting-app/issues/25))
+#### Fixes
+
+* :bug: Fix issues [#27](https://github.com/nanoy42/django-voting-app/issues/27) and [#30](https://github.com/nanoy42/django-voting-app/issues/30)
+* :bug: Open a new tab when opening a document on votes-index ([#26](https://github.com/nanoy42/django-voting-app/issues/26))
+* :bug: Add public_results in admin
+* :arrow_up: Fix django warning after depencies upgrade
+#### Others
+
+* :arrow_up: Upgrade dependencies
+* :arrow_up: Upgrade dependencies
+
+
 ## 1.2.1 (2021-04-11)
 
 #### Fixes

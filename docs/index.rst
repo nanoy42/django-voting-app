@@ -6,7 +6,7 @@
 Welcome to django-voting-app's documentation!
 =============================================
 
-This is documentation for django-voting-app version 1.2.1.
+This is documentation for django-voting-app version 1.3.0.
 
 django-voting-app is small django app tor organize votes.
 
@@ -25,5 +25,6 @@ Here is a quick recap of the functionalities :
   :caption: Contents:
 
   installation
-  administration
+  vote_administration
   utilisation
+  site_administration

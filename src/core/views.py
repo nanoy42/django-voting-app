@@ -16,17 +16,25 @@
 """
 Views for core app.
 """
-
-import hashlib
+import os
+import sys
+import requests
+from subprocess import call, check_output, STDOUT
+from requests.exceptions import SSLError, ConnectionError
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.db import IntegrityError, transaction
+from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import Group, User
+from django.conf import settings
+from django.db import DEFAULT_DB_ALIAS
 
-from .models import Answer, Ballot, Question, Vote
+from django_voting_app import __version__
+from .models import Answer, Question, Vote, Document
+from .utils import compare_versions, get_dependencies, is_database_synchronized
 
 
 def legals(request):
@@ -188,3 +196,201 @@ def ready(request, pk):
     vote.make_ready()
     messages.success(request, _("Vote is ready."))
     return redirect(reverse("votes-index"))
+
+
+@login_required
+@user_passes_test(lambda user: user.is_active)
+@user_passes_test(lambda user: user.is_staff)
+def new_vote(request):
+    """Create a vote with only one web page.
+
+    This is not pretty.
+    The html page is not pretty.
+    The code that handles the POST request is not pretty.
+    It doesn't use a Django form.
+    This could be improve in various ways.
+
+    There are two reasons why this is not pretty :
+        * First we cannot do a single form as we use 4 models
+        with an unknown number of instances for the questions,
+        answers and documents
+        * Second, the multilingual is really complex to handle.
+
+    Args:
+        request (HttpRequest): django request.
+
+    Returns:
+        HttpResponse: django response.
+    """
+    groups = Group.objects.all()
+    if request.method == "POST":
+        try:
+            with transaction.atomic():
+                begin_date = request.POST["begin-date"]
+                end_date = request.POST["end-date"]
+
+                if "see-voters" in request.POST:
+                    see_voters = True
+                else:
+                    see_voters = False
+
+                if "public-results" in request.POST:
+                    public_results = True
+                else:
+                    public_results = False
+
+                vote = Vote(
+                    begin_date=begin_date,
+                    end_date=end_date,
+                    see_voters=see_voters,
+                    public_results=public_results,
+                )
+
+                for language in settings.MODELTRANSLATION_LANGUAGES:
+                    vote.__setattr__(
+                        f"name_{language}", request.POST[f"{language}-name"]
+                    )
+                    vote.__setattr__(
+                        f"description_{language}",
+                        request.POST[f"{language}-description"],
+                    )
+
+                vote.save()
+                if "groups" in request.POST:
+                    for group_pk in request.POST.getlist("groups"):
+                        group = Group.objects.get(pk=group_pk)
+                        vote.groups.add(group)
+
+                first_language = settings.MODELTRANSLATION_LANGUAGES[0]
+                questions_map = {}
+                for key in request.POST:
+                    if f"{first_language}-question-name-" in key:
+                        question = Question(vote=vote)
+                        for language in settings.MODELTRANSLATION_LANGUAGES:
+                            question.__setattr__(
+                                f"text_{language}", request.POST[f"{language}{key[2:]}"]
+                            )
+                        question.save()
+                        question_id = int(key.split("-")[3])
+                        questions_map[question_id] = question
+
+                for key in request.POST:
+                    if f"{first_language}-answer" in key:
+                        question_id = int(key.split("-")[4])
+                        answer = Answer(question=questions_map[question_id])
+                        for language in settings.MODELTRANSLATION_LANGUAGES:
+                            answer.__setattr__(
+                                f"answer_{language}",
+                                request.POST[f"{language}{key[2:]}"],
+                            )
+                        answer.save()
+
+                for key in request.POST:
+                    if f"{first_language}-document-name" in key:
+                        document_id = int(key.split("-")[3])
+                        document = Document(vote=vote)
+                        for language in settings.MODELTRANSLATION_LANGUAGES:
+                            document.__setattr__(
+                                f"name_{language}", request.POST[f"{language}{key[2:]}"]
+                            )
+                            document.__setattr__(
+                                f"document_{language}",
+                                request.FILES[
+                                    f"{language}-document-file-{document_id}"
+                                ],
+                            )
+                        document.save()
+            messages.success(request, "The vote was created")
+            return redirect(reverse("votes-index"))
+        except Exception as e:
+            messages.error(
+                request,
+                f"There was an error creating the vote. The error message is {e}",
+            )
+            return redirect(reverse("new-vote"))
+    return render(request, "new_vote.html", {"active": "new-vote", "groups": groups})
+
+
+@login_required
+@user_passes_test(lambda user: user.is_active)
+@user_passes_test(lambda user: user.is_staff)
+def checks(request):
+
+    current_version = __version__
+    response = requests.get(
+        "https://api.github.com/repos/nanoy42/django-voting-app/releases/latest"
+    )
+    last_available_version = response.json()["tag_name"][1:]
+
+    use_git = (
+        False
+        if call(["git", "branch"], stderr=STDOUT, stdout=open(os.devnull, "w"))
+        else True
+    )
+
+    branch = None
+    if use_git:
+        branch = (
+            check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+            .strip()
+            .decode("utf8")
+        )
+
+    diff = compare_versions(current_version, last_available_version)
+    update_strategies = {
+        "equal": _("You have the latest version available."),
+        "patch": _(
+            "Your version differs by a patch. Consider using the updater script (git only)."
+        ),
+        "minor": _(
+            "Your version differs by minor changes. Consider using the updater script (git only)."
+        ),
+        "major": _("Your version differs by major changes. Consider a manual update."),
+    }
+    update_strategy = update_strategies[diff]
+
+    dependencies = get_dependencies()
+    python_version_info = sys.version_info
+
+    python_version = f"{python_version_info.major}.{python_version_info.minor}.{python_version_info.micro}"
+
+    current_url = str(request.build_absolute_uri()).split("/")[2]
+
+    https_enabled = True
+    try:
+        requests.get(f"https://{current_url}/")
+    except (SSLError, ConnectionError):
+        https_enabled = False
+
+    user_count = User.objects.all().count()
+    active_user_count = User.objects.filter(is_active=True).count()
+    group_count = Group.objects.all().count()
+    admin_count = User.objects.filter(is_staff=True).count()
+    vote_count = Vote.objects.all().count()
+
+    all_migrations_applied = is_database_synchronized(DEFAULT_DB_ALIAS)
+
+    is_media_writable = os.access(settings.MEDIA_ROOT, os.W_OK)
+    return render(
+        request,
+        "checks.html",
+        {
+            "active": "checks",
+            "current_version": current_version,
+            "last_available_version": last_available_version,
+            "update_strategy": update_strategy,
+            "use_git": use_git,
+            "branch": branch,
+            "dependencies": dependencies,
+            "python_version": python_version,
+            "current_url": current_url,
+            "https_enabled": https_enabled,
+            "user_count": user_count,
+            "active_user_count": active_user_count,
+            "group_count": group_count,
+            "admin_count": admin_count,
+            "vote_count": vote_count,
+            "all_migrations_applied": all_migrations_applied,
+            "is_media_writable": is_media_writable,
+        },
+    )
