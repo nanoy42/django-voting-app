@@ -147,7 +147,7 @@ else
     
     printf "\nWelcome to django-voting-app updater\n\n"
 
-    printf "${YELLOW}This script was introduced in version 1.3.0 and is tagged as experiemntal\n\n${NC}"
+    printf "${YELLOW}This script was introduced in version 1.3.0 and is tagged as experimental\n\n${NC}"
 
     if [ -d .git ]
     then
