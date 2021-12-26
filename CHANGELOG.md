@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.1 (2021-12-26)
+#### Others
+
+* :arrow_up: Upgrade dependencies
+* 
 ## 1.3.0 (2021-07-27)
 
 #### New Features

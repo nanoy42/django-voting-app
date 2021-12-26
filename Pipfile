@@ -21,6 +21,7 @@ auto-changelog = "*"
 django = "*"
 django-bootstrap4 = "*"
 django-modeltranslation = "*"
+requests = "*"
 
 [pipenv]
 allow_prereleases = true
