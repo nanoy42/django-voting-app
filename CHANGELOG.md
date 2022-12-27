@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0 (2022-12-27)
+
+#### Others
+
+* :arrow_up: Upgrade dependencies
+* Switch to poetry for dependency management
 ## 1.3.1 (2021-12-26)
 #### Others
 

@@ -74,7 +74,7 @@ This page is here to display information and checks about your django-voting-app
     {% for dependency in dependencies %}
     <tr>
       <th scope="row">{{ dependency.0 }}</th>
-      <td>{{dependency.1}} (recommended from pipfile)</td>
+      <td>{{dependency.1}} (from poetry.lock)</td>
     </tr>
     {% endfor %}
   </tbody>

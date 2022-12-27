@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with django-voting-app. If not, see <https://www.gnu.org/licenses/>.
 
-import json
+import toml
 from pathlib import Path
 from django.db.migrations.executor import MigrationExecutor
 from django.db import connections
@@ -53,11 +53,12 @@ def compare_versions(current, available):
 
 def get_dependencies():
     path = Path(__file__).parent.parent.parent.absolute()
-    file = open(path / "Pipfile.lock")
-    json_ob = json.load(file)
+    file = open(path / "poetry.lock")
+    toml_ob = toml.load(file)
     res = []
-    for key in json_ob["default"]:
-        res.append((key, json_ob["default"][key]["version"][2:]))
+    for package in toml_ob["package"]:
+        if package["category"] == "main":
+            res.append((package["name"], package["version"]))
     return res
 
 
